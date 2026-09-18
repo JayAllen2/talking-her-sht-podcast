@@ -35,6 +35,8 @@
     ═══════════════════════════════════════════════════════════
   -->
   <script src="./config/site.config.js"></script>
+  <link rel="stylesheet" href="./assets/styles/soundtrack.css">
+  <script src="./assets/scripts/soundtrack.js" defer></script>
   <style>
     /* ══════════════════════════════════════════════════
        PALETTE: deep black cherry (not flat black), one warm
@@ -625,16 +627,66 @@ var THS = (function () {
   /* ── On-page player: swap the facade for the real embed on demand.
      The pink recording light next to the label lights only while an
      episode is actually playing on the page. ────────────────── */
+  var latestPlayer=null;
   function playLatest() {
     var wrap=g('latest-video'); if(!wrap||!latest.youtubeId) return;
+    var facade=wrap.innerHTML;
+    function stopEpisode(){
+      if(latestPlayer&&latestPlayer.pauseVideo){ latestPlayer.pauseVideo(); }
+      else {
+        wrap.innerHTML=facade;
+        var play=g('latest-play'); if(play) play.addEventListener('click',playLatest);
+      }
+      var card=g('latest-card'); if(card) card.classList.remove('playing');
+      s('latest-label','Latest episode');
+    }
+    if(window.Soundtrack) window.Soundtrack.hold('youtube',stopEpisode);
     var iframe=document.createElement('iframe');
-    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(latest.youtubeId)+'?autoplay=1&rel=0';
+    iframe.id='latest-youtube-player';
+    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(latest.youtubeId)+'?autoplay=1&playsinline=1&rel=0&enablejsapi=1&origin='+encodeURIComponent(location.origin);
     iframe.title=safe(latest.title,'Latest episode');
     iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.setAttribute('allowfullscreen','');
     wrap.innerHTML=''; wrap.appendChild(iframe);
-    var card=g('latest-card'); if(card) card.classList.add('playing');
-    s('latest-label','Now playing');
+    s('latest-label','Ready to play');
+    function connectPlayer(){
+      if(!iframe.isConnected) return;
+      latestPlayer=new YT.Player(iframe,{
+        events:{
+          onReady:function(e){
+            var state=e.target.getPlayerState();
+            if(state===1||state===3) playerState({data:state});
+          },
+          onStateChange:playerState,
+          onError:function(){
+            var card=g('latest-card'); if(card) card.classList.remove('playing');
+            s('latest-label','Watch on YouTube below');
+          }
+        }
+      });
+    }
+    function playerState(e){
+      var card=g('latest-card'); if(card) card.classList.toggle('playing',e.data===1);
+      if(e.data===1||e.data===3){
+        if(window.Soundtrack) window.Soundtrack.hold('youtube',stopEpisode);
+        s('latest-label',e.data===1?'Now playing':'Loading episode');
+      } else if(e.data===0){
+        if(window.Soundtrack) window.Soundtrack.release('youtube');
+        s('latest-label','Latest episode');
+      } else if(e.data===2){ s('latest-label','Episode paused'); }
+    }
+    if(window.YT&&window.YT.Player){ connectPlayer(); }
+    else {
+      var previousReady=window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady=function(){
+        if(previousReady) previousReady();
+        connectPlayer();
+      };
+      if(!g('youtube-player-api')){
+        var api=document.createElement('script'); api.id='youtube-player-api';
+        api.src='https://www.youtube.com/iframe_api'; document.head.appendChild(api);
+      }
+    }
   }
 
   /* ── Render: episode archive rows ────────────── */

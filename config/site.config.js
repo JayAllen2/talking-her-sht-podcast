@@ -32,6 +32,15 @@ window.SITE_CONFIG = {
     byline:   "By Miss Yanelis"
   },
 
+  // The pre-show soundtrack. Volume runs from 0 to 1.
+  // Visitors choose sound once; their choice is remembered on this device.
+  soundtrack: {
+    enabled: true,
+    title: "TALKINTHAT",
+    path: "./assets/audio/talkinthat.mp3",
+    volume: 0.65
+  },
+
   // ─────────────────────────────────────────────────────────────────
   // ASSETS
   // Only reference approved, final files.

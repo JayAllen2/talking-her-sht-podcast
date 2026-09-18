@@ -196,6 +196,31 @@ partnerships button, the newsletter fallback, and the "Got a topic" line.
 
 ---
 
+## The pre-show soundtrack
+
+Find `soundtrack:` in the configuration. Change `title` and `path` to replace
+the track, or set `enabled: false` to remove the music controls. `volume` is
+the initial level from 0 to 1; returning visitors keep their own level.
+
+The supplied TALKINTHAT master is preserved outside the site. The website
+uses a smaller MP3 with a quieter mix and a gentle ending for repeat playback.
+It does not download until a visitor enables music. First-time visitors tap
+**Sound on**; returning visitors' choice is remembered, subject to their
+browser's playback rules. **Mix** opens the volume control.
+
+Episodes always take priority. Starting the on-page YouTube player or native
+audio/video pauses the soundtrack immediately. Pausing an episode keeps the
+music quiet. At the end, music returns only if it was enabled. **Resume music**
+pauses the on-page episode first. Opening a supported listening or social
+platform also pauses the track; it stays paused when the visitor returns
+until they explicitly resume it. Another website's playback cannot be
+monitored, so this handoff is intentionally conservative.
+
+Switching away from the site pauses background music. Turning sound off is
+remembered across visits. No music preference is sent to a server.
+
+---
+
 ## Things to NEVER change
 
 - Never delete `window.SITE_CONFIG = {` at the top
