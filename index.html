@@ -296,6 +296,7 @@
     <p class="quote-mark rv" aria-hidden="true">&ldquo;</p>
     <p id="quote-text" class="quote-text rv"></p>
     <p class="quote-credit rv" id="quote-credit"></p>
+    <a href="#" id="quote-share-link" class="link-arrow rv hidden" download style="margin-top:18px;">Save image to share ↓</a>
   </div>
 </section>
 
@@ -462,6 +463,8 @@ var THS = (function () {
     s('quote-text', safe(fq.quote));
     var qc=g('quote-credit');
     if(qc){ qc.innerHTML = esc(safe(fq.credit)) + (fq.url ? ' — <a href="'+esc(fq.url)+'" target="_blank" rel="noopener">'+esc(safe(fq.linkLabel,'Listen'))+'</a>' : ''); }
+    var qs=g('quote-share-link');
+    if(qs && fq.shareImage){ qs.href=fq.shareImage; show('quote-share-link'); }
 
     /* Host */
     s('host-heading', safe(abt.heading));

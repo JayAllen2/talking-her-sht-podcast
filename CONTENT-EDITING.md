@@ -76,19 +76,25 @@ To remove an episode, delete its whole `{ ... },` block.
 
 ---
 
-## Changing the "Worth Hearing" highlights
+## Changing the featured quote
 
-Find: `highlights:` — three short real quotes pulled from actual episodes,
-each linking to that episode. Keep these to real hooks from real episodes,
-not made-up testimonials:
+Find: `featuredQuote:` — the one oversized quote on the page, pulled from
+a real episode (not a made-up testimonial):
 
 ```js
-{
-  quote:  "A specific, real line describing what the episode covers.",
-  credit: "Episode Title",
-  url:    "https://..."
+featuredQuote: {
+  quote:      "A specific, real line describing what the episode covers.",
+  credit:     "Episode Title",
+  linkLabel:  "Watch",
+  url:        "https://...",
+  shareImage: "./assets/logos/final/share-quote-kruziano.jpg"
 }
 ```
+
+`shareImage` is a generated 1080×1080 downloadable image (the "Save image
+to share" link under the quote) — it's **not** a photo you can just swap.
+If you change the quote text, ask your developer to regenerate this image
+to match, or the share image will show the old quote.
 
 ---
 

@@ -161,10 +161,11 @@ window.SITE_CONFIG = {
   // stronger moment comes along; keep it tied to a real episode link.
   // ─────────────────────────────────────────────────────────────────
   featuredQuote: {
-    quote:     "What does it really take to build a career that lasts in music?",
-    credit:    "Kruziano, latest episode",
-    linkLabel: "Watch",
-    url:       "https://www.youtube.com/watch?v=UCpr_kE2s9E"
+    quote:      "What does it really take to build a career that lasts in music?",
+    credit:     "Kruziano, latest episode",
+    linkLabel:  "Watch",
+    url:        "https://www.youtube.com/watch?v=UCpr_kE2s9E",
+    shareImage: "./assets/logos/final/share-quote-kruziano.jpg" // 1080x1080, downloadable "send it to the group chat" image
   },
 
   // ─────────────────────────────────────────────────────────────────
