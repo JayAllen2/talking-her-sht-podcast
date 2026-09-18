@@ -1,5 +1,13 @@
 # Developer Handoff: Talking Her Sh*t
 
+> **Redesign note (October 2026):** this file predates a restructure driven by
+> a design critique (17 sections → 9, real content, rebuilt hero, a11y pass).
+> Sections 4 and 6 below (episodes, quiz) describe fields that no longer exist
+> — see `config/site.config.js` directly for the current schema
+> (`latestEpisode`, `episodes`, `highlights`, `newsletter`). Everything else
+> in this file (running locally, deploying, asset replacement, GitHub push)
+> is still accurate.
+
 ## 1. What the site is
 
 A one-page luxury podcast landing site for **Talking Her Sh*t by Miss Yanelis**.

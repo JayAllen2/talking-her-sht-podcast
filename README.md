@@ -76,7 +76,10 @@ See **SETUP.md** for the full deployment guide (GitHub Pages, Vercel, Netlify) a
 
 ## Design Source
 
-The design lives in `Talking Her Shit.dc.html` (a Design Component). Use this file to make visual changes, then export a new `index.html`.
+`Talking Her Shit.dc.html` is the original design-tool export — it predates the
+October 2026 content/accessibility redesign described in `IMPLEMENTATION-PLAN.md`
+and no longer matches the live layout. Treat `index.html` as the source of truth
+for the current design; only use the `.dc.html` file for historical reference.
 
 ---
 
@@ -84,15 +87,16 @@ The design lives in `Talking Her Shit.dc.html` (a Design Component). Use this fi
 
 Search `config/site.config.js` for `TODO:`: each one needs a real value:
 
-- [ ] Spotify URL
-- [ ] Apple Podcasts URL
-- [ ] YouTube URL
-- [ ] Amazon Music URL
-- [ ] Instagram URL (already set)
-- [ ] Newsletter form endpoint
-- [ ] Topic submission form endpoint
-- [ ] OG image (1200×630px)
-- [ ] Audio teaser MP3
+- [x] YouTube, Spotify, Apple Podcasts URLs (real, verified)
+- [x] Instagram URL (real, show account)
+- [x] Latest episode + 6-episode archive (real, dated)
+- [x] OG image, favicon set (generated from brand assets)
+- [ ] Amazon Music URL — not found yet, platform button disabled until then
+- [ ] Newsletter form endpoint (Formspree or similar)
+- [ ] Real download/view counts if you want to display them anywhere
+- [ ] Audio teaser MP3 — the old simulated-progress-bar teaser was removed as
+      part of the redesign (it faked playback with no real audio); if you want
+      a real 15s teaser clip, that's a new feature, not a restored one
 
 ---
 

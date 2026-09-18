@@ -27,12 +27,68 @@ headline: "Unfiltered.\nUnbothered.\nUnapologetic."
 
 ### Hero subheadline (the smaller text under the headline)
 Find: `subheadline:`
-```
-subheadline: "Bold conversations, real stories, and the kind of energy you cannot ignore."
+
+### Host section text
+Find: `about:` and edit `heading:`, `body:`, and `quote:`
+
+---
+
+## Updating the latest episode
+
+Find: `latestEpisode:`
+
+This is the one big feature block near the top of the page, and it also
+drives the hero's main "Watch Latest Episode" button (`hero.primaryButtonUrl`)
+and the Host section's "Watch Her Latest" button (`about.buttonUrl`) — update
+all three together when a new episode drops:
+
+```js
+latestEpisode: {
+  label:       "Latest Episode",
+  title:       "Your Episode Title",
+  description: "One or two sentences on what the episode covers.",
+  date:        "Month Day, Year",
+  duration:    "26 min",
+  source:      "YouTube",
+  watchLabel:  "Watch on YouTube",
+  watchUrl:    "https://www.youtube.com/watch?v=..."
+}
 ```
 
-### About section text
-Find: `about:` and edit `heading:`, `body:`, and `quote:`
+---
+
+## Adding an episode to the archive
+
+Find: `episodes:` — this is the compact list under "More Episodes."
+New episodes go at the **top** of the array (newest first):
+
+```js
+{
+  title:       "Your Episode Title",
+  description: "One sentence on what makes this one worth a listen.",
+  date:        "Month Day, Year",
+  duration:    "26 min",
+  url:         "https://..."
+},
+```
+
+To remove an episode, delete its whole `{ ... },` block.
+
+---
+
+## Changing the "Worth Hearing" highlights
+
+Find: `highlights:` — three short real quotes pulled from actual episodes,
+each linking to that episode. Keep these to real hooks from real episodes,
+not made-up testimonials:
+
+```js
+{
+  quote:  "A specific, real line describing what the episode covers.",
+  credit: "Episode Title",
+  url:    "https://..."
+}
+```
 
 ---
 
@@ -40,10 +96,8 @@ Find: `about:` and edit `heading:`, `body:`, and `quote:`
 
 Find: `podcastPlatforms:`
 
-Replace each `url: "#"` with the real link:
 ```js
-{ label: "Spotify", url: "https://open.spotify.com/show/YOURSHOWID", enabled: true },
-{ label: "Apple",   url: "https://podcasts.apple.com/podcast/YOURSHOW", enabled: true },
+{ label: "YouTube", url: "https://www.youtube.com/@yourchannel", enabled: true },
 ```
 
 To **hide** a platform button, change `enabled: true` to `enabled: false`.
@@ -54,7 +108,6 @@ To **hide** a platform button, change `enabled: true` to `enabled: false`.
 
 Find: `socialLinks:`
 
-Update the `url` next to `instagram:`:
 ```js
 instagram: { label: "Instagram", url: "https://www.instagram.com/yourhandle/", enabled: true },
 ```
@@ -63,93 +116,11 @@ To show TikTok, change `enabled: false` to `enabled: true` and add the URL.
 
 ---
 
-## Adding or updating episodes
-
-Find: `featuredEpisodes:`
-
-To add a new episode, copy an existing episode block and paste it with new information:
-```js
-{
-  id:            "ep004",
-  episodeNumber: "EP 004",
-  title:         "Your Episode Title",
-  description:   "Your episode description here.",
-  duration:      "44 min",
-  moodTag:       "Hot Takes",
-  listenUrl:     "https://open.spotify.com/episode/...",
-  watchUrl:      "https://youtube.com/watch?v=...",
-  shareUrl:      "https://...",
-  thumbnailPath: "",
-  featured:      true
-},
-```
-
-To **hide** an episode, change `featured: true` to `featured: false`.
-
----
-
-## Changing the "This Week" announcement strip
-
-Find: `upcomingEpisode:`
-
-```js
-upcomingEpisode: {
-  show:    true,
-  label:   "This Week On Talking Her Sh*t",
-  title:   "\"Your New Episode Title\"",
-  dropDay: "Drops Friday",
-}
-```
-
-To **hide** the strip entirely, change `show: true` to `show: false`.
-
----
-
-## Changing stats (downloads, episodes, views)
-
-Find: `stats:`
-
-```js
-stats: [
-  { number: "50K+", label: "Downloads"   },
-  { number: "100+", label: "Episodes"    },
-  { number: "1M+",  label: "Views"       },
-  { number: "24/7", label: "New Moments" }
-]
-```
-
-Change the `number` and `label` values to whatever is current.
-
----
-
-## Changing the poll question and options
-
-Find: `poll:`
-
-```js
-poll: {
-  question: "What Should We Talk About Next?",
-  options:  ["Relationships", "Friendship", "Soft Life", "Money", "Drama", "Self-Worth", "Hot Takes"]
-}
-```
-
-Add, remove, or rename options as needed.
-
----
-
-## Changing the quiz episode recommendations
-
-Find: `quiz:` and then `options:`
-
-Each option has a `title`, `desc`, and `episode`. Update the `episode` text and `url` to point to real episodes.
-
----
-
 ## Replacing the portrait photo
 
 1. Save your new photo to: `assets/images/final/`
 2. Name it: `yanelis-portrait.jpg` (replacing the old one)
-  : OR: name it something else and update the config:
+   OR name it something else and update the config:
 
 Find: `portrait:` inside `assets:`
 ```js
@@ -159,19 +130,33 @@ portrait: {
 }
 ```
 
+This photo is used in two places: the small circular badge in the hero,
+and the large photo in the Host section.
+
 ---
 
-## Connecting the newsletter or contact forms
+## Connecting the newsletter form
 
-Find: `forms:` and update the `actionUrl` for each form.
+Find: `newsletter:` and update `actionUrl`.
 
-Ask your developer to create a Formspree account and paste the endpoint URL here.
-Example:
+Ask your developer to create a Formspree account and paste the endpoint URL here:
 ```js
 newsletter: {
   actionUrl: "https://formspree.io/f/abcdefgh",
 }
 ```
+
+The `heading` and `subtext` fields are the section's headline and description —
+update `subtext` if the release schedule changes (right now it says "no fixed
+schedule yet," which is accurate as of the last update — change it once a
+regular cadence is confirmed).
+
+---
+
+## Changing the contact email
+
+Find: `footer:` → `contactEmail:`. This appears in the footer and under the
+newsletter form ("Got a topic, question, or story? Email...").
 
 ---
 
