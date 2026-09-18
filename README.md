@@ -37,7 +37,7 @@ See **CONTENT-EDITING.md** for plain-language instructions written for a non-tec
 
 Live on GitHub Pages: **https://jayallen2.github.io/talking-her-sht-podcast/**
 
-Repo: https://github.com/JayAllen2/talking-her-sht-podcast — pushes to `master` redeploy automatically within a minute or two.
+Repo: https://github.com/JayAllen2/talking-her-sht-podcast, pushes to `master` redeploy automatically within a minute or two.
 
 See **SETUP.md** for the full deployment guide (GitHub Pages, Vercel, Netlify) and custom domain instructions.
 
@@ -76,7 +76,7 @@ See **SETUP.md** for the full deployment guide (GitHub Pages, Vercel, Netlify) a
 
 ## Design Source
 
-`Talking Her Shit.dc.html` is the original design-tool export — it predates the
+`Talking Her Shit.dc.html` is the original design-tool export, it predates the
 October 2026 content/accessibility redesign described in `IMPLEMENTATION-PLAN.md`
 and no longer matches the live layout. Treat `index.html` as the source of truth
 for the current design; only use the `.dc.html` file for historical reference.
@@ -91,10 +91,10 @@ Search `config/site.config.js` for `TODO:`: each one needs a real value:
 - [x] Instagram URL (real, show account)
 - [x] Latest episode + 6-episode archive (real, dated)
 - [x] OG image, favicon set (generated from brand assets)
-- [ ] Amazon Music URL — not found yet, platform button disabled until then
+- [ ] Amazon Music URL, not found yet, platform button disabled until then
 - [ ] Newsletter form endpoint (Formspree or similar)
 - [ ] Real download/view counts if you want to display them anywhere
-- [ ] Audio teaser MP3 — the old simulated-progress-bar teaser was removed as
+- [ ] Audio teaser MP3, the old simulated-progress-bar teaser was removed as
       part of the redesign (it faked playback with no real audio); if you want
       a real 15s teaser clip, that's a new feature, not a restored one
 

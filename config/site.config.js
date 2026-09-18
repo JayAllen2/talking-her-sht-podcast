@@ -15,6 +15,8 @@
  *   - Never delete the outer `window.SITE_CONFIG = { ... };` wrapper.
  *   - If you remove a property, the site falls back to safe defaults.
  *   - Anything marked TODO needs a real value before going live.
+ *   - Every claim here must be true and traceable to a real source.
+ *     No invented stats, quotes, or testimonials.
  *
  * See CONTENT-EDITING.md for plain-language instructions.
  * ═══════════════════════════════════════════════════════════════════
@@ -26,79 +28,87 @@ window.SITE_CONFIG = {
   // BRAND
   // ─────────────────────────────────────────────────────────────────
   brand: {
-    siteName:         "Talking Her Sh*t",
-    displayName:      "Talking Her Sh*t",
-    byline:           "By Miss Yanelis",
-    tagline:          "Unfiltered. Unbothered. Unapologetic.",
-    shortDescription: "Miss Yanelis sits down with the people shaping music and entertainment for honest, unscripted conversations."
+    siteName: "Talking Her Sh*t",
+    byline:   "By Miss Yanelis"
   },
 
   // ─────────────────────────────────────────────────────────────────
   // ASSETS
-  // Only reference approved, final, transparent HQ files.
-  // Do NOT swap these for screenshots, drafts, or low-res versions.
+  // Only reference approved, final files.
   // ─────────────────────────────────────────────────────────────────
   assets: {
     logo: {
-      path:     "./assets/logos/final/talking-her-sht-logo-hq.png",
-      approved: true,
-      notes:    "Final transparent HQ logo. Do not replace with screenshot or flattened version."
+      path:  "./assets/logos/final/talking-her-sht-logo-hq.png",
+      notes: "Final HQ logo on black; the page screen-blends it so the black drops out. Do not replace with a flattened screenshot."
     },
     microphone: {
-      path:     "./assets/images/final/mic-hq.png",
-      approved: true,
-      notes:    "Final pink chrome dripping microphone. Transparent PNG. Used as the hero's decorative accent (desktop only)."
+      path:  "./assets/images/final/mic-hq.png",
+      notes: "Pink chrome dripping microphone, transparent PNG. Hero accent, desktop only."
     },
     portrait: {
-      path:     "./assets/images/final/yanelis-portrait.jpg",
-      approved: true,
-      notes:    "Miss Yanelis portrait. Used in the hero host badge and the Host section. Replace with an updated photo if needed; keep the same filename or update this path."
+      path:  "./assets/images/final/yanelis-portrait.jpg",
+      notes: "Miss Yanelis portrait. Used in the hero host badge and the Host section. Keep the filename or update this path."
     },
     iconSheetA: {
-      path:     "./assets/icons/source/icons-sheet-a.png",
-      approved: true,
-      notes:    "Sprite sheet (transparent PNG): mic, CD, headphones, energy rings, play button, waveform. Reference only — not currently used on the page."
+      path:  "./assets/icons/source/icons-sheet-a.png",
+      notes: "Sprite sheet: mic, CD, headphones, energy rings, play button, waveform. Reference only, not used on the page."
     },
     iconSheetB: {
-      path:     "./assets/icons/source/icons-sheet-b.png",
-      approved: true,
-      notes:    "Sprite sheet (transparent PNG): diamond cluster, headphones v2, sparkle burst, podcast icon, play button, energy rings. Reference only — not currently used on the page."
+      path:  "./assets/icons/source/icons-sheet-b.png",
+      notes: "Sprite sheet: diamond cluster, headphones v2, sparkle burst, podcast icon, play button, energy rings. Reference only, not used on the page."
     }
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // SEO
+  // SEO (the page title and meta description; Open Graph tags are
+  // static in index.html because most link scrapers do not run JS)
   // ─────────────────────────────────────────────────────────────────
   seo: {
     pageTitle:       "Talking Her Sh*t | By Miss Yanelis",
-    metaDescription: "Miss Yanelis sits down with the people shaping music and entertainment for honest, unscripted conversations. Talking Her Sh*t: unfiltered, unbothered, unapologetic.",
-    ogImage:         "./assets/logos/final/og-image.jpg",
-    keywords:        "talking her shit, miss yanelis, podcast, kruziano, music industry interviews, unfiltered conversations"
+    metaDescription: "Recording artist Miss Yanelis sits down with the producers, engineers, DJs, and artists behind the music to talk about how the business actually works. Talking Her Sh*t: unfiltered, unbothered, unapologetic."
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // HERO SECTION
+  // HERO
   // One dominant action: watch the latest real episode.
   // ─────────────────────────────────────────────────────────────────
   hero: {
     headline:          "Unfiltered.\nUnbothered.\nUnapologetic.",   // Use \n for line breaks
-    subheadline:       "Miss Yanelis sits down with the people shaping music and entertainment — unscripted, unfiltered conversations about the real work, not the highlight reel.",
+    subheadline:       "Recording artist Miss Yanelis sits down with the producers, engineers, DJs, and artists behind the hits to talk about how the music business actually works. No scripts, no PR answers.",
     primaryButtonText: "Watch Latest Episode",
     primaryButtonUrl:  "https://www.youtube.com/watch?v=UCpr_kE2s9E"
   },
 
   // ─────────────────────────────────────────────────────────────────
+  // GUEST CREDITS (the credibility strip under the hero)
+  // Real guests only, described the way their own episodes describe
+  // them. Keep to 4 or 5 so it reads as a strip, not a list.
+  // ─────────────────────────────────────────────────────────────────
+  guestCredits: {
+    label: "Guests have included",
+    items: [
+      { name: "OG Vinchenzo", role: "Grammy-winning engineer and producer" },
+      { name: "Rey King",     role: "Grammy-nominated producer" },
+      { name: "M Dot",        role: "Tour DJ for Jamie Foxx and the Miami Heat" },
+      { name: "Kruziano",     role: "Recording artist" },
+      { name: "La Yuli",      role: "Cast in Bad Bunny's La Difícil" }
+    ]
+  },
+
+  // ─────────────────────────────────────────────────────────────────
   // LATEST EPISODE
-  // The current, real, most-recent episode. Verified against the
-  // show's YouTube channel (@missyanelismusic).
+  // The current, real, most recent episode. Verified against the
+  // show's YouTube channel (@missyanelismusic). youtubeId drives the
+  // on-page player and its thumbnail.
   // ─────────────────────────────────────────────────────────────────
   latestEpisode: {
     label:       "Latest Episode",
     title:       "Kruziano: Music, Success & What's Next",
-    description: "What does it really take to build a career that lasts in music? Miss Yanelis sits down with Kruziano for an honest, unscripted conversation about the industry and what comes next.",
-    date:        "June 25, 2026",
+    description: "Miss Yanelis sits down with Kruziano for an honest, unscripted conversation about longevity in the music industry, what it costs, and what comes next.",
+    date:        "Jun 25, 2026",
     duration:    "26 min",
     source:      "YouTube",
+    youtubeId:   "UCpr_kE2s9E",
     watchLabel:  "Watch on YouTube",
     watchUrl:    "https://www.youtube.com/watch?v=UCpr_kE2s9E"
   },
@@ -108,7 +118,6 @@ window.SITE_CONFIG = {
   // The 6 earlier episodes, from when the show ran on Spotify.
   // Verified against the show's Spotify for Creators profile
   // (creators.spotify.com/pod/profile/missyanelis). Newest first.
-  // Add more the same way as new back-catalog episodes surface.
   // ─────────────────────────────────────────────────────────────────
   episodes: [
     {
@@ -127,7 +136,7 @@ window.SITE_CONFIG = {
     },
     {
       title:       "Who Is OG Vinchenzo?",
-      description: "Grammy-winning engineer/producer OG Vinchenzo on working with Scott Storch, Nardo Wick, Nipsey Hussle, Ne-Yo, Wale, and more.",
+      description: "Grammy-winning engineer and producer OG Vinchenzo on working with Scott Storch, Nardo Wick, Nipsey Hussle, Ne-Yo, Wale, and more.",
       date:        "Jun 23, 2022",
       duration:    "13 min",
       url:         "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-4-WHO-IS-OG-VINCHENZO-e1kb200"
@@ -157,15 +166,15 @@ window.SITE_CONFIG = {
 
   // ─────────────────────────────────────────────────────────────────
   // FEATURED QUOTE
-  // One real, oversized quote — not a card grid. Swap this out when a
-  // stronger moment comes along; keep it tied to a real episode link.
+  // One real, oversized quote. Swap it when a stronger moment comes
+  // along; keep it tied to a real episode link.
   // ─────────────────────────────────────────────────────────────────
   featuredQuote: {
     quote:      "What does it really take to build a career that lasts in music?",
-    credit:     "Kruziano, latest episode",
+    credit:     "The latest episode, with Kruziano",
     linkLabel:  "Watch",
     url:        "https://www.youtube.com/watch?v=UCpr_kE2s9E",
-    shareImage: "./assets/logos/final/share-quote-kruziano.jpg" // 1080x1080, downloadable "send it to the group chat" image
+    shareImage: "./assets/logos/final/share-quote-kruziano.jpg" // 1080x1080 downloadable share image; regenerate if the quote changes
   },
 
   // ─────────────────────────────────────────────────────────────────
@@ -176,7 +185,7 @@ window.SITE_CONFIG = {
     { label: "YouTube",  url: "https://www.youtube.com/@missyanelismusic",                            enabled: true  },
     { label: "Spotify",  url: "https://open.spotify.com/show/3GHaGbPcpZmkXpfnpPo76O",                  enabled: true  },
     { label: "Apple",    url: "https://podcasts.apple.com/us/podcast/talking-her-shit/id1600983984",   enabled: true  },
-    { label: "Amazon",   url: "#",                                                                     enabled: false } // TODO: not found on Amazon Music yet — enable once it's live there
+    { label: "Amazon",   url: "#",                                                                     enabled: false } // TODO: not on Amazon Music yet; enable once it is
   ],
 
   // ─────────────────────────────────────────────────────────────────
@@ -185,33 +194,45 @@ window.SITE_CONFIG = {
   // ─────────────────────────────────────────────────────────────────
   socialLinks: {
     instagram: { label: "Instagram", url: "https://www.instagram.com/talkinghershit/",             enabled: true  }, // show account (@missyanelis is the host's personal account)
-    tiktok:    { label: "TikTok",    url: "#",                                                      enabled: false }, // TODO: Add TikTok URL when ready
+    tiktok:    { label: "TikTok",    url: "#",                                                      enabled: false }, // TODO: add TikTok URL when ready
     youtube:   { label: "YouTube",   url: "https://www.youtube.com/@missyanelismusic",              enabled: true  },
     spotify:   { label: "Spotify",   url: "https://open.spotify.com/show/3GHaGbPcpZmkXpfnpPo76O",   enabled: true  }
   },
 
   // ─────────────────────────────────────────────────────────────────
   // HOST
+  // Credentials first. Everything here is verifiable from her own
+  // releases and episode notes.
   // ─────────────────────────────────────────────────────────────────
   about: {
     heading:    "Meet Miss Yanelis",
-    body:       "Miss Yanelis — who also records music as La Reina — started Talking Her Sh*t as a space to answer her audience's questions and talk straight through personal segments like “Get On Game Girl” and “Healing 101.” It's grown into sit-down interviews with the people behind music and entertainment: engineers, producers, DJs, and artists, talking honestly about the real work, not the highlight reel.",
+    body:       "Miss Yanelis is a recording artist (she releases as La Reina, including collaborations with Ball Greezy) and the creator of Talking Her Sh*t. She started the show answering her audience's questions through segments like Get On Game Girl and Healing 101. It has grown into sit-down interviews with the people behind the music: Grammy-winning engineers, Grammy-nominated producers, and the DJs and artists who built careers on their own terms. The through line is access. Real conversations about how the business actually works, from people who work in it.",
     quote:      "\"If we're talking, we're telling the truth.\"",
     buttonText: "Watch Her Latest",
     buttonUrl:  "https://www.youtube.com/watch?v=UCpr_kE2s9E"
   },
 
   // ─────────────────────────────────────────────────────────────────
+  // BUSINESS (partnerships, press, bookings)
+  // ─────────────────────────────────────────────────────────────────
+  business: {
+    label:      "Partnerships & Press",
+    heading:    "Work With Miss Yanelis",
+    text:       "Sponsorships, brand partnerships, press requests, and guest bookings.",
+    buttonText: "Start a Conversation",
+    subject:    "Talking Her Sh*t: partnership inquiry"
+  },
+
+  // ─────────────────────────────────────────────────────────────────
   // NEWSLETTER
-  // Connect actionUrl to a real provider before going live.
-  // See HANDOFF.md → "Connecting Real Forms" for instructions.
+  // Until actionUrl is connected to a real provider, the page shows an
+  // honest email fallback instead of a form that pretends to work.
   // ─────────────────────────────────────────────────────────────────
   newsletter: {
     heading:   "Never Miss An Episode",
-    subtext:   "New episodes post on YouTube as they're ready — no fixed schedule yet. Get an email the day a new one's up.",
-    actionUrl: "",  // TODO: https://formspree.io/f/YOUR_ID  or  Mailchimp embed URL
-    provider:  "formspree",  // Options: formspree | mailchimp | convertkit | klaviyo | beehiiv | custom
-    notes:     "Replace actionUrl with your email provider's form endpoint. Until connected, submissions show a success message but are not stored."
+    subtext:   "New episodes post on YouTube as they're ready, no fixed schedule yet. Get an email the day a new one is up.",
+    actionUrl: "",  // TODO: https://formspree.io/f/YOUR_ID or your email provider's form endpoint
+    provider:  "formspree"  // Options: formspree | mailchimp | convertkit | klaviyo | beehiiv | custom
   },
 
   // ─────────────────────────────────────────────────────────────────
@@ -220,7 +241,7 @@ window.SITE_CONFIG = {
   footer: {
     copyrightName: "Talking Her Sh*t by Miss Yanelis",
     footerTagline: "Unfiltered · Unbothered · Unapologetic",
-    contactEmail:  "missyanelis@gmail.com"  // shown in the footer's Connect column and linked from the newsletter section
+    contactEmail:  "missyanelis@gmail.com"  // footer Connect column, newsletter fallback, and the partnerships button
   }
 
 };

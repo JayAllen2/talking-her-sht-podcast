@@ -2,9 +2,10 @@
 
 > **Redesign note (October 2026):** this file predates a restructure driven by
 > a design critique (17 sections → 9, real content, rebuilt hero, a11y pass).
-> Sections 4 and 6 below (episodes, quiz) describe fields that no longer exist
-> — see `config/site.config.js` directly for the current schema
-> (`latestEpisode`, `episodes`, `highlights`, `newsletter`). Everything else
+> Sections 4 and 6 below (episodes, quiz) describe fields that no longer exist.
+> See `config/site.config.js` directly for the current schema
+> (`latestEpisode`, `episodes`, `featuredQuote`, `guestCredits`, `business`,
+> `newsletter`). Everything else
 > in this file (running locally, deploying, asset replacement, GitHub push)
 > is still accurate.
 

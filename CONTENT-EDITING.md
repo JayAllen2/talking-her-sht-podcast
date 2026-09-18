@@ -3,6 +3,10 @@
 This guide is written for someone who is NOT a developer.
 You should only ever need to edit ONE file: **`config/site.config.js`**
 
+One rule above all others: everything on the site must be true. No invented
+numbers, quotes, or testimonials. If a claim can't be traced to a real
+episode, release, or source, leave it out.
+
 ---
 
 ## How to open and edit the config file
@@ -33,68 +37,92 @@ Find: `about:` and edit `heading:`, `body:`, and `quote:`
 
 ---
 
+## The "Guests have included" strip
+
+Find: `guestCredits:`. This is the thin credibility strip under the hero.
+Keep it to 4 or 5 real guests, described the way their episodes describe them:
+
+```js
+{ name: "OG Vinchenzo", role: "Grammy-winning engineer and producer" },
+```
+
+---
+
 ## Updating the latest episode
 
 Find: `latestEpisode:`
 
-This is the one big feature block near the top of the page, and it also
-drives the hero's main "Watch Latest Episode" button (`hero.primaryButtonUrl`)
-and the Host section's "Watch Her Latest" button (`about.buttonUrl`) — update
-all three together when a new episode drops:
+This is the big feature block near the top of the page. It plays right on
+the page, and it also drives the hero's main "Watch Latest Episode" button
+(`hero.primaryButtonUrl`) and the Host section's "Watch Her Latest" button
+(`about.buttonUrl`). Update all three together when a new episode drops:
 
 ```js
 latestEpisode: {
   label:       "Latest Episode",
   title:       "Your Episode Title",
   description: "One or two sentences on what the episode covers.",
-  date:        "Month Day, Year",
+  date:        "Jun 25, 2026",
   duration:    "26 min",
   source:      "YouTube",
+  youtubeId:   "UCpr_kE2s9E",
   watchLabel:  "Watch on YouTube",
-  watchUrl:    "https://www.youtube.com/watch?v=..."
+  watchUrl:    "https://www.youtube.com/watch?v=UCpr_kE2s9E"
 }
 ```
+
+`youtubeId` is the part after `v=` in the YouTube link. It powers the
+on-page player and its thumbnail, so it has to match `watchUrl`.
 
 ---
 
 ## Adding an episode to the archive
 
-Find: `episodes:` — this is the compact list under "More Episodes."
-New episodes go at the **top** of the array (newest first):
+Find: `episodes:` (the list under "Six Conversations"). New episodes go at
+the **top** of the list, newest first:
 
 ```js
 {
   title:       "Your Episode Title",
   description: "One sentence on what makes this one worth a listen.",
-  date:        "Month Day, Year",
+  date:        "Jun 25, 2026",
   duration:    "26 min",
   url:         "https://..."
 },
 ```
 
-To remove an episode, delete its whole `{ ... },` block.
+To remove an episode, delete its whole `{ ... },` block. If the archive
+grows past the 2021 to 2022 run, update the section heading in
+`index.html` (search for "Six Conversations").
 
 ---
 
 ## Changing the featured quote
 
-Find: `featuredQuote:` — the one oversized quote on the page, pulled from
-a real episode (not a made-up testimonial):
+Find: `featuredQuote:`. This is the one oversized quote on the page. It must
+come from a real episode, not a made-up testimonial:
 
 ```js
 featuredQuote: {
-  quote:      "A specific, real line describing what the episode covers.",
-  credit:     "Episode Title",
+  quote:      "A real line from a real episode.",
+  credit:     "The latest episode, with Guest Name",
   linkLabel:  "Watch",
   url:        "https://...",
   shareImage: "./assets/logos/final/share-quote-kruziano.jpg"
 }
 ```
 
-`shareImage` is a generated 1080×1080 downloadable image (the "Save image
-to share" link under the quote) — it's **not** a photo you can just swap.
-If you change the quote text, ask your developer to regenerate this image
-to match, or the share image will show the old quote.
+`shareImage` is a generated 1080 by 1080 downloadable image (the "Save
+image to share" link under the quote). It is not a photo you can just swap.
+If you change the quote text, ask your developer to regenerate the image,
+or the share image will still show the old quote.
+
+---
+
+## Partnerships & Press block
+
+Find: `business:`. The button emails `footer.contactEmail` with the
+`subject` line filled in. Edit `heading`, `text`, and `buttonText` freely.
 
 ---
 
@@ -143,26 +171,28 @@ and the large photo in the Host section.
 
 ## Connecting the newsletter form
 
-Find: `newsletter:` and update `actionUrl`.
+Find: `newsletter:` and set `actionUrl`.
 
-Ask your developer to create a Formspree account and paste the endpoint URL here:
+Until `actionUrl` is filled in, the page does NOT show a signup form. It
+shows an "Email To Get Notified" button instead, so nobody is told they
+signed up for a list that doesn't exist yet.
+
+Ask your developer to create a Formspree account and paste the endpoint:
 ```js
 newsletter: {
   actionUrl: "https://formspree.io/f/abcdefgh",
 }
 ```
 
-The `heading` and `subtext` fields are the section's headline and description —
-update `subtext` if the release schedule changes (right now it says "no fixed
-schedule yet," which is accurate as of the last update — change it once a
-regular cadence is confirmed).
+The `subtext` line currently says there's no fixed schedule. Change it once
+a regular release day is confirmed.
 
 ---
 
 ## Changing the contact email
 
-Find: `footer:` → `contactEmail:`. This appears in the footer and under the
-newsletter form ("Got a topic, question, or story? Email...").
+Find: `footer:` then `contactEmail:`. It is used in the footer, the
+partnerships button, the newsletter fallback, and the "Got a topic" line.
 
 ---
 

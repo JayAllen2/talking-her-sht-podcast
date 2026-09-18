@@ -8,14 +8,14 @@
 **Status:** Live at https://jayallen2.github.io/talking-her-sht-podcast/, populated with real content.
 
 > **Redesign note (October 2026):** the site was restructured following a
-> design critique — down from 17 sections to 9, real episode/host content
+> design critique, down from 17 sections to 9, real episode/host content
 > replacing placeholders, a rebuilt hero layout, and an accessibility pass.
 > Several sections below (Quiz, Poll, Reaction Wall, Clips Wall, Stats,
 > Topic Submission, the absolute-positioned hero) **no longer exist** in
 > `index.html`. This document is kept for historical asset/decision context;
 > where it conflicts with the live `index.html`, the code is correct. See
 > `config/site.config.js` for the current content model (`latestEpisode`,
-> `episodes`, `highlights`, `newsletter` — not `startHereEpisode`,
+> `episodes`, `highlights`, `newsletter`, not `startHereEpisode`,
 > `featuredEpisodes`, `quiz`, `poll`, `clips`, `reactions`, `stats`, `forms`).
 
 ---
@@ -259,11 +259,11 @@ Pre deploy checklist:
 | 860px and below | Mic hidden, nav collapses to hamburger, all grids stack to single column, clips go 2 up |
 | 540px and below | Clips stack to single column, stats go 2 up, poll stacks |
 
-### Hero composition rules (superseded — kept for history)
+### Hero composition rules (superseded, kept for history)
 
 **This section describes the pre-redesign hero and is no longer accurate.**
 The original absolute two-zone layout (logo top-anchored at `6vh`, content
-bottom-anchored at `10vh`) overlapped at real-world viewport sizes — a design
+bottom-anchored at `10vh`) overlapped at real-world viewport sizes, a design
 critique caught the logo's byline text ghosting behind the headline at
 1280×720, and the CD graphic overlapping the headline entirely on mobile
 (it had no breakpoint hiding it, unlike the mic).
@@ -275,7 +275,7 @@ instead of relying on vh-based math staying clear by coincidence. The CD
 graphic was removed entirely (redundant with the mic, and its removal is what
 actually fixed the mobile overlap, not a breakpoint patch).
 
-The logo still uses `mix-blend-mode: screen` — that part is unchanged and
+The logo still uses `mix-blend-mode: screen`, that part is unchanged and
 still eliminates the PNG's black bounding box. Do not remove it.
 
 ### Animation inventory
