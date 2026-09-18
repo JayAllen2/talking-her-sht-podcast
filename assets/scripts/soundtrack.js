@@ -38,7 +38,7 @@
     var wanted = preference === 'on';
     var storedVolume = read(volumeKey);
     var volume = storedVolume === null ? Number(config.volume) : Number(storedVolume);
-    if (!Number.isFinite(volume)) volume = 0.65;
+    if (!Number.isFinite(volume)) volume = 0.5;
     volume = Math.max(0, Math.min(1, volume));
     slider.value = String(Math.round(volume * 100));
 

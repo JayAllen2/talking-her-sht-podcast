@@ -38,7 +38,7 @@ window.SITE_CONFIG = {
     enabled: true,
     title: "TALKINTHAT",
     path: "./assets/audio/talkinthat.mp3",
-    volume: 0.65
+    volume: 0.5
   },
 
   // ─────────────────────────────────────────────────────────────────
