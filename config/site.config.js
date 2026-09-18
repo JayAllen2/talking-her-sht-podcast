@@ -88,9 +88,9 @@ window.SITE_CONFIG = {
     headline:            "Unfiltered.\nUnbothered.\nUnapologetic.",   // Use \n for line breaks
     subheadline:         "Bold conversations, real stories, and the kind of energy you cannot ignore.",
     primaryButtonText:   "Listen Now",
-    primaryButtonUrl:    "#",   // TODO: Replace with Spotify or main podcast URL
+    primaryButtonUrl:    "https://open.spotify.com/show/3GHaGbPcpZmkXpfnpPo76O",
     secondaryButtonText: "Watch Latest Ep",
-    secondaryButtonUrl:  "#",   // TODO: Replace with YouTube episode URL
+    secondaryButtonUrl:  "#",   // TODO: no podcast video destination found yet — replace once episodes are on YouTube, or relabel/remove this button
     audioTeaserLabel:    "Press Play For The Vibe",
     audioTeaserDuration: "15s",
     audioTeaserFile:     "./assets/audio/teaser.mp3"  // TODO: Add a 15-second MP3 teaser file here
@@ -113,10 +113,10 @@ window.SITE_CONFIG = {
   // Set enabled: false to hide any button.
   // ─────────────────────────────────────────────────────────────────
   podcastPlatforms: [
-    { label: "Spotify",  url: "#", enabled: true },  // TODO: https://open.spotify.com/show/...
-    { label: "Apple",    url: "#", enabled: true },  // TODO: https://podcasts.apple.com/...
-    { label: "YouTube",  url: "#", enabled: true },  // TODO: https://youtube.com/@...
-    { label: "Amazon",   url: "#", enabled: true }   // TODO: https://music.amazon.com/...
+    { label: "Spotify",  url: "https://open.spotify.com/show/3GHaGbPcpZmkXpfnpPo76O",              enabled: true  },
+    { label: "Apple",    url: "https://podcasts.apple.com/us/podcast/talking-her-shit/id1600983984", enabled: true  },
+    { label: "YouTube",  url: "#", enabled: false },  // TODO: no episodes found on YouTube yet — enable once they're posted there
+    { label: "Amazon",   url: "#", enabled: false }   // TODO: not found on Amazon Music yet — enable once it's live there
   ],
 
   // ─────────────────────────────────────────────────────────────────
@@ -124,10 +124,10 @@ window.SITE_CONFIG = {
   // Set enabled: false to hide from footer.
   // ─────────────────────────────────────────────────────────────────
   socialLinks: {
-    instagram: { label: "Instagram", url: "https://www.instagram.com/missyanelis/", enabled: true  },
-    tiktok:    { label: "TikTok",    url: "#",                                      enabled: false }, // TODO: Add TikTok URL when ready
-    youtube:   { label: "YouTube",   url: "#",                                      enabled: true  }, // TODO: Add YouTube channel URL
-    spotify:   { label: "Spotify",   url: "#",                                      enabled: true  }  // TODO: Add Spotify show URL
+    instagram: { label: "Instagram", url: "https://www.instagram.com/talkinghershit/",             enabled: true  }, // show account (@missyanelis is the host's personal account)
+    tiktok:    { label: "TikTok",    url: "#",                                                      enabled: false }, // TODO: Add TikTok URL when ready
+    youtube:   { label: "YouTube",   url: "https://www.youtube.com/channel/UCHK-IBwznlMgz5iDPYOspdQ", enabled: true  }, // Miss Yanelis's channel — not podcast-episode-specific yet
+    spotify:   { label: "Spotify",   url: "https://open.spotify.com/show/3GHaGbPcpZmkXpfnpPo76O",  enabled: true  }
   },
 
   // ─────────────────────────────────────────────────────────────────
@@ -136,55 +136,59 @@ window.SITE_CONFIG = {
   // ─────────────────────────────────────────────────────────────────
   startHereEpisode: {
     episodeLabel: "EP 001 · The One That Started It All",
-    title:        "No Filter, No Fakes",
-    description:  "Start with the episode that gives you the full Talking Her Sh*t energy in one listen. You'll know in 30 seconds.",
-    duration:     "52 min",
-    listenUrl:    "#",  // TODO: Replace with real episode URL
-    watchUrl:     "#"   // TODO: Replace with real YouTube episode URL
+    title:        "La Reina",
+    description:  "The one that started it all. Miss Yanelis answers audience questions, talks her new single “Mala Pa Ti,” and drops the first “Get On Game Girl” segment.",
+    duration:     "10 min",
+    listenUrl:    "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-1-LA-REINA-e1bs7nq",
+    watchUrl:     "#"   // TODO: no video version of this episode exists yet
   },
 
   // ─────────────────────────────────────────────────────────────────
   // FEATURED EPISODES
   // Add, remove, or reorder episodes here.
   // Set featured: false to hide an episode from the main grid.
+  //
+  // These are the 3 most recent real episodes (verified against the
+  // show's Spotify for Creators profile). Episodes 2 and 3 also exist
+  // — add them here the same way if you want a bigger grid.
   // ─────────────────────────────────────────────────────────────────
   featuredEpisodes: [
     {
-      id:            "ep001",
-      episodeNumber: "EP 001",
-      title:         "No Filter, No Fakes",
-      description:   "The raw, uncut take on fake friendships and why keeping it 100% is the only currency that matters.",
-      duration:      "45 min",
+      id:            "ep006",
+      episodeNumber: "EP 006",
+      title:         "M Dot The Icon",
+      description:   "Miss Yanelis sits down with M Dot — Jamie Foxx's tour DJ and the Miami Heat's DJ — to talk working with the biggest names in entertainment, mental health, and being a father in the industry.",
+      duration:      "40 min",
       moodTag:       "Real Talk",
-      listenUrl:     "#",  // TODO: Replace with episode URL
-      watchUrl:      "#",  // TODO: Replace with YouTube episode URL
-      shareUrl:      "#",  // TODO: Replace with shareable link
-      thumbnailPath: "",   // TODO: Path to episode artwork, e.g. ./assets/images/episodes/ep001.jpg
+      listenUrl:     "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-6-M-DOT-THE-ICON-e1r5pe3",
+      watchUrl:      "#",  // TODO: no video version of this episode exists yet
+      shareUrl:      "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-6-M-DOT-THE-ICON-e1r5pe3",
+      thumbnailPath: "",   // TODO: Path to episode artwork, e.g. ./assets/images/episodes/ep006.jpg
       featured:      true
     },
     {
-      id:            "ep002",
-      episodeNumber: "EP 002",
-      title:         "She Said What She Said",
-      description:   "When women speak with conviction the world listens, or it should. For the ones who refuse to apologize.",
-      duration:      "38 min",
+      id:            "ep005",
+      episodeNumber: "EP 005",
+      title:         "It's Rey King",
+      description:   "Grammy-nominated producer and platinum engineer Rey King spills on working with some of Hollywood's biggest names.",
+      duration:      "19 min",
       moodTag:       "Hot Takes",
-      listenUrl:     "#",
+      listenUrl:     "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-5-ITS-REY-KING-e1ko821",
       watchUrl:      "#",
-      shareUrl:      "#",
+      shareUrl:      "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-5-ITS-REY-KING-e1ko821",
       thumbnailPath: "",
       featured:      true
     },
     {
-      id:            "ep003",
-      episodeNumber: "EP 003",
-      title:         "The Glow Up Era",
-      description:   "Standards, self-respect, and the kind of growth that doesn't ask for permission. Your redemption arc starts now.",
-      duration:      "52 min",
+      id:            "ep004",
+      episodeNumber: "EP 004",
+      title:         "Who Is OG Vinchenzo?",
+      description:   "Grammy-winning engineer/producer OG Vinchenzo on working with Scott Storch, Nardo Wick, Nipsey Hussle, Ne-Yo, and more.",
+      duration:      "13 min",
       moodTag:       "Fan Fave",
-      listenUrl:     "#",
+      listenUrl:     "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-4-WHO-IS-OG-VINCHENZO-e1kb200",
       watchUrl:      "#",
-      shareUrl:      "#",
+      shareUrl:      "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-4-WHO-IS-OG-VINCHENZO-e1kb200",
       thumbnailPath: "",
       featured:      true
     }
@@ -209,16 +213,16 @@ window.SITE_CONFIG = {
     body:       "A bold voice for real conversations, unapologetic opinions, and stories that go deeper than surface-level talk. Talking Her Sh*t is where glamour, truth, humor, and unfiltered perspective meet.",
     quote:      "\"If we're talking, we're telling the truth.\"",
     buttonText: "Listen to Her Story",
-    buttonUrl:  "#"  // TODO: Replace with main listen URL
+    buttonUrl:  "https://open.spotify.com/show/3GHaGbPcpZmkXpfnpPo76O"
   },
 
   // ─────────────────────────────────────────────────────────────────
   // STATS
   // ─────────────────────────────────────────────────────────────────
   stats: [
-    { number: "50K+", label: "Downloads"   },
-    { number: "100+", label: "Episodes"    },
-    { number: "1M+",  label: "Views"       },
+    { number: "50K+", label: "Downloads"   },  // TODO: placeholder — replace with real download count
+    { number: "6",    label: "Episodes"    },  // real count, verified against the show's Spotify profile
+    { number: "1M+",  label: "Views"       },  // TODO: placeholder — replace with real view count
     { number: "24/7", label: "New Moments" }
   ],
 
@@ -281,7 +285,7 @@ window.SITE_CONFIG = {
   footer: {
     copyrightName: "Talking Her Sh*t by Miss Yanelis",
     footerTagline: "Unfiltered · Unbothered · Unapologetic",
-    contactEmail:  ""  // TODO: Add contact email (shown nowhere by default. Add to footer template if needed)
+    contactEmail:  "missyanelis@gmail.com"  // shown in the footer's Connect column
   }
 
 };
