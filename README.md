@@ -35,7 +35,11 @@ See **CONTENT-EDITING.md** for plain-language instructions written for a non-tec
 
 ## Deploy
 
-See **SETUP.md** for deployment to GitHub Pages, Vercel, and Netlify.
+Live on GitHub Pages: **https://jayallen2.github.io/talking-her-sht-podcast/**
+
+Repo: https://github.com/JayAllen2/talking-her-sht-podcast — pushes to `master` redeploy automatically within a minute or two.
+
+See **SETUP.md** for the full deployment guide (GitHub Pages, Vercel, Netlify) and custom domain instructions.
 
 ---
 
