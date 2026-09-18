@@ -206,7 +206,8 @@ The supplied TALKINTHAT master is preserved outside the site. The website
 uses a smaller MP3 with a quieter mix and a gentle ending for repeat playback.
 It does not download until a visitor enables music. First-time visitors tap
 **Sound on**; returning visitors' choice is remembered, subject to their
-browser's playback rules. **Mix** opens the volume control.
+browser's playback rules. The small speaker button in the corner opens
+the sound switch and volume control. The full panel stays hidden otherwise.
 
 Episodes always take priority. Starting the on-page YouTube player or native
 audio/video pauses the soundtrack immediately. Pausing an episode keeps the

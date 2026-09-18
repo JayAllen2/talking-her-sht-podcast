@@ -7,20 +7,21 @@
     var dock = document.createElement('aside');
     dock.className = 'soundtrack';
     dock.setAttribute('aria-label', 'Site soundtrack');
-    dock.innerHTML = '<div class="soundtrack-row">'
-      + '<span class="soundtrack-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>'
+    dock.innerHTML = '<button class="soundtrack-mix" type="button" aria-label="Soundtrack settings" aria-expanded="false" aria-controls="soundtrack-panel" title="Background music">'
+      + '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+      + '<path d="M11 5 6 9H3v6h3l5 4V5Z"/>'
+      + '<path class="soundtrack-wave" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>'
+      + '<path class="soundtrack-muted" d="m16 9 5 6m0-6-5 6"/></svg></button>'
+      + '<div class="soundtrack-panel" id="soundtrack-panel" hidden><div class="soundtrack-row">'
       + '<div class="soundtrack-copy"><span class="soundtrack-eyebrow">THE PRE-SHOW</span><span class="soundtrack-title"></span></div>'
       + '<button class="soundtrack-toggle" type="button" aria-pressed="false">Sound on</button>'
-      + '<button class="soundtrack-mix" type="button" aria-label="Soundtrack settings" aria-expanded="false" aria-controls="soundtrack-panel">Mix</button>'
       + '</div><div class="soundtrack-bottom">'
       + '<p class="soundtrack-status" role="status" aria-live="polite" aria-atomic="true"></p>'
       + '<button class="soundtrack-resume" type="button" hidden>Resume music</button></div>'
-      + '<div class="soundtrack-panel" id="soundtrack-panel" hidden>'
       + '<div class="soundtrack-volume-row"><label for="soundtrack-volume">Volume</label>'
       + '<input id="soundtrack-volume" type="range" min="0" max="100" step="5"><output for="soundtrack-volume"></output></div>'
       + '<p>The mood before the conversation. Music steps aside for episodes. Your sound choice stays with this device.</p></div>';
     document.body.appendChild(dock);
-    document.body.classList.add('has-soundtrack');
     var title = dock.querySelector('.soundtrack-title');
     var toggle = dock.querySelector('.soundtrack-toggle');
     var mix = dock.querySelector('.soundtrack-mix');
@@ -60,6 +61,8 @@
 
     function render() {
       dock.dataset.playing = String(playing);
+      mix.setAttribute('aria-label', 'Music controls: ' + (playing ? 'sound on' : 'sound off'));
+      mix.title = playing ? 'Background music is on' : 'Background music';
       toggle.textContent = wanted ? 'Sound off' : 'Sound on';
       toggle.setAttribute('aria-pressed', String(wanted));
       toggle.setAttribute('aria-label', wanted ? 'Turn background music off' : 'Turn background music on');
@@ -161,6 +164,12 @@
     mix.addEventListener('click', function () {
       panel.hidden = !panel.hidden;
       mix.setAttribute('aria-expanded', String(!panel.hidden));
+    });
+    document.addEventListener('click', function (e) {
+      if (!panel.hidden && !dock.contains(e.target)) {
+        panel.hidden = true;
+        mix.setAttribute('aria-expanded', 'false');
+      }
     });
     dock.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !panel.hidden) {
