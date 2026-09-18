@@ -56,7 +56,7 @@ window.SITE_CONFIG = {
     },
     portrait: {
       path:  "./assets/images/final/yanelis-portrait.jpg",
-      notes: "Miss Yanelis portrait. Used in the hero host badge and the Host section. Keep the filename or update this path."
+      notes: "Miss Yanelis portrait. Used in the Host section. Keep the filename or update this path."
     },
     iconSheetA: {
       path:  "./assets/icons/source/icons-sheet-a.png",

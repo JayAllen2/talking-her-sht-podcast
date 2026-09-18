@@ -189,10 +189,6 @@
     /* The logo is a complete transparent lockup, with its own clear space.
        Keep its natural proportions: no clipping, masks, or blend effects. */
     #hero-logo{display:block;width:100%;height:auto;object-fit:contain;}
-    .host-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,47,176,.09);border:1px solid rgba(255,160,220,.3);border-radius:999px;padding:6px 16px 6px 6px;margin-bottom:22px;transition:border-color .2s;}
-    .host-badge:hover{border-color:var(--pink-soft);}
-    .host-badge img{width:30px;height:30px;border-radius:50%;object-fit:cover;flex:none;}
-    .host-badge span{font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,220,245,.88);}
     #hero-headline{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(34px,4.2vw,56px);letter-spacing:-.01em;line-height:1.08;margin:0 0 20px;}
     #hero-sub{font-family:Montserrat,sans-serif;font-weight:400;font-size:17px;color:var(--text-soft);line-height:1.65;max-width:500px;margin:0 0 32px;}
     .hero-cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:26px;}
@@ -303,10 +299,6 @@
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-grid">
     <div class="hero-text">
-      <a href="#host" class="host-badge">
-        <img src="./assets/images/final/yanelis-portrait.jpg" alt="">
-        <span>Hosted by Miss Yanelis</span>
-      </a>
       <h1 id="hero-headline" class="gtext">Unfiltered.<br>Unbothered.<br>Unapologetic.</h1>
       <p id="hero-sub"></p>
       <div class="hero-cta-row">
@@ -528,7 +520,7 @@ var THS = (function () {
     var logo=(ast.logo||{}); var mic=(ast.microphone||{}); var port=(ast.portrait||{});
     var logoEl=g('hero-logo'); if(logoEl&&logo.path) logoEl.src=logo.path;
     var micEl=g('hero-mic'); if(micEl&&mic.path) micEl.src=mic.path;
-    document.querySelectorAll('#host-portrait, .host-badge img').forEach(function(el){ if(port.path) el.src=port.path; });
+    var portraitEl=g('host-portrait'); if(portraitEl&&port.path) portraitEl.src=port.path;
 
     s('nav-brand-name',   safe(br.siteName,  'Talking Her Sh*t'));
     s('nav-brand-byline', safe(br.byline,    'By Miss Yanelis'));
