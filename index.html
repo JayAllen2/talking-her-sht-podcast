@@ -269,7 +269,7 @@
     </div>
     <div id="hero-platform-pills" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;"></div>
     <!-- Audio teaser -->
-    <div id="teaser-btn" onclick="THS.toggleTeaser()" role="button" tabindex="0" style="display:inline-flex;align-items:center;gap:14px;background:rgba(255,20,100,.08);border:1px solid rgba(255,47,176,.28);border-radius:999px;padding:12px 20px 12px 16px;cursor:pointer;backdrop-filter:blur(12px);">
+    <div id="teaser-btn" onclick="THS.toggleTeaser()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();THS.toggleTeaser();}" role="button" tabindex="0" style="display:inline-flex;align-items:center;gap:14px;background:rgba(255,20,100,.08);border:1px solid rgba(255,47,176,.28);border-radius:999px;padding:12px 20px 12px 16px;cursor:pointer;backdrop-filter:blur(12px);">
       <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,47,176,.2);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;flex:none;">
         <span id="teaser-play-icon" style="width:0;height:0;border-left:11px solid #ff8fd6;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:2px;"></span>
         <span id="teaser-pause-icon" class="hidden" style="display:flex;gap:3px;align-items:center;"><span style="width:3px;height:10px;background:#ff8fd6;border-radius:2px;"></span><span style="width:3px;height:10px;background:#ff8fd6;border-radius:2px;"></span></span>
@@ -505,9 +505,9 @@
     </div>
     <div id="topic-success" class="success-box hidden"><p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;color:#ffd9ef;margin:0;">Sent. Miss Yanelis has your message.</p></div>
     <form id="topic-form" class="rv" style="display:flex;flex-direction:column;gap:14px;" onsubmit="THS.handleTopic(event)">
-      <input type="text" placeholder="Name or Anonymous" class="field">
-      <textarea placeholder="Topic, question, confession, or hot take..." class="field" style="min-height:120px;resize:vertical;line-height:1.6;"></textarea>
-      <input type="email" placeholder="Email (optional)" class="field">
+      <input type="text" name="name" aria-label="Name or Anonymous" placeholder="Name or Anonymous" class="field">
+      <textarea name="message" aria-label="Topic, question, confession, or hot take" placeholder="Topic, question, confession, or hot take..." class="field" style="min-height:120px;resize:vertical;line-height:1.6;"></textarea>
+      <input type="email" name="email" aria-label="Email (optional)" placeholder="Email (optional)" class="field">
       <button type="submit" class="btn-p" style="border:none;margin-top:4px;">Send It to Miss Yanelis</button>
     </form>
   </div>
@@ -529,8 +529,8 @@
     </div>
     <div id="news-success" class="success-box hidden"><p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;color:#ffd9ef;margin:0;">You're in. The tea is coming.</p></div>
     <form id="news-form" class="rv" style="display:flex;flex-direction:column;gap:12px;" onsubmit="THS.handleNews(event)">
-      <input type="email" placeholder="Your email address" required class="field">
-      <input type="tel" placeholder="Phone / SMS (optional)" class="field">
+      <input type="email" name="email" aria-label="Your email address" placeholder="Your email address" required class="field">
+      <input type="tel" name="phone" aria-label="Phone / SMS (optional)" placeholder="Phone / SMS (optional)" class="field">
       <button type="submit" class="btn-p" style="border:none;margin-top:4px;">Send Me The Tea</button>
       <p style="font-family:Montserrat,sans-serif;font-size:11px;color:rgba(255,160,220,.38);text-align:center;margin:4px 0 0;">No spam. Just the good stuff.</p>
     </form>
@@ -702,7 +702,7 @@ var THS = (function () {
     /* Footer */
     s('foot-name',   safe(ftr.copyrightName, br.siteName));
     s('foot-byline', safe(br.byline));
-    s('foot-copy',   '\u00a9 2025 '+safe(ftr.copyrightName,'Talking Her Sh*t by Miss Yanelis')+'. All rights reserved.');
+    s('foot-copy',   '\u00a9 '+new Date().getFullYear()+' '+safe(ftr.copyrightName,'Talking Her Sh*t by Miss Yanelis')+'. All rights reserved.');
     s('foot-tag',    safe(ftr.footerTagline,'Unfiltered \u00b7 Unbothered \u00b7 Unapologetic'));
 
     /* Footer social */
