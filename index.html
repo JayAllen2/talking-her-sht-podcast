@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talking Her Sh*t | By Miss Yanelis</title>
+  <meta name="description" content="Unfiltered. Unbothered. Unapologetic. Bold podcast conversations by Miss Yanelis. Available on Spotify, Apple Podcasts, and YouTube.">
+  <meta name="keywords" content="talking her shit, miss yanelis, podcast, unfiltered, bold conversations, women podcast">
+  <meta name="theme-color" content="#07000a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Talking Her Sh*t">
+  <meta property="og:title" content="Talking Her Sh*t | By Miss Yanelis">
+  <meta property="og:description" content="Unfiltered. Unbothered. Unapologetic. Bold podcast conversations by Miss Yanelis.">
+  <meta property="og:image" content="./assets/logos/final/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Talking Her Sh*t | By Miss Yanelis">
+  <meta name="twitter:description" content="Unfiltered. Unbothered. Unapologetic. Bold podcast conversations by Miss Yanelis.">
+  <meta name="twitter:image" content="./assets/logos/final/og-image.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/logos/final/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/logos/final/favicon-16.png">
+  <link rel="icon" href="./assets/logos/final/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/logos/final/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+  <!--
+    ═══════════════════════════════════════════════════════════
+    SITE CONFIG - edit ./config/site.config.js to update ALL
+    website content. Do not hard-code URLs or copy in here.
+    ═══════════════════════════════════════════════════════════
+  -->
+  <script src="./config/site.config.js"></script>
+  <style>
+    /* ── Reset ──────────────────────────────────────── */
+    html,body{margin:0;padding:0;background:#07000a;overflow-x:hidden;scroll-behavior:smooth;}
+    *{box-sizing:border-box;}
+    a{text-decoration:none;}
+    img{display:block;}
+    button,input,textarea{font-family:Montserrat,sans-serif;}
+
+    /* ── Keyframes ──────────────────────────────────── */
+    @keyframes spinCD{to{transform:rotate(360deg);}}
+    @keyframes floatMic{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+    @keyframes floatLogo{0%,100%{transform:translateY(0) rotate(-.4deg);}33%{transform:translateY(-9px) rotate(.2deg);}66%{transform:translateY(-4px) rotate(-.2deg);}}
+    @keyframes shimmer{0%,100%{box-shadow:0 6px 24px rgba(255,47,176,.45);}50%{box-shadow:0 8px 44px rgba(255,47,176,.78);}}
+    @keyframes pulse{0%,100%{opacity:.45;}50%{opacity:.75;}}
+    @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+
+    /* ── Scroll reveal ──────────────────────────────── */
+    .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+    .rv.in{opacity:1;transform:none;}
+    .rvl{opacity:0;transform:translateX(-34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+    .rvl.in{opacity:1;transform:none;}
+    .rvr{opacity:0;transform:translateX(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+    .rvr.in{opacity:1;transform:none;}
+
+    /* ── Nav link ───────────────────────────────────── */
+    .nl{font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,210,245,.6);text-decoration:none;transition:color .2s;}
+    .nl:hover{color:#fff;}
+
+    /* ── Section wrapper ────────────────────────────── */
+    .sect{padding:84px 48px;}
+    .inner{max-width:1180px;margin:0 auto;}
+    .inner-sm{max-width:680px;margin:0 auto;}
+    .inner-xs{max-width:640px;margin:0 auto;}
+
+    /* ── Section header helpers ─────────────────────── */
+    .s-label{font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;}
+    .s-rule{width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin-bottom:18px;}
+    .s-rule-c{margin-left:auto;margin-right:auto;}
+    .s-h{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(26px,3.5vw,48px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0;}
+    .s-sub{font-family:Montserrat,sans-serif;font-size:clamp(14px,1.3vw,16px);color:rgba(255,200,240,.65);line-height:1.72;max-width:500px;margin:0 auto;}
+    .tc{text-align:center;}
+
+    /* ── Buttons ────────────────────────────────────── */
+    .btn-p{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;padding:15px 34px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;animation:shimmer 4s ease-in-out infinite;border:none;cursor:pointer;}
+    .btn-s{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,47,176,.09);border:1.5px solid rgba(255,160,220,.38);color:#fff;padding:13px 28px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;}
+    .btn-g{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(255,47,176,.3);color:rgba(255,200,240,.85);padding:13px 34px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:border-color .3s,background .3s;}
+    .btn-g:hover{border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.07);}
+
+    /* ── Cards ──────────────────────────────────────── */
+    .ep-card{background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.18);border-radius:20px;overflow:hidden;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s;}
+    .ep-card:hover{transform:translateY(-6px);border-color:rgba(255,47,176,.48);box-shadow:0 20px 52px rgba(255,47,176,.16);}
+    .stat-card{background:rgba(255,20,100,.04);border:1px solid rgba(255,47,176,.14);border-radius:18px;padding:40px 28px;text-align:center;transition:border-color .3s,box-shadow .3s,transform .3s;}
+    .stat-card:hover{border-color:rgba(255,47,176,.38);box-shadow:0 12px 40px rgba(255,47,176,.12);transform:translateY(-4px);}
+    .cm-card{background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.16);border-radius:20px;padding:40px 32px;transition:border-color .3s,box-shadow .3s,transform .3s;text-align:center;}
+    .cm-card:hover{border-color:rgba(255,47,176,.42);box-shadow:0 14px 44px rgba(255,47,176,.14);transform:translateY(-5px);}
+    .quiz-card{background:rgba(255,20,100,.04);border:1px solid rgba(255,47,176,.15);border-radius:18px;padding:28px 18px;cursor:pointer;transition:border-color .3s,background .3s,transform .3s;text-align:center;}
+    .quiz-card:hover{border-color:rgba(255,47,176,.4);background:rgba(255,47,176,.07);transform:translateY(-3px);}
+    .quiz-card.sel{border-color:#ff2fb0;background:rgba(255,47,176,.1);box-shadow:0 0 0 1px #ff2fb0;}
+    .rx-card{background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.2);border-radius:20px;padding:28px 30px;}
+    .clip-card{border-radius:18px;overflow:hidden;aspect-ratio:9/16;position:relative;border:1px solid rgba(255,47,176,.18);transition:transform .3s,box-shadow .3s;cursor:pointer;}
+    .clip-card:hover{transform:scale(1.02);box-shadow:0 20px 60px rgba(255,47,176,.2);}
+
+    /* ── Form fields ────────────────────────────────── */
+    .field{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,47,176,.22);border-radius:12px;padding:15px 20px;color:#fff;font-size:14px;font-weight:500;outline:none;transition:border-color .3s,box-shadow .3s;}
+    .field::placeholder{color:rgba(255,200,240,.38);}
+    .field:focus{border-color:rgba(255,47,176,.55);box-shadow:0 0 0 3px rgba(255,47,176,.12);}
+
+    /* ── Platform buttons ───────────────────────────── */
+    .plat-btn{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:rgba(255,225,245,.85);padding:18px 26px;border-radius:14px;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:border-color .3s,background .3s,box-shadow .3s,transform .3s;}
+    .plat-btn:hover{border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.09);box-shadow:0 8px 28px rgba(255,47,176,.18);transform:translateY(-3px);}
+
+    /* ── Poll ───────────────────────────────────────── */
+    .poll-btn{background:rgba(255,47,176,.08);border:1px solid rgba(255,47,176,.32);border-radius:14px;padding:15px 18px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;transition:border-color .25s,background .25s,transform .25s;letter-spacing:.04em;}
+    .poll-btn:hover{border-color:rgba(255,47,176,.6);background:rgba(255,47,176,.15);transform:translateY(-2px);}
+
+    /* ── Mini player ────────────────────────────────── */
+    .mini-player{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(10,0,14,.95);border-top:1px solid rgba(255,47,176,.25);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:14px 48px;display:flex;align-items:center;gap:20px;}
+
+    /* ── Grids ──────────────────────────────────────── */
+    .ep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .clips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+    .cm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .quiz-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+    .rx-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+    .poll-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+    .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;}
+    .plat-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+    /* ── Utility ────────────────────────────────────── */
+    .hidden{display:none!important;}
+    .success-box{padding:24px 32px;border-radius:18px;background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.4);text-align:center;}
+
+    /* ══════════════════════════════════════════════════
+       PREMIUM 3D + VISUAL FLAIR
+       ══════════════════════════════════════════════════ */
+
+    /* Gradient text */
+    .gtext{background:linear-gradient(120deg,#fff 0%,#ffe4f5 32%,#ff9fdf 60%,#ff2fb0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;}
+
+    /* 3D tilt setup */
+    .ep-card,.stat-card,.quiz-card,.cm-card{transform-style:preserve-3d;will-change:transform;}
+
+    /* Shimmer sweep on cards */
+    @keyframes sweep{from{transform:translateX(-130%) skewX(-12deg);}to{transform:translateX(150%) skewX(-12deg);}}
+    .ep-card::after,.rx-card::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,transparent 25%,rgba(255,140,220,.065) 50%,transparent 75%);animation:sweep 5s ease-in-out infinite;pointer-events:none;z-index:2;border-radius:inherit;}
+    .rx-card{position:relative;overflow:hidden;}
+
+    /* Stat number glow */
+    .stat-num{text-shadow:0 0 28px rgba(255,47,176,.65),0 0 56px rgba(255,47,176,.28),0 0 88px rgba(200,0,120,.14);}
+
+    /* Deep premium hover shadows */
+    .ep-card:hover{box-shadow:0 28px 72px rgba(255,47,176,.24),0 0 0 1px rgba(255,47,176,.45),inset 0 1px 0 rgba(255,255,255,.08)!important;}
+    .stat-card:hover{box-shadow:0 18px 52px rgba(255,47,176,.2),0 0 0 1px rgba(255,47,176,.32),inset 0 1px 0 rgba(255,255,255,.06)!important;}
+    .cm-card:hover{box-shadow:0 20px 60px rgba(255,47,176,.22),0 0 0 1px rgba(255,47,176,.38),inset 0 1px 0 rgba(255,255,255,.06)!important;}
+    .quiz-card:hover,.quiz-card.sel{box-shadow:0 12px 40px rgba(255,47,176,.2),0 0 0 1px rgba(255,47,176,.45),inset 0 1px 0 rgba(255,255,255,.06)!important;}
+
+    /* Hero inner atmosphere ring */
+    #hero::before{content:'';position:absolute;left:50%;top:50%;width:860px;height:860px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,47,176,.075) 0%,transparent 62%);transform:translate(-50%,-50%);pointer-events:none;z-index:1;animation:pulse 9s ease-in-out infinite;}
+
+    /* Platform button glass + sheen */
+    .plat-btn{background:linear-gradient(135deg,rgba(28,4,20,.75),rgba(18,0,12,.6))!important;position:relative;overflow:hidden;}
+    .plat-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(255,155,220,.07) 50%,transparent 80%);pointer-events:none;transition:opacity .3s;}
+    .plat-btn:hover::after{background:linear-gradient(115deg,transparent 20%,rgba(255,155,220,.16) 50%,transparent 80%);}
+
+    /* Floating ambient blob */
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1);}40%{transform:translate(22px,-16px) scale(1.07);}70%{transform:translate(-14px,11px) scale(.95);}}
+    .blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px);animation:blobFloat 16s ease-in-out infinite;z-index:0;}
+
+    /* Clip card play hover */
+    .clip-card:hover{transform:scale(1.025)!important;box-shadow:0 24px 72px rgba(255,47,176,.28),0 0 0 1px rgba(255,47,176,.35)!important;}
+
+    /* Premium CTA section atmosphere */
+    #cta::before{content:'';position:absolute;left:-80px;top:50%;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,47,176,.1) 0%,transparent 65%);transform:translateY(-50%);pointer-events:none;z-index:1;animation:pulse 7s ease-in-out 1s infinite;}
+
+    /* ── Responsive ─────────────────────────────────── */
+    @media(max-width:1100px){
+      #hero-mic-wrap{height:min(52vh,460px)!important;}
+      #hero-cd-wrap{height:min(46vh,380px)!important;}
+    }
+    @media(max-width:860px){
+      #hero-mic-wrap{display:none!important;}
+      #hero-cd-wrap{display:none!important;}
+      .desk-nav{display:none!important;}
+      #menu-toggle{display:flex!important;}
+      .ep-grid,.stat-grid,.cm-grid,.quiz-grid,.rx-grid{grid-template-columns:1fr!important;}
+      .clips-grid{grid-template-columns:1fr 1fr!important;}
+      .two-col,.three-col{grid-template-columns:1fr!important;}
+      .plat-row{flex-direction:column!important;align-items:center;}
+      .sect{padding:72px 24px!important;}
+      .poll-grid{grid-template-columns:1fr 1fr!important;}
+    }
+    @media(max-width:540px){
+      .clips-grid{grid-template-columns:1fr!important;}
+      .stat-grid{grid-template-columns:repeat(2,1fr)!important;}
+      .poll-grid{grid-template-columns:1fr!important;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Atmosphere: grain noise overlay -->
+<div aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.034;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:180px;"></div>
+<!-- Cursor glow -->
+<div id="glow-cursor" aria-hidden="true" style="position:fixed;top:0;left:0;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,47,176,.11) 0%,rgba(255,47,176,0) 65%);pointer-events:none;z-index:9990;mix-blend-mode:screen;will-change:transform;"></div>
+<!-- Particle canvas -->
+<canvas id="hero-canvas" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;"></canvas>
+
+<!-- ── NAV ───────────────────────────────────────────── -->
+<nav id="main-nav" style="position:sticky;top:0;z-index:200;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,0,10,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,47,176,.12);">
+  <div style="flex:none;display:flex;flex-direction:column;gap:2px;">
+    <span id="nav-brand-name" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:11px;letter-spacing:.3em;color:#fff;text-transform:uppercase;line-height:1;">Talking Her Sh*t</span>
+    <span id="nav-brand-byline" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:8px;letter-spacing:.26em;color:#ff8fd6;text-transform:uppercase;line-height:1;">By Miss Yanelis</span>
+  </div>
+  <div class="desk-nav" style="display:flex;gap:36px;">
+    <a href="#episodes" class="nl">Episodes</a>
+    <a href="#about" class="nl">About</a>
+    <a href="#listen" class="nl">Listen</a>
+    <a href="#community" class="nl">Community</a>
+    <a href="https://www.instagram.com/missyanelis/" id="nav-ig-link" class="nl">Follow</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="#" id="nav-listen-btn" class="btn-p" style="font-size:11px;padding:10px 24px;">Listen Now</a>
+    <button id="menu-toggle" onclick="THS.toggleMenu()" style="display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;" aria-label="Open menu">
+      <span style="width:20px;height:1.5px;background:rgba(255,210,245,.8);display:block;border-radius:2px;"></span>
+      <span style="width:20px;height:1.5px;background:rgba(255,210,245,.8);display:block;border-radius:2px;"></span>
+      <span style="width:20px;height:1.5px;background:rgba(255,210,245,.8);display:block;border-radius:2px;"></span>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu" class="hidden" style="position:fixed;top:64px;left:0;right:0;z-index:199;background:rgba(6,0,9,.97);border-bottom:1px solid rgba(255,47,176,.14);padding:32px;display:flex;flex-direction:column;gap:24px;backdrop-filter:blur(20px);">
+  <a href="#episodes" class="nl" onclick="THS.toggleMenu()" style="font-size:17px;color:#fff;">Episodes</a>
+  <a href="#about" class="nl" onclick="THS.toggleMenu()" style="font-size:17px;color:#fff;">About</a>
+  <a href="#listen" class="nl" onclick="THS.toggleMenu()" style="font-size:17px;color:#fff;">Listen</a>
+  <a href="#community" class="nl" onclick="THS.toggleMenu()" style="font-size:17px;color:#fff;">Community</a>
+  <a href="https://www.instagram.com/missyanelis/" id="mob-ig-link" class="nl" style="font-size:17px;color:#ff8fd6;">@missyanelis</a>
+  <a href="#" id="mob-listen-btn" class="btn-p">Listen Now</a>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────────── -->
+<section id="hero" style="position:relative;min-height:100vh;overflow:hidden;background:radial-gradient(140% 120% at 50% 50%,#1a0212 0%,#0d000d 50%,#07000a 100%);z-index:2;">
+  <div aria-hidden="true" style="position:absolute;left:50%;top:50%;width:700px;height:700px;border-radius:50%;border:1px solid rgba(255,47,176,.14);transform:translate(-50%,-50%);pointer-events:none;z-index:2;"></div>
+  <div aria-hidden="true" style="position:absolute;right:0;top:0;bottom:0;width:50%;background:radial-gradient(ellipse at 80% 60%,rgba(255,47,176,.18) 0%,rgba(255,47,176,0) 65%);pointer-events:none;z-index:2;animation:pulse 7s ease-in-out infinite;"></div>
+
+  <!-- CD: left -->
+  <div id="hero-cd-wrap" aria-hidden="true" style="position:absolute;left:-80px;bottom:0;z-index:3;height:min(68vh,620px);opacity:.92;animation:floatMic 7s ease-in-out infinite;">
+    <div style="height:100%;animation:spinCD 22s linear infinite;transform-origin:50% 42%;">
+      <img id="hero-cd" src="./assets/images/final/cd-hq.png" alt="" style="height:100%;width:auto;filter:drop-shadow(0 0 32px rgba(255,47,176,.5)) drop-shadow(0 20px 16px rgba(0,0,0,.5));pointer-events:none;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 82% 88% at 42% 52%,#000 38%,rgba(0,0,0,.8) 58%,rgba(0,0,0,.3) 76%,transparent 100%);mask-image:radial-gradient(ellipse 82% 88% at 42% 52%,#000 38%,rgba(0,0,0,.8) 58%,rgba(0,0,0,.3) 76%,transparent 100%);">
+    </div>
+  </div>
+
+  <!-- Mic: right -->
+  <div id="hero-mic-wrap" aria-hidden="true" style="position:absolute;right:-20px;bottom:0;z-index:4;height:min(70vh,640px);">
+    <div style="height:100%;animation:floatMic 5.5s ease-in-out infinite;">
+      <img id="hero-mic" src="./assets/images/final/mic-hq.png" alt="" style="height:100%;width:auto;filter:drop-shadow(0 0 40px rgba(255,47,176,.55)) drop-shadow(0 28px 20px rgba(0,0,0,.7));pointer-events:none;">
+    </div>
+  </div>
+
+  <!-- Bottom fade -->
+  <div aria-hidden="true" style="position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to bottom,transparent,#07000a);pointer-events:none;z-index:5;"></div>
+
+  <!-- Logo: top-centered -->
+  <div id="hero-logo-wrap" style="position:absolute;top:6vh;left:50%;transform:translateX(-50%);height:min(44vh,400px);width:auto;z-index:10;pointer-events:none;">
+    <img id="hero-logo" src="./assets/logos/final/talking-her-sht-logo-hq.png" alt="Talking Her Sh*t by Miss Yanelis" style="height:100%;width:auto;user-select:none;pointer-events:none;mix-blend-mode:screen;animation:floatLogo 6.5s ease-in-out infinite;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent 81%);mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent 81%);">
+  </div>
+
+  <!-- Text + CTAs: bottom-centered -->
+  <div style="position:absolute;bottom:10vh;left:50%;transform:translateX(-50%);width:min(560px,84vw);z-index:10;text-align:center;">
+    <h1 id="hero-headline" class="gtext" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(26px,3.2vw,46px);letter-spacing:-.01em;text-transform:uppercase;line-height:1.12;margin:0 0 18px;">Unfiltered.<br>Unbothered.<br>Unapologetic.</h1>
+    <p id="hero-sub" style="font-family:Montserrat,sans-serif;font-weight:400;font-size:clamp(13px,1.2vw,15px);color:rgba(255,205,240,.68);line-height:1.72;max-width:460px;margin:0 auto 28px;"></p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:18px;">
+      <a href="#" id="hero-listen-btn" class="btn-p"><span style="width:0;height:0;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;"></span>Listen Now</a>
+      <a href="#" id="hero-watch-btn" class="btn-s">Watch Latest Ep</a>
+    </div>
+    <div id="hero-platform-pills" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;"></div>
+    <!-- Audio teaser -->
+    <div id="teaser-btn" onclick="THS.toggleTeaser()" role="button" tabindex="0" style="display:inline-flex;align-items:center;gap:14px;background:rgba(255,20,100,.08);border:1px solid rgba(255,47,176,.28);border-radius:999px;padding:12px 20px 12px 16px;cursor:pointer;backdrop-filter:blur(12px);">
+      <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,47,176,.2);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;flex:none;">
+        <span id="teaser-play-icon" style="width:0;height:0;border-left:11px solid #ff8fd6;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:2px;"></span>
+        <span id="teaser-pause-icon" class="hidden" style="display:flex;gap:3px;align-items:center;"><span style="width:3px;height:10px;background:#ff8fd6;border-radius:2px;"></span><span style="width:3px;height:10px;background:#ff8fd6;border-radius:2px;"></span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px;min-width:150px;">
+        <span id="teaser-label" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#fff;">Press Play For The Vibe</span>
+        <div style="position:relative;height:3px;background:rgba(255,47,176,.2);border-radius:2px;overflow:hidden;">
+          <div id="teaser-bar" style="position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,#ff2fb0,#ff8fd6);border-radius:2px;width:0%;transition:width .5s linear;"></div>
+        </div>
+      </div>
+      <span id="teaser-duration" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:10px;color:rgba(255,160,220,.6);">15s</span>
+    </div>
+  </div>
+  <!-- Scroll indicator -->
+  <div aria-hidden="true" style="position:absolute;left:50%;bottom:20px;z-index:11;animation:bounce 2.2s ease-in-out infinite;pointer-events:none;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="width:1px;height:28px;background:linear-gradient(to bottom,transparent,rgba(255,47,176,.45));"></div>
+      <span style="font-family:Montserrat,sans-serif;font-weight:600;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,160,220,.35);">Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── UPCOMING DROP STRIP ────────────────────────────── -->
+<div id="drop-strip" style="background:rgba(255,47,176,.07);border-top:1px solid rgba(255,47,176,.18);border-bottom:1px solid rgba(255,47,176,.18);padding:16px 48px;">
+  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="width:8px;height:8px;border-radius:50%;background:#ff2fb0;animation:pulse 1.8s ease-in-out infinite;flex:none;"></span>
+      <span id="drop-label" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;"></span>
+      <span id="drop-title" style="font-family:Montserrat,sans-serif;font-weight:400;font-size:13px;color:rgba(255,200,240,.65);"></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span id="drop-day" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,160,220,.65);"></span>
+      <a href="#" id="drop-notify-btn" class="btn-p" style="font-size:11px;padding:9px 20px;">Notify Me</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── START HERE ─────────────────────────────────────── -->
+<section class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);">
+  <div class="inner">
+    <div class="two-col">
+      <div class="rvl">
+        <p class="s-label">Start Here</p>
+        <div class="s-rule"></div>
+        <h2 style="font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(28px,3.4vw,46px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.1;margin:0 0 18px;">New Here?<br>Press Play First.</h2>
+        <p id="start-desc" style="font-family:Montserrat,sans-serif;font-size:clamp(14px,1.3vw,16px);color:rgba(255,200,240,.68);line-height:1.7;max-width:420px;margin:0 0 28px;"></p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;">
+          <div style="text-align:center;padding-right:20px;border-right:1px solid rgba(255,47,176,.2);"><p style="font-family:Montserrat,sans-serif;font-weight:900;font-size:24px;color:#fff;margin:0;" id="start-duration">52<span style="font-size:13px;color:#ff2fb0;">min</span></p><p style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(255,160,220,.5);text-transform:uppercase;margin:4px 0 0;">Run Time</p></div>
+          <div style="text-align:center;padding:0 20px;border-right:1px solid rgba(255,47,176,.2);"><p style="font-family:Montserrat,sans-serif;font-weight:900;font-size:24px;color:#fff;margin:0;">14K<span style="font-size:13px;color:#ff2fb0;">+</span></p><p style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(255,160,220,.5);text-transform:uppercase;margin:4px 0 0;">Plays</p></div>
+          <div style="text-align:center;padding-left:20px;"><p style="font-family:Montserrat,sans-serif;font-weight:900;font-size:24px;color:#fff;margin:0;">#1</p><p style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(255,160,220,.5);text-transform:uppercase;margin:4px 0 0;">Most Replayed</p></div>
+        </div>
+      </div>
+      <div class="rvr">
+        <div style="background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.22);border-radius:22px;padding:32px;">
+          <div style="width:100%;aspect-ratio:16/9;border-radius:14px;background:linear-gradient(135deg,rgba(255,47,176,.12),rgba(60,0,40,.5));margin-bottom:24px;display:flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(255,47,176,.14);">
+            <button onclick="THS.startPlayer('No Filter, No Fakes (EP 001)')" style="width:64px;height:64px;border-radius:50%;background:rgba(255,47,176,.22);border:2px solid rgba(255,160,220,.5);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s,background .2s;" onmouseover="this.style.transform='scale(1.08)';this.style.background='rgba(255,47,176,.36)'" onmouseout="this.style.transform='';this.style.background='rgba(255,47,176,.22)'">
+              <span style="width:0;height:0;border-left:20px solid #ff8fd6;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:4px;"></span>
+            </button>
+          </div>
+          <p class="s-label" id="start-ep-label" style="margin:0 0 6px;"></p>
+          <h3 id="start-title" style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(16px,1.8vw,22px);color:#fff;text-transform:uppercase;letter-spacing:.02em;margin:0 0 18px;"></h3>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="#" id="start-listen-btn" class="btn-p" style="font-size:11px;padding:11px 22px;">Listen</a>
+            <a href="#" id="start-watch-btn" class="btn-s" style="font-size:11px;padding:10px 20px;">Watch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED EPISODES ──────────────────────────────── -->
+<section id="episodes" class="sect" style="background:#07000a;position:relative;overflow:hidden;">
+  <div aria-hidden="true" class="blob" style="width:500px;height:500px;background:rgba(255,47,176,.07);right:-150px;top:-80px;animation-delay:-3s;"></div>
+  <div aria-hidden="true" class="blob" style="width:280px;height:280px;background:rgba(120,0,160,.08);left:-60px;bottom:-40px;animation-delay:-8s;"></div>
+  <div class="inner">
+    <div class="rv tc" style="margin-bottom:44px;">
+      <p class="s-label">Now Playing</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 class="s-h" style="margin-bottom:14px;">Featured Episodes</h2>
+      <p class="s-sub" style="max-width:540px;">Catch the latest conversations, opinions, and moments everyone will be talking about.</p>
+    </div>
+    <div class="rv" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;justify-content:center;">
+      <button class="poll-btn" style="border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.15);">Latest</button>
+      <button class="poll-btn">Most Watched</button>
+      <button class="poll-btn">Hot Takes</button>
+      <button class="poll-btn">Real Talk</button>
+      <button class="poll-btn">Fan Faves</button>
+    </div>
+    <div id="episode-cards" class="ep-grid rv"></div>
+    <div class="rv tc" style="margin-top:44px;">
+      <a href="#" id="all-eps-btn" class="btn-g">View All Episodes &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLIPS WALL ─────────────────────────────────────── -->
+<section class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);">
+  <div class="inner">
+    <div class="rv tc" style="margin-bottom:44px;">
+      <p class="s-label">Social Clips</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 class="s-h">Clips Everyone<br>Is Talking About</h2>
+    </div>
+    <div id="clip-cards" class="clips-grid rv"></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────── -->
+<section id="about" class="sect" style="background:#07000a;">
+  <div class="inner">
+    <div class="two-col">
+      <div class="rvl">
+        <div style="aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,47,176,.26),0 28px 72px rgba(0,0,0,.6);">
+          <img id="about-portrait" src="./assets/images/final/yanelis-portrait.jpg" alt="Miss Yanelis" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+        </div>
+      </div>
+      <div class="rvr">
+        <p class="s-label">The Voice</p>
+        <div class="s-rule"></div>
+        <h2 id="about-heading" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(30px,3.6vw,50px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0 0 24px;"></h2>
+        <p id="about-body" style="font-family:Montserrat,sans-serif;font-size:clamp(14px,1.35vw,17px);color:rgba(255,200,240,.68);line-height:1.75;max-width:500px;margin:0 0 32px;"></p>
+        <div style="border-left:2px solid #ff2fb0;padding:18px 24px;background:rgba(255,47,176,.06);border-radius:0 14px 14px 0;margin-bottom:36px;">
+          <p id="about-quote" style="margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(15px,1.5vw,20px);font-style:italic;color:#ffd9ef;line-height:1.5;"></p>
+        </div>
+        <a href="#" id="about-btn" class="btn-p">Listen to Her Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LISTEN EVERYWHERE ──────────────────────────────── -->
+<section id="listen" class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);">
+  <div class="inner">
+    <div class="rv tc" style="margin-bottom:52px;">
+      <p class="s-label">Stream Anywhere</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 class="s-h" style="margin-bottom:12px;">Listen Everywhere</h2>
+      <p class="s-sub" style="max-width:380px;">Tap in wherever you get your podcasts.</p>
+    </div>
+    <div id="platform-buttons" class="plat-row rv"></div>
+  </div>
+</section>
+
+<!-- ── STATS ──────────────────────────────────────────── -->
+<section class="sect" style="background:#07000a;position:relative;overflow:hidden;">
+  <div aria-hidden="true" class="blob" style="width:420px;height:420px;background:rgba(255,47,176,.09);left:-100px;top:50%;margin-top:-210px;animation-delay:0s;"></div>
+  <div aria-hidden="true" class="blob" style="width:320px;height:320px;background:rgba(140,0,180,.08);right:-60px;top:40%;animation-delay:-5s;"></div>
+  <div class="inner" style="position:relative;z-index:1;">
+    <div class="rv tc" style="margin-bottom:52px;">
+      <p class="s-label">By The Numbers</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 class="s-h">The Conversation<br>Is Growing</h2>
+    </div>
+    <div id="stat-cards" class="stat-grid rv"></div>
+  </div>
+</section>
+
+<!-- ── COMMUNITY ──────────────────────────────────────── -->
+<section id="community" class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);position:relative;overflow:hidden;">
+  <div aria-hidden="true" class="blob" style="width:600px;height:600px;background:rgba(255,47,176,.06);left:50%;margin-left:-300px;top:-120px;animation-delay:-2s;"></div>
+  <div class="inner">
+    <div class="rv tc" style="margin-bottom:52px;">
+      <p class="s-label">The Movement</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 class="s-h" style="margin-bottom:16px;">For The Ones With<br>Something To Say</h2>
+      <p class="s-sub">Real talk, bold opinions, soft-life standards, hard truths, and the moments that deserve to be said out loud.</p>
+    </div>
+    <div class="cm-grid">
+      <div class="cm-card rv"><div style="width:64px;height:64px;margin:0 auto 24px;"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="4" y="8" width="56" height="38" rx="10" fill="none" stroke="url(#cg1)" stroke-width="2.5"/><path d="M14 46 L8 56 L26 50" fill="none" stroke="url(#cg1)" stroke-width="2.5" stroke-linejoin="round"/><line x1="16" y1="22" x2="48" y2="22" stroke="url(#cg1)" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="32" x2="36" y2="32" stroke="url(#cg1)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="cg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff8fd6"/><stop offset="100%" stop-color="#ff2fb0"/></linearGradient></defs></svg></div><h3 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin:0 0 12px;">Real Talk</h3><p style="font-family:Montserrat,sans-serif;font-size:14px;color:rgba(255,200,240,.62);line-height:1.72;margin:0;">No scripts, no filters. Just honest raw conversations that actually mean something.</p></div>
+      <div class="cm-card rv" style="transition-delay:.1s;"><div style="width:64px;height:64px;margin:0 auto 24px;"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="22" y="4" width="20" height="32" rx="10" fill="none" stroke="url(#cg2)" stroke-width="2.5"/><path d="M12 30 C12 44 52 44 52 30" fill="none" stroke="url(#cg2)" stroke-width="2.5" stroke-linecap="round"/><line x1="32" y1="44" x2="32" y2="56" stroke="url(#cg2)" stroke-width="2.5" stroke-linecap="round"/><line x1="22" y1="58" x2="42" y2="58" stroke="url(#cg2)" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="cg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff8fd6"/><stop offset="100%" stop-color="#ff2fb0"/></linearGradient></defs></svg></div><h3 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin:0 0 12px;">Unfiltered Moments</h3><p style="font-family:Montserrat,sans-serif;font-size:14px;color:rgba(255,200,240,.62);line-height:1.72;margin:0;">The episodes you replay three times and send to seven people. No context needed.</p></div>
+      <div class="cm-card rv" style="transition-delay:.2s;"><div style="width:64px;height:64px;margin:0 auto 24px;"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M38 4 L18 34 L28 34 L26 60 L46 30 L36 30 Z" fill="url(#cg3)" stroke="url(#cg3)" stroke-width="1.5" stroke-linejoin="round"/><defs><linearGradient id="cg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff8fd6"/><stop offset="100%" stop-color="#ff2fb0"/></linearGradient></defs></svg></div><h3 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin:0 0 12px;">Bold Energy</h3><p style="font-family:Montserrat,sans-serif;font-size:14px;color:rgba(255,200,240,.62);line-height:1.72;margin:0;">Loud, proud, unapologetic. The kind of energy that makes you feel seen without a word.</p></div>
+    </div>
+    <div class="rv tc" style="margin-top:48px;"><a href="https://www.instagram.com/missyanelis/" id="community-btn" class="btn-p">Join The Conversation</a></div>
+  </div>
+</section>
+
+<!-- ── QUIZ ───────────────────────────────────────────── -->
+<section class="sect" style="background:#07000a;">
+  <div class="inner">
+    <div class="rv tc" style="margin-bottom:52px;">
+      <p class="s-label">Find Your Episode</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 id="quiz-heading" class="s-h"></h2>
+    </div>
+    <div id="quiz-cards" class="quiz-grid rv"></div>
+    <div id="quiz-rec" class="hidden" style="margin-top:36px;background:rgba(255,47,176,.08);border:1px solid rgba(255,47,176,.35);border-radius:18px;padding:28px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+      <div style="flex:none;width:44px;height:44px;border-radius:50%;background:rgba(255,47,176,.18);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;"><span style="width:0;height:0;border-left:14px solid #ff8fd6;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:3px;"></span></div>
+      <div style="flex:1;"><p style="font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.18em;color:#ff8fd6;text-transform:uppercase;margin:0 0 4px;">Your Episode Match</p><p id="quiz-rec-text" style="font-family:Montserrat,sans-serif;font-weight:800;font-size:16px;color:#fff;margin:0;"></p></div>
+      <a href="#" id="quiz-rec-btn" class="btn-p" style="font-size:11px;padding:12px 24px;flex:none;">Play Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── POLL ───────────────────────────────────────────── -->
+<section class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);">
+  <div class="inner-sm tc">
+    <div class="rv" style="margin-bottom:44px;">
+      <p class="s-label">This Week</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 id="poll-heading" class="s-h" style="margin-bottom:14px;"></h2>
+      <p id="poll-sub" class="s-sub" style="max-width:420px;"></p>
+    </div>
+    <div id="poll-options" class="poll-grid rv"></div>
+    <div id="poll-results" class="hidden">
+      <div id="poll-result-bars" style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;text-align:left;"></div>
+      <a href="#" id="poll-notify-btn" class="btn-p">Get Notified When It Drops</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── REACTION WALL ──────────────────────────────────── -->
+<section class="sect" style="background:#07000a;">
+  <div class="inner">
+    <div class="rv tc" style="margin-bottom:52px;">
+      <p class="s-label">From The Community</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 class="s-h">The Girls<br>Are Talking</h2>
+    </div>
+    <div id="reaction-cards" class="rx-grid rv"></div>
+    <div class="rv tc" style="margin-top:32px;"><p style="font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,160,220,.48);margin:0;">Send this to the friend who always has something to say.</p></div>
+  </div>
+</section>
+
+<!-- ── TOPIC SUBMISSION ───────────────────────────────── -->
+<section class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);">
+  <div class="inner-sm">
+    <div class="rv tc" style="margin-bottom:44px;">
+      <p class="s-label">Be Heard</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 class="s-h" style="margin-bottom:14px;">Got Something<br>To Say?</h2>
+      <p class="s-sub" style="max-width:480px;">Send a topic, question, confession, or hot take for a future episode.</p>
+    </div>
+    <div id="topic-success" class="success-box hidden"><p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;color:#ffd9ef;margin:0;">Sent. Miss Yanelis has your message.</p></div>
+    <form id="topic-form" class="rv" style="display:flex;flex-direction:column;gap:14px;" onsubmit="THS.handleTopic(event)">
+      <input type="text" placeholder="Name or Anonymous" class="field">
+      <textarea placeholder="Topic, question, confession, or hot take..." class="field" style="min-height:120px;resize:vertical;line-height:1.6;"></textarea>
+      <input type="email" placeholder="Email (optional)" class="field">
+      <button type="submit" class="btn-p" style="border:none;margin-top:4px;">Send It to Miss Yanelis</button>
+    </form>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER ─────────────────────────────────────── -->
+<section class="sect" style="background:#07000a;">
+  <div class="inner-xs">
+    <div class="rv tc" style="margin-bottom:28px;">
+      <p class="s-label">Stay In The Loop</p>
+      <div class="s-rule s-rule-c"></div>
+      <h2 class="s-h" style="margin-bottom:14px;">Get The Drop First</h2>
+      <p class="s-sub" style="max-width:460px;margin-bottom:28px;">New episodes, exclusive clips, behind-the-scenes moments, and updates before everyone else.</p>
+      <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:#ff2fb0;flex:none;"></span><span style="font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,200,240,.7);">Early drops</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:#ff2fb0;flex:none;"></span><span style="font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,200,240,.7);">Exclusive clips</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:#ff2fb0;flex:none;"></span><span style="font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,200,240,.7);">Topic polls</span></div>
+      </div>
+    </div>
+    <div id="news-success" class="success-box hidden"><p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;color:#ffd9ef;margin:0;">You're in. The tea is coming.</p></div>
+    <form id="news-form" class="rv" style="display:flex;flex-direction:column;gap:12px;" onsubmit="THS.handleNews(event)">
+      <input type="email" placeholder="Your email address" required class="field">
+      <input type="tel" placeholder="Phone / SMS (optional)" class="field">
+      <button type="submit" class="btn-p" style="border:none;margin-top:4px;">Send Me The Tea</button>
+      <p style="font-family:Montserrat,sans-serif;font-size:11px;color:rgba(255,160,220,.38);text-align:center;margin:4px 0 0;">No spam. Just the good stuff.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ───────────────────────────────────────── -->
+<section id="cta" class="sect" style="background:radial-gradient(130% 100% at 60% 50%,#180210 0%,#0d000d 55%,#07000a 100%);overflow:hidden;position:relative;">
+  <div aria-hidden="true" style="position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:620px;height:620px;border-radius:50%;border:1px solid rgba(255,47,176,.18);pointer-events:none;"></div>
+  <div aria-hidden="true" style="position:absolute;right:60px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;border:1px solid rgba(255,47,176,.12);pointer-events:none;"></div>
+  <div aria-hidden="true" style="position:absolute;right:0;top:0;bottom:0;width:50%;background:radial-gradient(ellipse at 80% 50%,rgba(255,47,176,.2) 0%,rgba(255,47,176,0) 65%);pointer-events:none;animation:pulse 6s ease-in-out infinite;"></div>
+  <div aria-hidden="true" style="position:absolute;right:-20px;bottom:0;height:min(65vh,560px);pointer-events:none;z-index:2;">
+    <img src="./assets/images/final/mic-hq.png" alt="" style="height:100%;width:auto;filter:drop-shadow(0 0 36px rgba(255,47,176,.55)) drop-shadow(0 24px 18px rgba(0,0,0,.6));pointer-events:none;">
+  </div>
+  <div class="inner" style="position:relative;z-index:3;">
+    <div style="max-width:580px;">
+      <p class="s-label rv">The Finale</p>
+      <div class="s-rule rv"></div>
+      <h2 class="rv gtext" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(36px,5.5vw,76px);letter-spacing:-.02em;text-transform:uppercase;line-height:.98;margin:0 0 22px;">Ready To<br>Talk That?</h2>
+      <p class="rv" style="font-family:Montserrat,sans-serif;font-size:clamp(14px,1.35vw,17px);color:rgba(255,200,240,.68);line-height:1.75;max-width:440px;margin:0 0 36px;">Step into the world of Talking Her Sh*t by Miss Yanelis. No gatekeeping, no sugarcoating: just the truth.</p>
+      <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#" id="cta-listen-btn" class="btn-p" style="font-size:13px;padding:17px 40px;"><span style="width:0;height:0;border-left:10px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;"></span>Listen Now</a>
+        <a href="https://www.instagram.com/missyanelis/" id="cta-follow-btn" class="btn-s" style="font-size:13px;padding:15px 36px;">Follow The Show</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer style="padding:60px 48px 40px;background:#040004;border-top:1px solid rgba(255,47,176,.12);">
+  <div class="inner">
+    <div class="three-col" style="margin-bottom:48px;">
+      <div>
+        <p id="foot-name" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:12px;letter-spacing:.3em;color:#fff;text-transform:uppercase;margin:0 0 5px;">Talking Her Sh*t</p>
+        <p id="foot-byline" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:8px;letter-spacing:.26em;color:#ff8fd6;text-transform:uppercase;margin:0 0 18px;">By Miss Yanelis</p>
+        <p style="font-family:Montserrat,sans-serif;font-size:13px;color:rgba(255,200,240,.42);line-height:1.72;max-width:220px;margin:0;">Real conversations. Bold energy. Zero apologies.</p>
+      </div>
+      <div>
+        <p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,200,240,.38);margin:0 0 18px;">Explore</p>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <a href="#episodes" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Episodes</a>
+          <a href="#about" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">About</a>
+          <a href="#listen" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Listen</a>
+          <a href="#community" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Community</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,200,240,.38);margin:0 0 18px;">Connect</p>
+        <div id="foot-social" style="display:flex;flex-direction:column;gap:11px;"></div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,47,176,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <p id="foot-copy" style="font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.08em;color:rgba(255,200,240,.24);margin:0;"></p>
+      <p id="foot-tag" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,47,176,.35);margin:0;"></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── MINI PLAYER (fixed bottom) ────────────────────── -->
+<div id="mini-player" class="mini-player hidden">
+  <div style="width:38px;height:38px;border-radius:50%;background:rgba(255,47,176,.2);border:1.5px solid rgba(255,160,220,.4);display:flex;align-items:center;justify-content:center;flex:none;animation:pulse 2s ease-in-out infinite;"><span style="width:0;height:0;border-left:11px solid #ff8fd6;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:2px;"></span></div>
+  <div style="flex:1;min-width:0;"><p style="margin:0 0 2px;font-family:Montserrat,sans-serif;font-weight:600;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,160,220,.6);">Now Playing</p><p id="player-title" style="margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></p></div>
+  <button onclick="THS.stopPlayer()" style="background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.28);color:rgba(255,200,240,.7);padding:8px 18px;border-radius:999px;font-weight:600;font-size:11px;letter-spacing:.12em;cursor:pointer;text-transform:uppercase;">Stop</button>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     MAIN SCRIPT
+     Config population + all interactive features.
+     All content is read from window.SITE_CONFIG.
+     ════════════════════════════════════════════════════ -->
+<script>
+var THS = (function () {
+  'use strict';
+
+  /* ── Helpers ─────────────────────────────────── */
+  var C = window.SITE_CONFIG || {};
+  function g(id) { return document.getElementById(id); }
+  function s(id, t) { var e=g(id); if(e) e.textContent=t||''; }
+  function h(id, v) { var e=g(id); if(e) e.innerHTML=v||''; }
+  function href(id, u) { var e=g(id); if(e&&u) e.href=u; }
+  function src(id, u) { var e=g(id); if(e&&u) e.src=u; }
+  function show(id) { var e=g(id); if(e) e.classList.remove('hidden'); }
+  function hide(id) { var e=g(id); if(e) e.classList.add('hidden'); }
+  function safe(v,d) { return (v!=null&&v!=='')? v : (d||''); }
+
+  /* ── Shorthands into config ──────────────────── */
+  var br    = C.brand||{};
+  var seo   = C.seo||{};
+  var ast   = C.assets||{};
+  var hero  = C.hero||{};
+  var upc   = C.upcomingEpisode||{};
+  var sh    = C.startHereEpisode||{};
+  var abt   = C.about||{};
+  var soc   = C.socialLinks||{};
+  var ftr   = C.footer||{};
+  var qz    = C.quiz||{};
+  var pl    = C.poll||{};
+  var frm   = C.forms||{};
+
+  /* ── SEO ─────────────────────────────────────── */
+  function applySEO() {
+    document.title = safe(seo.pageTitle,'Talking Her Sh*t | By Miss Yanelis');
+    var dm=document.querySelector('meta[name="description"]'); if(dm&&seo.metaDescription) dm.content=seo.metaDescription;
+    var ot=document.querySelector('meta[property="og:title"]'); if(ot) ot.content=safe(seo.pageTitle);
+    var od=document.querySelector('meta[property="og:description"]'); if(od) od.content=safe(seo.metaDescription);
+    var oi=document.querySelector('meta[property="og:image"]'); if(oi&&seo.ogImage) oi.content=seo.ogImage;
+  }
+
+  /* ── Config → DOM ────────────────────────────── */
+  function applyConfig() {
+    /* Assets */
+    var logo=(ast.logo||{}); var mic=(ast.microphone||{}); var cd=(ast.cd||{}); var port=(ast.portrait||{});
+    src('hero-logo', safe(logo.path,'./assets/logos/final/talking-her-sht-logo-hq.png'));
+    src('hero-mic',  safe(mic.path, './assets/images/final/mic-hq.png'));
+    src('hero-cd',   safe(cd.path,  './assets/images/final/cd-hq.png'));
+    src('about-portrait', safe(port.path,'./assets/images/final/yanelis-portrait.jpg'));
+
+    /* Nav */
+    s('nav-brand-name',   safe(br.siteName,  'Talking Her Sh*t'));
+    s('nav-brand-byline', safe(br.byline,    'By Miss Yanelis'));
+    var igUrl = safe((soc.instagram||{}).url, 'https://www.instagram.com/missyanelis/');
+    href('nav-ig-link',     igUrl);
+    href('mob-ig-link',     igUrl);
+    href('community-btn',   igUrl);
+    href('cta-follow-btn',  igUrl);
+
+    /* Hero text */
+    var hl=g('hero-headline');
+    if(hl&&hero.headline) hl.innerHTML=hero.headline.replace(/\n/g,'<br>');
+    s('hero-sub', safe(hero.subheadline));
+    href('hero-listen-btn', safe(hero.primaryButtonUrl,'#'));
+    href('nav-listen-btn',  safe(hero.primaryButtonUrl,'#'));
+    href('mob-listen-btn',  safe(hero.primaryButtonUrl,'#'));
+    href('hero-watch-btn',  safe(hero.secondaryButtonUrl,'#'));
+    href('all-eps-btn',     safe(hero.primaryButtonUrl,'#'));
+    href('cta-listen-btn',  safe(hero.primaryButtonUrl,'#'));
+    href('poll-notify-btn', safe(hero.primaryButtonUrl,'#'));
+    s('teaser-label',    safe(hero.audioTeaserLabel,'Press Play For The Vibe'));
+    s('teaser-duration', safe(hero.audioTeaserDuration,'15s'));
+
+    /* Hero platform pills */
+    var plat=(C.podcastPlatforms||[]).filter(function(p){return p.enabled!==false;});
+    h('hero-platform-pills', plat.map(function(p){
+      return '<a href="'+safe(p.url,'#')+'" style="display:inline-flex;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,160,220,.25);color:rgba(255,220,245,.75);padding:7px 16px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:border-color .2s,color .2s;" onmouseover="this.style.borderColor=\'rgba(255,47,176,.55)\';this.style.color=\'#fff\'" onmouseout="this.style.borderColor=\'rgba(255,160,220,.25)\';this.style.color=\'rgba(255,220,245,.75)\'">'+p.label+'</a>';
+    }).join(''));
+
+    /* Upcoming drop strip */
+    if(upc.show===false){ var ds=g('drop-strip'); if(ds) ds.style.display='none'; }
+    s('drop-label', safe(upc.label));
+    s('drop-title', safe(upc.title));
+    s('drop-day',   safe(upc.dropDay));
+    href('drop-notify-btn', safe(upc.notifyUrl,'#'));
+
+    /* Start Here */
+    s('start-ep-label',  safe(sh.episodeLabel));
+    s('start-title',     safe(sh.title));
+    s('start-desc',      safe(sh.description));
+    s('start-duration',  safe(sh.duration,'52 min'));
+    href('start-listen-btn', safe(sh.listenUrl,'#'));
+    href('start-watch-btn',  safe(sh.watchUrl,'#'));
+
+    /* About */
+    s('about-heading', safe(abt.heading));
+    s('about-body',    safe(abt.body));
+    var aq=g('about-quote'); if(aq&&abt.quote) aq.textContent=abt.quote;
+    href('about-btn', safe(abt.buttonUrl,'#'));
+    var ab=g('about-btn'); if(ab&&abt.buttonText) ab.textContent=abt.buttonText;
+
+    /* Footer */
+    s('foot-name',   safe(ftr.copyrightName, br.siteName));
+    s('foot-byline', safe(br.byline));
+    s('foot-copy',   '\u00a9 2025 '+safe(ftr.copyrightName,'Talking Her Sh*t by Miss Yanelis')+'. All rights reserved.');
+    s('foot-tag',    safe(ftr.footerTagline,'Unfiltered \u00b7 Unbothered \u00b7 Unapologetic'));
+
+    /* Footer social */
+    var socKeys=Object.keys(soc);
+    h('foot-social', socKeys.filter(function(k){return soc[k].enabled!==false;}).map(function(k){
+      return '<a href="'+safe((soc[k]||{}).url,'#')+'" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">'+((soc[k]||{}).label||k)+'</a>';
+    }).join(''));
+  }
+
+  /* ── Render: Episode cards ───────────────────── */
+  function renderEpisodes() {
+    var cont=g('episode-cards'); if(!cont) return;
+    var eps=(C.featuredEpisodes||[]).filter(function(e){return e.featured!==false;});
+    var grads=['linear-gradient(135deg,rgba(255,47,176,.18),rgba(80,0,50,.6))','linear-gradient(135deg,rgba(140,0,180,.18),rgba(50,0,80,.6))','linear-gradient(135deg,rgba(200,0,130,.18),rgba(60,0,40,.6))'];
+    cont.innerHTML=eps.map(function(ep,i){
+      var bg=ep.thumbnailPath?'url('+ep.thumbnailPath+') center/cover no-repeat':grads[i%3];
+      return '<div class="ep-card rv" style="transition-delay:'+(i*.1)+'s;">'
+        +'<div style="width:100%;aspect-ratio:16/9;background:'+bg+';display:flex;align-items:center;justify-content:center;position:relative;">'
+        +'<div style="width:46px;height:46px;border-radius:50%;background:rgba(255,47,176,.2);border:1.5px solid rgba(255,160,220,.4);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s;" onclick="THS.startPlayer(\''+ep.title+' ('+ep.episodeNumber+')\')" onmouseover="this.style.transform=\'scale(1.1)\'" onmouseout="this.style.transform=\'\'"><span style="width:0;height:0;border-left:15px solid #ff8fd6;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div>'
+        +'<span style="position:absolute;top:12px;left:14px;font-family:Montserrat,sans-serif;font-weight:700;font-size:9px;letter-spacing:.16em;color:rgba(255,200,240,.8);text-transform:uppercase;background:rgba(0,0,0,.4);border-radius:6px;padding:4px 10px;">'+safe(ep.moodTag,'Episode')+'</span>'
+        +'<span style="position:absolute;bottom:10px;right:12px;font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;color:rgba(255,160,220,.65);letter-spacing:.1em;">'+safe(ep.duration)+'</span>'
+        +'</div>'
+        +'<div style="padding:22px 24px 24px;">'
+        +'<p style="margin:0 0 8px;font-family:Montserrat,sans-serif;font-weight:600;font-size:10px;letter-spacing:.2em;color:rgba(255,160,220,.55);text-transform:uppercase;">'+safe(ep.episodeNumber)+'</p>'
+        +'<h3 style="margin:0 0 10px;font-family:Montserrat,sans-serif;font-weight:800;font-size:17px;color:#fff;text-transform:uppercase;line-height:1.25;letter-spacing:.02em;">'+safe(ep.title)+'</h3>'
+        +'<p style="margin:0 0 20px;font-family:Montserrat,sans-serif;font-size:14px;color:rgba(255,200,240,.6);line-height:1.68;">'+safe(ep.description)+'</p>'
+        +'<div style="display:flex;align-items:center;justify-content:space-between;">'
+        +'<a href="'+safe(ep.listenUrl,'#')+'" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.3);color:#ff8fd6;padding:9px 18px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">Play</a>'
+        +'<a href="'+safe(ep.shareUrl,'#')+'" style="font-family:Montserrat,sans-serif;font-size:11px;color:rgba(255,160,220,.4);letter-spacing:.1em;text-transform:uppercase;">Share &#8599;</a>'
+        +'</div></div></div>';
+    }).join('');
+  }
+
+  /* ── Render: Clip cards ──────────────────────── */
+  function renderClips() {
+    var cont=g('clip-cards'); if(!cont) return;
+    var clips=C.clips||[];
+    var grads=['linear-gradient(160deg,rgba(80,0,60,.9),rgba(8,0,10,.95))','linear-gradient(160deg,rgba(55,0,80,.85),rgba(10,0,12,.95))','linear-gradient(160deg,rgba(30,0,55,.9),rgba(6,0,10,.95))','linear-gradient(160deg,rgba(70,0,50,.88),rgba(8,0,10,.95))'];
+    cont.innerHTML=clips.map(function(c,i){
+      return '<div class="clip-card rv" style="transition-delay:'+(i*.08)+'s;background:'+grads[i%4]+';">'
+        +'<div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,0,8,.92) 100%);z-index:1;"></div>'
+        +'<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);z-index:2;"><div style="width:48px;height:48px;border-radius:50%;background:rgba(255,47,176,.25);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;"><span style="width:0;height:0;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div></div>'
+        +'<div style="position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:2;">'
+        +'<p style="margin:0 0 10px;font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;color:#fff;line-height:1.4;">'+safe(c.caption)+'</p>'
+        +'<a href="'+safe(c.episodeUrl,'#')+'" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.14em;color:#ff8fd6;text-transform:uppercase;">Full Episode &rarr;</a>'
+        +'</div>'
+        +'<div style="position:absolute;top:14px;left:14px;z-index:2;font-family:Montserrat,sans-serif;font-weight:700;font-size:9px;letter-spacing:.14em;color:rgba(255,200,240,.7);text-transform:uppercase;background:rgba(0,0,0,.45);border-radius:6px;padding:4px 10px;">'+safe(c.views,'')+(c.views?' views':'')+'</div>'
+        +'</div>';
+    }).join('');
+  }
+
+  /* ── Render: Platform buttons ────────────────── */
+  function renderPlatforms() {
+    var cont=g('platform-buttons'); if(!cont) return;
+    var plat=(C.podcastPlatforms||[]).filter(function(p){return p.enabled!==false;});
+    cont.innerHTML=plat.map(function(p){
+      return '<a href="'+safe(p.url,'#')+'" class="plat-btn">'
+        +'<div style="width:30px;height:30px;border-radius:50%;background:rgba(255,47,176,.16);border:1px solid rgba(255,47,176,.3);flex:none;display:flex;align-items:center;justify-content:center;"><span style="font-size:13px;color:#ff8fd6;font-weight:900;">&#9654;</span></div>'
+        +p.label+'</a>';
+    }).join('');
+  }
+
+  /* ── Render: Stat cards ──────────────────────── */
+  function renderStats() {
+    var cont=g('stat-cards'); if(!cont) return;
+    var stats=C.stats||[];
+    cont.innerHTML=stats.map(function(st,i){
+      return '<div class="stat-card rv" style="transition-delay:'+(i*.08)+'s;">'
+        +'<p class="stat-num" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(40px,4.5vw,64px);color:#fff;letter-spacing:-.02em;line-height:1;margin:0 0 8px;">'+safe(st.number)+'</p>'
+        +'<p style="font-family:Montserrat,sans-serif;font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,160,220,.6);margin:0;">'+safe(st.label)+'</p>'
+        +'</div>';
+    }).join('');
+  }
+
+  /* ── Render: Quiz ────────────────────────────── */
+  function renderQuiz() {
+    var cont=g('quiz-cards'); if(!cont) return;
+    var qh=g('quiz-heading'); if(qh&&qz.question) qh.innerHTML=qz.question.replace(' ','<br>');
+    var opts=qz.options||[];
+    cont.innerHTML=opts.map(function(o,i){
+      return '<div class="quiz-card" data-idx="'+i+'" onclick="THS.selectQuiz(this,'+i+')">'
+        +'<div style="font-size:28px;margin-bottom:14px;color:#ff8fd6;text-shadow:0 0 18px rgba(255,47,176,.55);">'+safe(o.symbol)+'</div>'
+        +'<h4 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin:0 0 8px;line-height:1.3;">'+safe(o.title)+'</h4>'
+        +'<p style="font-family:Montserrat,sans-serif;font-size:12px;color:rgba(255,200,240,.58);line-height:1.6;margin:0 0 16px;">'+safe(o.desc)+'</p>'
+        +'<div style="display:inline-block;font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,47,176,.32);color:#ff8fd6;">Select</div>'
+        +'</div>';
+    }).join('');
+  }
+
+  /* ── Render: Poll ────────────────────────────── */
+  function renderPoll() {
+    var cont=g('poll-options'); if(!cont) return;
+    s('poll-heading', safe(pl.question));
+    s('poll-sub',     safe(pl.subtext));
+    var opts=pl.options||[];
+    cont.innerHTML=opts.map(function(o){
+      return '<button class="poll-btn" onclick="THS.castVote(\''+o+'\',this)">'+o+'</button>';
+    }).join('');
+  }
+
+  /* ── Render: Reactions ───────────────────────── */
+  function renderReactions() {
+    var cont=g('reaction-cards'); if(!cont) return;
+    var rs=C.reactions||[];
+    cont.innerHTML=rs.map(function(r){
+      return '<div class="rx-card">'
+        +'<p style="font-family:Montserrat,sans-serif;font-weight:500;font-size:15px;color:rgba(255,220,245,.9);line-height:1.65;margin:0 0 18px;">'+safe(r.quote)+'</p>'
+        +'<div style="display:flex;align-items:center;gap:10px;">'
+        +'<div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,rgba(255,47,176,.3),rgba(100,0,60,.4));border:1px solid rgba(255,160,220,.3);flex:none;"></div>'
+        +'<span style="font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.1em;color:rgba(255,160,220,.6);text-transform:uppercase;">'+safe(r.handle)+'</span>'
+        +'</div></div>';
+    }).join('');
+  }
+
+  /* ── Interactivity ───────────────────────────── */
+  var menuOpen=false;
+  function toggleMenu() {
+    menuOpen=!menuOpen;
+    var m=g('mobile-menu');
+    if(m) m.classList.toggle('hidden',!menuOpen);
+  }
+
+  function selectQuiz(card,idx) {
+    document.querySelectorAll('.quiz-card').forEach(function(c){c.classList.remove('sel');});
+    card.classList.add('sel');
+    var opts=qz.options||[];
+    var opt=opts[idx];
+    if(opt) {
+      s('quiz-rec-text', safe(opt.episode));
+      href('quiz-rec-btn', safe(opt.url,'#'));
+      show('quiz-rec');
+    }
+  }
+
+  var pollVoted=false;
+  function castVote(option) {
+    if(pollVoted) return;
+    pollVoted=true;
+    hide('poll-options');
+    show('poll-results');
+    var opts=pl.options||[];
+    // Placeholder distribution (connect real backend to store votes)
+    var base=[38,5,16,3,10,24,4];
+    h('poll-result-bars', opts.map(function(o,i){
+      var pct=base[i]||Math.floor(Math.random()*15+3);
+      var voted=(o===option);
+      return '<div style="display:flex;align-items:center;gap:12px;">'
+        +'<span style="font-family:Montserrat,sans-serif;font-weight:'+(voted?'700':'600')+';font-size:12px;color:'+(voted?'#fff':'rgba(255,200,240,.7)')+';min-width:110px;">'+o+'</span>'
+        +'<div style="flex:1;height:8px;background:rgba(255,47,176,.15);border-radius:4px;overflow:hidden;"><div style="height:100%;background:linear-gradient(90deg,#ff2fb0,#ff8fd6);border-radius:4px;width:'+pct+'%;transition:width 1.2s cubic-bezier(.2,.8,.2,1);"></div></div>'
+        +'<span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;color:rgba(255,160,220,.7);min-width:36px;text-align:right;">'+pct+'%</span>'
+        +'</div>';
+    }).join(''));
+  }
+
+  var tPlaying=false, tPct=0, tInt=null;
+  function toggleTeaser() {
+    if(tPlaying) {
+      clearInterval(tInt); tPlaying=false;
+      show('teaser-play-icon'); hide('teaser-pause-icon');
+    } else {
+      tPlaying=true; tPct=0;
+      hide('teaser-play-icon'); show('teaser-pause-icon');
+      tInt=setInterval(function(){
+        tPct=Math.min(100,tPct+100/30);
+        var b=g('teaser-bar'); if(b) b.style.width=tPct+'%';
+        if(tPct>=100){
+          clearInterval(tInt); tPlaying=false; tPct=0;
+          if(b) b.style.width='0%';
+          show('teaser-play-icon'); hide('teaser-pause-icon');
+        }
+      },500);
+    }
+  }
+
+  function startPlayer(title) {
+    s('player-title', title);
+    show('mini-player');
+  }
+  function stopPlayer() { hide('mini-player'); }
+
+  function handleTopic(e) {
+    e.preventDefault();
+    var url=safe(((frm.topicSubmission)||{}).actionUrl,'');
+    if(url) fetch(url,{method:'POST',body:new FormData(e.target)});
+    hide('topic-form'); show('topic-success');
+    setTimeout(function(){show('topic-form');hide('topic-success');},4500);
+  }
+  function handleNews(e) {
+    e.preventDefault();
+    var url=safe(((frm.newsletter)||{}).actionUrl,'');
+    if(url) fetch(url,{method:'POST',body:new FormData(e.target)});
+    hide('news-form'); show('news-success');
+    setTimeout(function(){show('news-form');hide('news-success');},5000);
+  }
+
+  /* ── Canvas ──────────────────────────────────── */
+  function initCanvas() {
+    var canvas=g('hero-canvas'); if(!canvas) return;
+    var ctx=canvas.getContext('2d');
+    var w,h,dpr,parts;
+    function rand(a,b){return a+Math.random()*(b-a);}
+    function resize(){
+      dpr=Math.min(window.devicePixelRatio||1,2);
+      w=window.innerWidth; h=window.innerHeight;
+      canvas.width=w*dpr; canvas.height=h*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    resize();
+    window.addEventListener('resize',resize);
+    parts=Array.from({length:38},function(){
+      return{x:Math.random()*w,y:Math.random()*h,r:rand(.4,1.8),s:rand(.04,.28),a:Math.random(),tw:rand(.004,.02),hue:rand(320,342)};
+    });
+    (function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(var i=0;i<parts.length;i++){
+        var p=parts[i]; p.y-=p.s; p.a+=p.tw;
+        if(p.y<-4){p.y=h+4;p.x=Math.random()*w;}
+        var al=.16+.4*Math.abs(Math.sin(p.a));
+        ctx.beginPath();
+        ctx.fillStyle='hsla('+p.hue+',100%,'+(64+p.r*5)+'%,'+al+')';
+        ctx.shadowBlur=7; ctx.shadowColor='hsla('+p.hue+',100%,68%,'+al+')';
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    })();
+  }
+
+  /* ── Parallax ────────────────────────────────── */
+  function initParallax() {
+    var logo=g('hero-logo-wrap'),mic=g('hero-mic-wrap'),glow=g('glow-cursor');
+    var tx=0,ty=0,cx=0,cy=0,gcx=window.innerWidth/2,gcy=window.innerHeight/2;
+    document.addEventListener('mousemove',function(e){
+      tx=(e.clientX-window.innerWidth/2)/(window.innerWidth/2);
+      ty=(e.clientY-window.innerHeight/2)/(window.innerHeight/2);
+      gcx=e.clientX; gcy=e.clientY;
+    });
+    (function tick(){
+      cx+=(tx-cx)*.055; cy+=(ty-cy)*.055;
+      if(logo) logo.style.transform='translate(calc(-50% + '+(cx*2)+'px),'+(cy*1.5)+'px)';
+      if(mic) mic.style.transform='translate('+(cx*-8)+'px,'+(cy*-4)+'px)';
+      if(glow) glow.style.transform='translate('+(gcx-190)+'px,'+(gcy-190)+'px)';
+      requestAnimationFrame(tick);
+    })();
+  }
+
+  /* ── Scroll reveal ───────────────────────────── */
+  function initReveal() {
+    function check(){
+      var vh=window.innerHeight;
+      document.querySelectorAll('.rv:not(.in),.rvl:not(.in),.rvr:not(.in)').forEach(function(e){
+        if(e.getBoundingClientRect().top<vh-40) e.classList.add('in');
+      });
+    }
+    check();
+    window.addEventListener('scroll',check,{passive:true});
+    [80,350,900].forEach(function(d){setTimeout(check,d);});
+  }
+
+  /* ── Nav scroll ──────────────────────────────── */
+  function initNav() {
+    var nav=g('main-nav');
+    window.addEventListener('scroll',function(){
+      var s=Math.min(1,window.scrollY/180);
+      if(nav) nav.style.background='rgba(7,0,10,'+(0.94+s*.05)+')';
+    },{passive:true});
+  }
+
+  /* ── Boot ────────────────────────────────────── */
+  document.addEventListener('DOMContentLoaded',function(){
+    applySEO();
+    applyConfig();
+    renderEpisodes();
+    renderClips();
+    renderPlatforms();
+    renderStats();
+    renderQuiz();
+    renderPoll();
+    renderReactions();
+    initReveal();
+    initCanvas();
+    initParallax();
+    initNav();
+    setTimeout(init3DTilt, 400);
+  });
+
+  /* ── 3D card tilt ──────────────────────────────── */
+  function init3DTilt() {
+    function applyTilt(card) {
+      card.addEventListener('mouseenter',function(){ this.style.transition='transform .08s ease'; });
+      card.addEventListener('mousemove',function(e){
+        var r=this.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-.5;
+        var y=(e.clientY-r.top)/r.height-.5;
+        var rx=-y*13, ry=x*16;
+        this.style.transform='perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg) scale(1.028) translateZ(0)';
+      });
+      card.addEventListener('mouseleave',function(){
+        this.style.transition='transform .45s cubic-bezier(.2,.8,.2,1)';
+        this.style.transform='';
+      });
+    }
+    document.querySelectorAll('.ep-card,.stat-card,.quiz-card,.cm-card,.clip-card').forEach(applyTilt);
+  }
+
+  /* ── Public API ──────────────────────────────── */
+  return {
+    toggleMenu: toggleMenu,
+    selectQuiz: selectQuiz,
+    castVote:   castVote,
+    toggleTeaser: toggleTeaser,
+    startPlayer: startPlayer,
+    stopPlayer:  stopPlayer,
+    handleTopic: handleTopic,
+    handleNews:  handleNews
+  };
+})();
+</script>
+</body>
+</html>

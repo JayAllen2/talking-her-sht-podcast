@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+  <style>
+    html{scroll-behavior:smooth;}
+    html,body{margin:0;padding:0;background:#07000a;overflow-x:hidden;}
+    *{box-sizing:border-box;}
+    @keyframes spinCD{to{transform:rotate(360deg);}}
+    @keyframes floatMic{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+    @keyframes floatLogo{0%,100%{transform:translateY(0) rotate(-.4deg);}33%{transform:translateY(-9px) rotate(.2deg);}66%{transform:translateY(-4px) rotate(-.2deg);}}
+    @keyframes shimmer{0%,100%{box-shadow:0 6px 24px rgba(255,47,176,.45);}50%{box-shadow:0 8px 44px rgba(255,47,176,.78);}}
+    @keyframes pulse{0%,100%{opacity:.45;}50%{opacity:.75;}}
+    @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+    .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+    .rv.in{opacity:1;transform:none;}
+    .rvl{opacity:0;transform:translateX(-34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+    .rvl.in{opacity:1;transform:none;}
+    .rvr{opacity:0;transform:translateX(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+    .rvr.in{opacity:1;transform:none;}
+    .nl{font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,210,245,.6);text-decoration:none;transition:color .2s;}
+    .nl:hover{color:#fff;}
+    .ep-card{background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.18);border-radius:20px;overflow:hidden;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s;}
+    .ep-card:hover{transform:translateY(-6px);border-color:rgba(255,47,176,.48);box-shadow:0 20px 52px rgba(255,47,176,.16);}
+    .stat-card{background:rgba(255,20,100,.04);border:1px solid rgba(255,47,176,.14);border-radius:18px;padding:40px 28px;text-align:center;transition:border-color .3s,box-shadow .3s,transform .3s;}
+    .stat-card:hover{border-color:rgba(255,47,176,.38);box-shadow:0 12px 40px rgba(255,47,176,.12);transform:translateY(-4px);}
+    .cm-card{background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.16);border-radius:20px;padding:40px 32px;transition:border-color .3s,box-shadow .3s,transform .3s;}
+    .cm-card:hover{border-color:rgba(255,47,176,.42);box-shadow:0 14px 44px rgba(255,47,176,.14);transform:translateY(-5px);}
+    .quiz-card{background:rgba(255,20,100,.04);border:1px solid rgba(255,47,176,.15);border-radius:18px;padding:28px 20px;cursor:pointer;transition:border-color .3s,background .3s,transform .3s;}
+    .quiz-card:hover{border-color:rgba(255,47,176,.4);background:rgba(255,47,176,.07);transform:translateY(-3px);}
+    .quiz-card.sel{border-color:#ff2fb0;background:rgba(255,47,176,.1);box-shadow:0 0 0 1px #ff2fb0;}
+    .plat-btn{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:rgba(255,225,245,.85);text-decoration:none;padding:18px 26px;border-radius:14px;font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:border-color .3s,background .3s,box-shadow .3s,transform .3s;}
+    .plat-btn:hover{border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.09);box-shadow:0 8px 28px rgba(255,47,176,.18);transform:translateY(-3px);}
+    .clip-card{border-radius:18px;overflow:hidden;aspect-ratio:9/16;position:relative;background:radial-gradient(130% 100% at 50% 0%,rgba(255,60,170,.22),rgba(40,0,28,.92) 55%,rgba(8,0,10,.96));border:1px solid rgba(255,47,176,.22);transition:transform .3s,box-shadow .3s;cursor:pointer;}
+    .clip-card:hover{transform:scale(1.02);box-shadow:0 20px 60px rgba(255,47,176,.2);}
+    .rx-card{background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.2);border-radius:20px;padding:28px 30px;}
+    .field{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,47,176,.22);border-radius:12px;padding:15px 20px;color:#fff;font-family:Montserrat;font-size:14px;font-weight:500;outline:none;transition:border-color .3s,box-shadow .3s;}
+    .field::placeholder{color:rgba(255,200,240,.38);}
+    .field:focus{border-color:rgba(255,47,176,.55);box-shadow:0 0 0 3px rgba(255,47,176,.12);}
+    .mini-player{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(10,0,14,.95);border-top:1px solid rgba(255,47,176,.25);backdrop-filter:blur(20px);padding:14px 48px;display:flex;align-items:center;gap:20px;}
+    @media(max-width:1100px){.hero-mic{height:min(52vh,460px)!important;}}
+    @media(max-width:860px){.hero-mic{display:none!important;}.desk-nav{display:none!important;}.hmb{display:flex!important;}.ep-grid,.stat-grid,.cm-grid,.quiz-grid,.rx-grid{grid-template-columns:1fr!important;}.clips-grid{grid-template-columns:1fr 1fr!important;}.two-col{grid-template-columns:1fr!important;}.plat-row{flex-direction:column!important;}.sect{padding:72px 24px!important;}}
+    @media(max-width:540px){.clips-grid{grid-template-columns:1fr!important;}.stat-grid{grid-template-columns:repeat(2,1fr)!important;}}
+  </style>
+</helmet>
+
+<div style="position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.034;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:180px;"></div>
+<div ref="{{ glowRef }}" style="position:fixed;top:0;left:0;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,47,176,.11) 0%,rgba(255,47,176,0) 65%);pointer-events:none;z-index:9990;mix-blend-mode:screen;will-change:transform;"></div>
+
+<!-- NAV -->
+<nav ref="{{ navRef }}" style="position:sticky;top:0;z-index:200;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,0,10,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,47,176,.12);">
+  <div style="flex:none;display:flex;flex-direction:column;gap:2px;">
+    <span style="font-family:Montserrat;font-weight:900;font-size:11px;letter-spacing:.3em;color:#fff;text-transform:uppercase;line-height:1;">Talking Her Sh*t</span>
+    <span style="font-family:Montserrat;font-weight:500;font-size:8px;letter-spacing:.26em;color:#ff8fd6;text-transform:uppercase;line-height:1;">By Miss Yanelis</span>
+  </div>
+  <div class="desk-nav" style="display:flex;gap:36px;">
+    <a href="#episodes" class="nl">Episodes</a><a href="#about" class="nl">About</a><a href="#listen" class="nl">Listen</a><a href="#community" class="nl">Community</a><a href="{{ instagramUrl }}" class="nl">Follow</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="{{ listenUrl }}" style="flex:none;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:10px 24px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;animation:shimmer 4s ease-in-out infinite;">Listen Now</a>
+    <button class="hmb" onClick="{{ toggleMenu }}" style="display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;" aria-label="Menu">
+      <span style="width:20px;height:1.5px;background:rgba(255,210,245,.8);display:block;border-radius:2px;"></span>
+      <span style="width:20px;height:1.5px;background:rgba(255,210,245,.8);display:block;border-radius:2px;"></span>
+      <span style="width:20px;height:1.5px;background:rgba(255,210,245,.8);display:block;border-radius:2px;"></span>
+    </button>
+  </div>
+</nav>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;top:64px;left:0;right:0;z-index:199;background:rgba(6,0,9,.97);border-bottom:1px solid rgba(255,47,176,.14);padding:32px;display:flex;flex-direction:column;gap:24px;backdrop-filter:blur(20px);">
+    <a href="#episodes" class="nl" onClick="{{ toggleMenu }}" style="font-size:17px;color:#fff;">Episodes</a>
+    <a href="#about" class="nl" onClick="{{ toggleMenu }}" style="font-size:17px;color:#fff;">About</a>
+    <a href="#listen" class="nl" onClick="{{ toggleMenu }}" style="font-size:17px;color:#fff;">Listen</a>
+    <a href="#community" class="nl" onClick="{{ toggleMenu }}" style="font-size:17px;color:#fff;">Community</a>
+    <a href="{{ instagramUrl }}" class="nl" style="font-size:17px;color:#ff8fd6;">@missyanelis</a>
+    <a href="{{ listenUrl }}" style="background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:15px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;text-align:center;">Listen Now</a>
+  </div>
+</sc-if>
+
+<!-- HERO -->
+<section id="hero" style="position:relative;min-height:100vh;overflow:hidden;background:radial-gradient(140% 120% at 50% 50%,#1a0212 0%,#0d000d 50%,#07000a 100%);">
+  <canvas ref="{{ canvasRef }}" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;"></canvas>
+  <div style="position:absolute;left:50%;top:50%;width:700px;height:700px;border-radius:50%;border:1px solid rgba(255,47,176,.14);transform:translate(-50%,-50%);pointer-events:none;z-index:2;"></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:50%;background:radial-gradient(ellipse at 80% 60%,rgba(255,47,176,.18) 0%,rgba(255,47,176,0) 65%);pointer-events:none;z-index:2;animation:pulse 7s ease-in-out infinite;"></div>
+  <!-- CD left -->
+  <div style="position:absolute;left:-80px;bottom:0;z-index:3;height:min(68vh,620px);opacity:.92;animation:floatMic 7s ease-in-out infinite;">
+    <div style="height:100%;animation:spinCD 22s linear infinite;transform-origin:50% 42%;">
+      <img src="uploads/cd.png" draggable="false" style="height:100%;width:auto;filter:drop-shadow(0 0 32px rgba(255,47,176,.5)) drop-shadow(0 20px 16px rgba(0,0,0,.5));pointer-events:none;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 82% 88% at 42% 52%,#000 38%,rgba(0,0,0,.8) 58%,rgba(0,0,0,.3) 76%,transparent 100%);mask-image:radial-gradient(ellipse 82% 88% at 42% 52%,#000 38%,rgba(0,0,0,.8) 58%,rgba(0,0,0,.3) 76%,transparent 100%);">
+    </div>
+  </div>
+  <!-- Mic right -->
+  <div class="hero-mic" style="position:absolute;right:-20px;bottom:0;z-index:4;height:min(70vh,640px);" ref="{{ micRef }}">
+    <div style="height:100%;animation:floatMic 5.5s ease-in-out infinite;">
+      <img src="uploads/mic.png" draggable="false" style="height:100%;width:auto;filter:drop-shadow(0 0 40px rgba(255,47,176,.55)) drop-shadow(0 28px 20px rgba(0,0,0,.7));pointer-events:none;">
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to bottom,transparent,#07000a);pointer-events:none;z-index:5;"></div>
+
+  <!-- Logo: top-anchored zone -->
+  <div ref="{{ logoRef }}" style="position:absolute;top:6vh;left:50%;transform:translateX(-50%);height:min(44vh,400px);width:auto;z-index:10;pointer-events:none;">
+    <img src="assets/title-words.png" alt="Talking Her Sh*t by Miss Yanelis" draggable="false" style="height:100%;width:auto;display:block;user-select:none;pointer-events:none;mix-blend-mode:screen;animation:floatLogo 6.5s ease-in-out infinite;-webkit-mask-image:radial-gradient(ellipse 105% 74% at 50% 39%,#000 42%,rgba(0,0,0,.55) 66%,rgba(0,0,0,.15) 80%,transparent 92%);mask-image:radial-gradient(ellipse 105% 74% at 50% 39%,#000 42%,rgba(0,0,0,.55) 66%,rgba(0,0,0,.15) 80%,transparent 92%);">
+  </div>
+
+  <!-- Text + CTAs: bottom-anchored zone -->
+  <div style="position:absolute;bottom:10vh;left:50%;transform:translateX(-50%);width:min(560px,84vw);z-index:10;text-align:center;pointer-events:auto;">
+    <h1 style="font-family:Montserrat;font-weight:900;font-size:clamp(26px,3.2vw,46px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.12;margin:0 0 18px;">Unfiltered.<br>Unbothered.<br>Unapologetic.</h1>
+    <p style="font-family:Montserrat;font-weight:400;font-size:clamp(13px,1.2vw,15px);color:rgba(255,205,240,.68);line-height:1.72;max-width:460px;margin:0 auto 28px;">Bold conversations, real stories, and the kind of energy you cannot ignore.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;">
+      <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:15px 32px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;animation:shimmer 3.5s ease-in-out infinite;"><span style="width:0;height:0;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;"></span>Listen Now</a>
+      <a href="{{ watchUrl }}" style="display:inline-flex;align-items:center;background:rgba(255,47,176,.09);border:1.5px solid rgba(255,160,220,.38);color:#fff;text-decoration:none;padding:13px 26px;border-radius:999px;font-family:Montserrat;font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;">Watch Latest Ep</a>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 0 24px;">
+      <a href="{{ spotifyUrl }}" style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,210,245,.75);text-decoration:none;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,47,176,.25);transition:border-color .2s,color .2s;" style-hover="border-color:rgba(255,47,176,.55);color:#fff;">Spotify</a>
+      <a href="{{ appleUrl }}" style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,210,245,.75);text-decoration:none;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,47,176,.25);transition:border-color .2s,color .2s;" style-hover="border-color:rgba(255,47,176,.55);color:#fff;">Apple</a>
+      <a href="{{ youtubeUrl }}" style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,210,245,.75);text-decoration:none;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,47,176,.25);transition:border-color .2s,color .2s;" style-hover="border-color:rgba(255,47,176,.55);color:#fff;">YouTube</a>
+      <a href="{{ amazonUrl }}" style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,210,245,.75);text-decoration:none;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,47,176,.25);transition:border-color .2s,color .2s;" style-hover="border-color:rgba(255,47,176,.55);color:#fff;">Amazon</a>
+    </div>
+    <!-- Audio teaser -->
+    <div onClick="{{ onTeaserClick }}" style="display:inline-flex;align-items:center;gap:14px;background:rgba(255,20,100,.08);border:1px solid rgba(255,47,176,.28);border-radius:999px;padding:12px 20px 12px 16px;cursor:pointer;backdrop-filter:blur(12px);" style-hover="border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.12);">
+      <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,47,176,.2);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;flex:none;">
+        <sc-if value="{{ teaserPlaying }}" hint-placeholder-val="{{ false }}">
+          <span style="display:flex;gap:3px;align-items:center;"><span style="width:3px;height:10px;background:#ff8fd6;border-radius:2px;"></span><span style="width:3px;height:10px;background:#ff8fd6;border-radius:2px;"></span></span>
+        </sc-if>
+        <sc-if value="{{ teaserStopped }}" hint-placeholder-val="{{ true }}">
+          <span style="width:0;height:0;border-left:11px solid #ff8fd6;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:2px;"></span>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px;min-width:150px;">
+        <span style="font-family:Montserrat;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#fff;">Press Play For The Vibe</span>
+        <div style="position:relative;height:3px;background:rgba(255,47,176,.2);border-radius:2px;overflow:hidden;">
+          <div style="position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,#ff2fb0,#ff8fd6);border-radius:2px;width:{{ teaserPct }}%;transition:width .5s linear;"></div>
+        </div>
+      </div>
+      <span style="font-family:Montserrat;font-weight:500;font-size:10px;color:rgba(255,160,220,.6);">15s</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:50%;bottom:20px;z-index:11;animation:bounce 2.2s ease-in-out infinite;pointer-events:none;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="width:1px;height:28px;background:linear-gradient(to bottom,transparent,rgba(255,47,176,.45));"></div><span style="font-family:Montserrat;font-weight:600;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,160,220,.35);">Scroll</span></div>
+  </div>
+</section>
+
+<!-- UPCOMING DROP STRIP -->
+<div style="background:rgba(255,47,176,.07);border-top:1px solid rgba(255,47,176,.18);border-bottom:1px solid rgba(255,47,176,.18);padding:16px 48px;">
+  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="width:8px;height:8px;border-radius:50%;background:#ff2fb0;animation:pulse 1.8s ease-in-out infinite;flex:none;"></span>
+      <span style="font-family:Montserrat;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;">This Week On Talking Her Sh*t</span>
+      <span style="font-family:Montserrat;font-weight:400;font-size:13px;color:rgba(255,200,240,.65);">"The Conversation We Needed To Have"</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,160,220,.65);">Drops Friday</span>
+      <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:9px 20px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;animation:shimmer 4s ease-in-out infinite;">Notify Me</a>
+    </div>
+  </div>
+</div>
+
+<!-- START HERE -->
+<section style="padding:84px 48px;background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);" class="sect">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;" class="two-col">
+      <div class="rvl">
+        <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">Start Here</p>
+        <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin-bottom:18px;"></div>
+        <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(28px,3.4vw,46px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.1;margin:0 0 18px;">New Here?<br>Press Play First.</h2>
+        <p style="font-family:Montserrat;font-size:clamp(14px,1.3vw,16px);color:rgba(255,200,240,.68);line-height:1.7;max-width:420px;margin:0 0 24px;">Start with the episode that gives you the full Talking Her Sh*t energy in one listen. You'll know in 30 seconds.</p>
+        <p style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,160,220,.5);margin:0 0 32px;">Press play. You'll get it.</p>
+        <div style="display:flex;gap:32px;flex-wrap:wrap;">
+          <div><p style="margin:0;font-family:Montserrat;font-weight:900;font-size:28px;color:#fff;line-height:1;">52<span style="color:#ff2fb0;font-size:.6em;">m</span></p><p style="margin:4px 0 0;font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,160,220,.55);">Run Time</p></div>
+          <div><p style="margin:0;font-family:Montserrat;font-weight:900;font-size:28px;color:#fff;line-height:1;">1.2M<span style="color:#ff2fb0;font-size:.55em;">+</span></p><p style="margin:4px 0 0;font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,160,220,.55);">Plays</p></div>
+          <div><p style="margin:0;font-family:Montserrat;font-weight:900;font-size:28px;color:#fff;line-height:1;">#1</p><p style="margin:4px 0 0;font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,160,220,.55);">Most Replayed</p></div>
+        </div>
+      </div>
+      <div class="rvr">
+        <div style="background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.22);border-radius:22px;padding:32px;overflow:hidden;">
+          <div style="width:100%;aspect-ratio:16/9;border-radius:14px;background:linear-gradient(135deg,rgba(255,47,176,.12),rgba(60,0,40,.5));margin-bottom:24px;display:flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(255,47,176,.14);">
+            <button onClick="{{ onPlayEp1 }}" style="width:64px;height:64px;border-radius:50%;background:rgba(255,47,176,.22);border:2px solid rgba(255,160,220,.5);display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="transform:scale(1.08);background:rgba(255,47,176,.36);">
+              <span style="width:0;height:0;border-left:20px solid #ff8fd6;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:4px;"></span>
+            </button>
+            <span style="position:absolute;bottom:10px;right:12px;font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.16em;color:rgba(255,160,220,.65);text-transform:uppercase;">52 min</span>
+          </div>
+          <p style="margin:0 0 6px;font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.2em;color:#ff8fd6;text-transform:uppercase;">EP 001 · The One That Started It All</p>
+          <h3 style="margin:0 0 10px;font-family:Montserrat;font-weight:800;font-size:clamp(16px,1.8vw,22px);color:#fff;text-transform:uppercase;letter-spacing:.02em;">No Filter, No Fakes</h3>
+          <p style="margin:0 0 24px;font-family:Montserrat;font-size:14px;color:rgba(255,200,240,.62);line-height:1.68;">The raw, uncut take on fake friendships and why keeping it 100% is the only currency that matters.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="{{ listenUrl }}" onClick="{{ onPlayEp1 }}" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:11px 22px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;animation:shimmer 4s ease-in-out infinite;">Listen</a>
+            <a href="{{ watchUrl }}" style="display:inline-flex;align-items:center;background:rgba(255,47,176,.1);border:1px solid rgba(255,47,176,.3);color:#ff8fd6;text-decoration:none;padding:10px 20px;border-radius:999px;font-family:Montserrat;font-weight:700;font-size:11px;letter-spacing:.13em;text-transform:uppercase;">Watch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED EPISODES -->
+<section id="episodes" style="padding:84px 48px;background:#07000a;position:relative;overflow:hidden;" class="sect">
+  <div style="position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:340px;height:340px;opacity:.05;pointer-events:none;">
+    <img src="uploads/cd.png" style="width:100%;height:100%;object-fit:contain;mix-blend-mode:screen;">
+  </div>
+  <div style="max-width:1180px;margin:0 auto;position:relative;">
+    <div class="rv" style="margin-bottom:44px;text-align:center;">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">Now Playing</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 16px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(28px,3.8vw,52px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.05;margin:0 0 14px;">Featured Episodes</h2>
+      <p style="font-family:Montserrat;font-size:clamp(14px,1.3vw,16px);color:rgba(255,200,240,.65);line-height:1.68;max-width:540px;margin:0 auto;">Catch the latest conversations, opinions, and moments everyone will be talking about.</p>
+    </div>
+    <div class="rv" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;justify-content:center;">
+      <button style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,47,176,.55);color:#fff;background:rgba(255,47,176,.15);white-space:nowrap;">Latest</button>
+      <button style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,47,176,.28);color:rgba(255,200,240,.7);background:transparent;white-space:nowrap;" style-hover="border-color:rgba(255,47,176,.5);color:#fff;background:rgba(255,47,176,.08);">Watched</button>
+      <button style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,47,176,.28);color:rgba(255,200,240,.7);background:transparent;white-space:nowrap;" style-hover="border-color:rgba(255,47,176,.5);color:#fff;background:rgba(255,47,176,.08);">Hot Takes</button>
+      <button style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,47,176,.28);color:rgba(255,200,240,.7);background:transparent;white-space:nowrap;" style-hover="border-color:rgba(255,47,176,.5);color:#fff;background:rgba(255,47,176,.08);">Real</button>
+      <button style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,47,176,.28);color:rgba(255,200,240,.7);background:transparent;white-space:nowrap;" style-hover="border-color:rgba(255,47,176,.5);color:#fff;background:rgba(255,47,176,.08);">Faves</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="ep-grid">
+      <div class="ep-card rv">
+        <div style="width:100%;aspect-ratio:16/9;background:radial-gradient(120% 120% at 30% 20%,rgba(255,60,180,.28),rgba(120,10,70,.4) 45%,rgba(20,0,14,.85));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,140,214,.06) 6px 7px);"></div>
+          <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,47,176,.3);border:1.5px solid rgba(255,200,235,.55);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;box-shadow:0 0 24px rgba(255,47,176,.4);"><span style="width:0;height:0;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div>
+          <span style="position:absolute;top:12px;left:14px;z-index:1;font-family:Montserrat;font-weight:700;font-size:9px;letter-spacing:.16em;color:#fff;text-transform:uppercase;background:rgba(255,47,176,.35);border-radius:6px;padding:4px 10px;">Real Talk</span>
+          <span style="position:absolute;bottom:10px;right:12px;font-family:Montserrat;font-weight:700;font-size:10px;color:rgba(255,160,220,.65);letter-spacing:.1em;">45 min</span>
+        </div>
+        <div style="padding:22px 24px 24px;">
+          <p style="margin:0 0 8px;font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.2em;color:rgba(255,160,220,.55);text-transform:uppercase;">EP 001</p>
+          <h3 style="margin:0 0 10px;font-family:Montserrat;font-weight:800;font-size:17px;color:#fff;text-transform:uppercase;line-height:1.25;letter-spacing:.02em;">No Filter, No Fakes</h3>
+          <p style="margin:0 0 20px;font-family:Montserrat;font-size:14px;color:rgba(255,200,240,.6);line-height:1.68;">The raw, uncut take on fake friendships and why keeping it 100% is the only currency that matters.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.3);color:#ff8fd6;text-decoration:none;padding:9px 18px;border-radius:999px;font-family:Montserrat;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">Play</a>
+            <span style="font-family:Montserrat;font-size:11px;color:rgba(255,160,220,.4);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;" style-hover="color:#ff8fd6;">Share ↗</span>
+          </div>
+        </div>
+      </div>
+      <div class="ep-card rv" style="transition-delay:.1s;">
+        <div style="width:100%;aspect-ratio:16/9;background:radial-gradient(120% 120% at 70% 25%,rgba(200,40,255,.26),rgba(90,10,90,.42) 45%,rgba(18,0,16,.85));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,140,214,.06) 6px 7px);"></div>
+          <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,47,176,.3);border:1.5px solid rgba(255,200,235,.55);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;box-shadow:0 0 24px rgba(255,47,176,.4);"><span style="width:0;height:0;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div>
+          <span style="position:absolute;top:12px;left:14px;z-index:1;font-family:Montserrat;font-weight:700;font-size:9px;letter-spacing:.16em;color:#fff;text-transform:uppercase;background:rgba(255,47,176,.35);border-radius:6px;padding:4px 10px;">Hot Takes</span>
+          <span style="position:absolute;bottom:10px;right:12px;font-family:Montserrat;font-weight:700;font-size:10px;color:rgba(255,160,220,.65);letter-spacing:.1em;">38 min</span>
+        </div>
+        <div style="padding:22px 24px 24px;">
+          <p style="margin:0 0 8px;font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.2em;color:rgba(255,160,220,.55);text-transform:uppercase;">EP 002</p>
+          <h3 style="margin:0 0 10px;font-family:Montserrat;font-weight:800;font-size:17px;color:#fff;text-transform:uppercase;line-height:1.25;letter-spacing:.02em;">She Said What She Said</h3>
+          <p style="margin:0 0 20px;font-family:Montserrat;font-size:14px;color:rgba(255,200,240,.6);line-height:1.68;">When women speak with conviction the world listens — or it should. For the ones who refuse to apologize.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.3);color:#ff8fd6;text-decoration:none;padding:9px 18px;border-radius:999px;font-family:Montserrat;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">Play</a>
+            <span style="font-family:Montserrat;font-size:11px;color:rgba(255,160,220,.4);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;" style-hover="color:#ff8fd6;">Share ↗</span>
+          </div>
+        </div>
+      </div>
+      <div class="ep-card rv" style="transition-delay:.2s;">
+        <div style="width:100%;aspect-ratio:16/9;background:radial-gradient(120% 120% at 50% 30%,rgba(255,90,150,.26),rgba(110,15,55,.42) 45%,rgba(18,0,12,.85));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,140,214,.06) 6px 7px);"></div>
+          <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,47,176,.3);border:1.5px solid rgba(255,200,235,.55);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;box-shadow:0 0 24px rgba(255,47,176,.4);"><span style="width:0;height:0;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div>
+          <span style="position:absolute;top:12px;left:14px;z-index:1;font-family:Montserrat;font-weight:700;font-size:9px;letter-spacing:.16em;color:#fff;text-transform:uppercase;background:rgba(255,47,176,.35);border-radius:6px;padding:4px 10px;">Fan Fave</span>
+          <span style="position:absolute;bottom:10px;right:12px;font-family:Montserrat;font-weight:700;font-size:10px;color:rgba(255,160,220,.65);letter-spacing:.1em;">52 min</span>
+        </div>
+        <div style="padding:22px 24px 24px;">
+          <p style="margin:0 0 8px;font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.2em;color:rgba(255,160,220,.55);text-transform:uppercase;">EP 003</p>
+          <h3 style="margin:0 0 10px;font-family:Montserrat;font-weight:800;font-size:17px;color:#fff;text-transform:uppercase;line-height:1.25;letter-spacing:.02em;">The Glow Up Era</h3>
+          <p style="margin:0 0 20px;font-family:Montserrat;font-size:14px;color:rgba(255,200,240,.6);line-height:1.68;">Standards, self-respect, and the kind of growth that doesn't ask for permission. Your redemption arc starts now.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.3);color:#ff8fd6;text-decoration:none;padding:9px 18px;border-radius:999px;font-family:Montserrat;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">Play</a>
+            <span style="font-family:Montserrat;font-size:11px;color:rgba(255,160,220,.4);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;" style-hover="color:#ff8fd6;">Share ↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rv" style="text-align:center;margin-top:44px;">
+      <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,47,176,.3);color:rgba(255,200,240,.85);text-decoration:none;padding:13px 34px;border-radius:999px;font-family:Montserrat;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;" style-hover="border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.07);">View All Episodes &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIPS WALL -->
+<section style="padding:84px 48px;background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);" class="sect">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div class="rv" style="margin-bottom:48px;text-align:center;">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">Social Clips</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 18px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(28px,3.6vw,50px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.05;margin:0;">Clips Everyone<br>Is Talking About</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;" class="clips-grid">
+      <div class="clip-card rv">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,0,8,.92) 100%);z-index:1;"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);z-index:2;"><div style="width:48px;height:48px;border-radius:50%;background:rgba(255,47,176,.25);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;"><span style="width:0;height:0;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:2;"><p style="margin:0 0 10px;font-family:Montserrat;font-weight:700;font-size:13px;color:#fff;line-height:1.4;">"She said what needed to be said"</p><a href="{{ listenUrl }}" style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;color:#ff8fd6;text-decoration:none;text-transform:uppercase;">Full Episode &rarr;</a></div>
+        <div style="position:absolute;top:14px;left:14px;z-index:2;font-family:Montserrat;font-weight:700;font-size:9px;letter-spacing:.14em;color:rgba(255,200,240,.7);text-transform:uppercase;background:rgba(0,0,0,.45);border-radius:6px;padding:4px 10px;">1.2M views</div>
+      </div>
+      <div class="clip-card rv" style="transition-delay:.08s;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,0,8,.92) 100%);z-index:1;"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);z-index:2;"><div style="width:48px;height:48px;border-radius:50%;background:rgba(255,47,176,.25);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;"><span style="width:0;height:0;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:2;"><p style="margin:0 0 10px;font-family:Montserrat;font-weight:700;font-size:13px;color:#fff;line-height:1.4;">"I sent this to my group chat immediately"</p><a href="{{ listenUrl }}" style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;color:#ff8fd6;text-decoration:none;text-transform:uppercase;">Full Episode &rarr;</a></div>
+        <div style="position:absolute;top:14px;left:14px;z-index:2;font-family:Montserrat;font-weight:700;font-size:9px;letter-spacing:.14em;color:rgba(255,200,240,.7);text-transform:uppercase;background:rgba(0,0,0,.45);border-radius:6px;padding:4px 10px;">890K views</div>
+      </div>
+      <div class="clip-card rv" style="transition-delay:.16s;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,0,8,.92) 100%);z-index:1;"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);z-index:2;"><div style="width:48px;height:48px;border-radius:50%;background:rgba(255,47,176,.25);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;"><span style="width:0;height:0;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:2;"><p style="margin:0 0 10px;font-family:Montserrat;font-weight:700;font-size:13px;color:#fff;line-height:1.4;">"No cap, this is the truth"</p><a href="{{ listenUrl }}" style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;color:#ff8fd6;text-decoration:none;text-transform:uppercase;">Full Episode &rarr;</a></div>
+        <div style="position:absolute;top:14px;left:14px;z-index:2;font-family:Montserrat;font-weight:700;font-size:9px;letter-spacing:.14em;color:rgba(255,200,240,.7);text-transform:uppercase;background:rgba(0,0,0,.45);border-radius:6px;padding:4px 10px;">644K views</div>
+      </div>
+      <div class="clip-card rv" style="transition-delay:.24s;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,0,8,.92) 100%);z-index:1;"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);z-index:2;"><div style="width:48px;height:48px;border-radius:50%;background:rgba(255,47,176,.25);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;"><span style="width:0;height:0;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;"></span></div></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:2;"><p style="margin:0 0 10px;font-family:Montserrat;font-weight:700;font-size:13px;color:#fff;line-height:1.4;">"The glow-up was non-negotiable"</p><a href="{{ listenUrl }}" style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;color:#ff8fd6;text-decoration:none;text-transform:uppercase;">Full Episode &rarr;</a></div>
+        <div style="position:absolute;top:14px;left:14px;z-index:2;font-family:Montserrat;font-weight:700;font-size:9px;letter-spacing:.14em;color:rgba(255,200,240,.7);text-transform:uppercase;background:rgba(0,0,0,.45);border-radius:6px;padding:4px 10px;">502K views</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding:84px 48px;background:#07000a;" class="sect">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:center;" class="two-col">
+      <div class="rvl">
+        <div style="aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,47,176,.26),0 28px 72px rgba(0,0,0,.6);">
+          <img src="assets/yanelis.jpg" alt="Miss Yanelis" draggable="false" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+        </div>
+      </div>
+      <div class="rvr" style="position:relative;">
+        <div style="position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:300px;height:300px;opacity:.1;pointer-events:none;-webkit-mask-image:radial-gradient(circle 120px at 50% 50%,#000 20%,transparent 100%);mask-image:radial-gradient(circle 120px at 50% 50%,#000 20%,transparent 100%);">
+          <img src="assets/icons1.png" style="width:100%;height:100%;object-fit:cover;object-position:0 34%;">
+        </div>
+        <div style="position:relative;z-index:1;">
+          <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">The Voice</p>
+          <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin-bottom:18px;"></div>
+          <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(30px,3.6vw,50px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0 0 24px;">Meet Miss<br>Yanelis</h2>
+          <p style="font-family:Montserrat;font-size:clamp(14px,1.35vw,17px);color:rgba(255,200,240,.68);line-height:1.75;max-width:500px;margin:0 0 32px;">A bold voice for real conversations, unapologetic opinions, and stories that go deeper than surface-level talk. Talking Her Sh*t is where glamour, truth, humor, and unfiltered perspective meet.</p>
+          <div style="border-left:2px solid #ff2fb0;padding:18px 24px;background:rgba(255,47,176,.06);border-radius:0 14px 14px 0;margin-bottom:36px;">
+            <p style="margin:0;font-family:Montserrat;font-weight:700;font-size:clamp(15px,1.5vw,20px);font-style:italic;color:#ffd9ef;line-height:1.5;">"If we're talking,<br>we're telling the truth."</p>
+          </div>
+          <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:15px 34px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;animation:shimmer 4s ease-in-out infinite;">Listen to Her Story</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTEN EVERYWHERE -->
+<section id="listen" style="padding:84px 48px;background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);position:relative;overflow:hidden;" class="sect">
+  <div style="position:absolute;left:50%;top:50%;width:560px;height:560px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,47,176,.1) 0%,rgba(255,47,176,0) 62%);pointer-events:none;"></div>
+  <div style="max-width:1180px;margin:0 auto;position:relative;">
+    <div class="rv" style="text-align:center;margin-bottom:52px;">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">Stream Anywhere</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 18px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(28px,3.6vw,50px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.05;margin:0 0 12px;">Listen Everywhere</h2>
+      <p style="font-family:Montserrat;font-size:clamp(14px,1.3vw,16px);color:rgba(255,200,240,.65);margin:0 auto;max-width:380px;">Tap in wherever you get your podcasts.</p>
+    </div>
+    <div class="rv plat-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="{{ spotifyUrl }}" class="plat-btn"><div style="width:30px;height:30px;border-radius:50%;background:rgba(30,215,96,.16);border:1px solid rgba(30,215,96,.3);flex:none;display:flex;align-items:center;justify-content:center;"><span style="width:11px;height:11px;border-radius:50%;background:#1ed760;display:block;"></span></div>Spotify</a>
+      <a href="{{ appleUrl }}" class="plat-btn"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,47,176,.16);border:1px solid rgba(255,47,176,.3);flex:none;display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;color:#ff8fd6;line-height:1;">♫</span></div>Apple Podcasts</a>
+      <a href="{{ youtubeUrl }}" class="plat-btn"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,40,40,.16);border:1px solid rgba(255,40,40,.28);flex:none;display:flex;align-items:center;justify-content:center;"><span style="width:0;height:0;border-left:10px solid #ff5555;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px;"></span></div>YouTube</a>
+      <a href="{{ amazonUrl }}" class="plat-btn"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,165,0,.14);border:1px solid rgba(255,165,0,.26);flex:none;display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;color:#ffa500;font-weight:900;line-height:1;">A</span></div>Amazon Music</a>
+      <a href="{{ podcastUrl }}" class="plat-btn"><div style="width:30px;height:30px;border-radius:50%;background:rgba(147,51,234,.14);border:1px solid rgba(147,51,234,.28);flex:none;display:flex;align-items:center;justify-content:center;"><span style="font-size:13px;color:#a855f7;line-height:1;">◉</span></div>Podcast App</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats" style="padding:84px 48px;background:#07000a;position:relative;" class="sect">
+  <div style="position:absolute;left:50px;top:50%;transform:translateY(-50%);width:160px;height:120px;opacity:.38;pointer-events:none;-webkit-mask-image:radial-gradient(circle 55px at center,#000 20%,transparent 100%);mask-image:radial-gradient(circle 55px at center,#000 20%,transparent 100%);">
+    <img src="assets/icons3.png" style="width:100%;height:100%;object-fit:cover;object-position:0 0;">
+  </div>
+  <div style="position:absolute;right:50px;top:50%;transform:translateY(-50%);width:160px;height:120px;opacity:.3;pointer-events:none;-webkit-mask-image:radial-gradient(circle 55px at center,#000 20%,transparent 100%);mask-image:radial-gradient(circle 55px at center,#000 20%,transparent 100%);">
+    <img src="assets/icons3.png" style="width:100%;height:100%;object-fit:cover;object-position:0 0;">
+  </div>
+  <div style="max-width:1180px;margin:0 auto;position:relative;">
+    <div class="rv" style="text-align:center;margin-bottom:56px;">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">By The Numbers</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 16px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(28px,3.6vw,50px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.05;margin:0;">The Conversation<br>Is Growing</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;" class="stat-grid">
+      <div class="stat-card rv"><p style="font-family:Montserrat;font-weight:900;font-size:clamp(40px,4.5vw,64px);color:#fff;letter-spacing:-.02em;line-height:1;margin:0 0 8px;">50K<span style="color:#ff2fb0;font-size:.65em;">+</span></p><p style="font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,160,220,.6);margin:0;">Downloads</p></div>
+      <div class="stat-card rv" style="transition-delay:.08s;"><p style="font-family:Montserrat;font-weight:900;font-size:clamp(40px,4.5vw,64px);color:#fff;letter-spacing:-.02em;line-height:1;margin:0 0 8px;">100<span style="color:#ff2fb0;font-size:.65em;">+</span></p><p style="font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,160,220,.6);margin:0;">Episodes</p></div>
+      <div class="stat-card rv" style="transition-delay:.16s;"><p style="font-family:Montserrat;font-weight:900;font-size:clamp(40px,4.5vw,64px);color:#fff;letter-spacing:-.02em;line-height:1;margin:0 0 8px;">1M<span style="color:#ff2fb0;font-size:.65em;">+</span></p><p style="font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,160,220,.6);margin:0;">Views</p></div>
+      <div class="stat-card rv" style="transition-delay:.24s;"><p style="font-family:Montserrat;font-weight:900;font-size:clamp(40px,4.5vw,64px);color:#fff;letter-spacing:-.02em;line-height:1;margin:0 0 8px;">24<span style="color:#ff2fb0;font-size:.65em;">/7</span></p><p style="font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,160,220,.6);margin:0;">New Moments</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community" style="padding:84px 48px;background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);" class="sect">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div class="rv" style="text-align:center;margin-bottom:56px;">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">The Movement</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 18px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(26px,3.5vw,48px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0 0 16px;">For The Ones With<br>Something To Say</h2>
+      <p style="font-family:Montserrat;font-size:clamp(14px,1.3vw,16px);color:rgba(255,200,240,.65);max-width:500px;margin:0 auto;line-height:1.72;text-align:center;">Real talk, bold opinions, soft-life standards, hard truths, and the moments that deserve to be said out loud.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="cm-grid">
+      <div class="cm-card rv">
+        <div style="width:64px;height:64px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="4" y="8" width="56" height="38" rx="10" fill="none" stroke="url(#cg1)" stroke-width="2.5"/><path d="M14 46 L8 56 L26 50" fill="none" stroke="url(#cg1)" stroke-width="2.5" stroke-linejoin="round"/><line x1="16" y1="22" x2="48" y2="22" stroke="url(#cg1)" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="32" x2="36" y2="32" stroke="url(#cg1)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="cg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff8fd6"/><stop offset="100%" stop-color="#ff2fb0"/></linearGradient></defs></svg>
+        </div>
+        <h3 style="font-family:Montserrat;font-weight:800;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin:0 0 12px;text-align:center;">Real Talk</h3>
+        <p style="font-family:Montserrat;font-size:14px;color:rgba(255,200,240,.62);line-height:1.72;margin:0;text-align:center;">No scripts, no filters. Just honest raw conversations that actually mean something and hit different every time.</p>
+      </div>
+      <div class="cm-card rv" style="transition-delay:.1s;">
+        <div style="width:64px;height:64px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="22" y="4" width="20" height="32" rx="10" fill="none" stroke="url(#cg2)" stroke-width="2.5"/><path d="M12 30 C12 44 52 44 52 30" fill="none" stroke="url(#cg2)" stroke-width="2.5" stroke-linecap="round"/><line x1="32" y1="44" x2="32" y2="56" stroke="url(#cg2)" stroke-width="2.5" stroke-linecap="round"/><line x1="22" y1="58" x2="42" y2="58" stroke="url(#cg2)" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="cg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff8fd6"/><stop offset="100%" stop-color="#ff2fb0"/></linearGradient></defs></svg>
+        </div>
+        <h3 style="font-family:Montserrat;font-weight:800;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin:0 0 12px;text-align:center;">Unfiltered Moments</h3>
+        <p style="font-family:Montserrat;font-size:14px;color:rgba(255,200,240,.62);line-height:1.72;margin:0;text-align:center;">The episodes you replay three times and send to seven people. No context needed — they'll just get it.</p>
+      </div>
+      <div class="cm-card rv" style="transition-delay:.2s;">
+        <div style="width:64px;height:64px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M38 4 L18 34 L28 34 L26 60 L46 30 L36 30 Z" fill="url(#cg3)" stroke="url(#cg3)" stroke-width="1.5" stroke-linejoin="round"/><defs><linearGradient id="cg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff8fd6"/><stop offset="100%" stop-color="#ff2fb0"/></linearGradient></defs></svg>
+        </div>
+        <h3 style="font-family:Montserrat;font-weight:800;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin:0 0 12px;text-align:center;">Bold Energy</h3>
+        <p style="font-family:Montserrat;font-size:14px;color:rgba(255,200,240,.62);line-height:1.72;margin:0;text-align:center;">Loud, proud, unapologetic. The kind of energy that fills a room and makes you feel seen without saying a word.</p>
+      </div>
+    </div>
+    <div class="rv" style="text-align:center;margin-top:48px;">
+      <a href="{{ instagramUrl }}" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:15px 40px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;animation:shimmer 4s ease-in-out infinite;">Join The Conversation</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section style="padding:84px 48px;background:#07000a;" class="sect">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div class="rv" style="text-align:center;margin-bottom:52px;">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">Find Your Episode</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 16px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(26px,3.5vw,48px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0;">What Kind Of<br>Talker Are You?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:36px;" class="quiz-grid rv">
+      <sc-for list="{{ quizCards }}" as="card" hint-placeholder-count="5">
+        <div class="{{ card.cardClass }}" onClick="{{ card.onSelect }}" style="background:rgba(255,20,100,.04);border:1px solid rgba(255,47,176,.15);border-radius:18px;padding:28px 18px;cursor:pointer;transition:border-color .3s,background .3s,transform .3s;text-align:center;" style-hover="border-color:rgba(255,47,176,.4);background:rgba(255,47,176,.07);transform:translateY(-3px);">
+          <div style="font-size:28px;margin-bottom:14px;display:block;">{{ card.symbol }}</div>
+          <h4 style="font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin:0 0 8px;line-height:1.3;">{{ card.title }}</h4>
+          <p style="font-family:Montserrat;font-size:12px;color:rgba(255,200,240,.58);line-height:1.6;margin:0 0 16px;">{{ card.desc }}</p>
+          <div style="display:inline-block;font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,47,176,.32);color:#ff8fd6;">Select</div>
+        </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ quizRecVisible }}" hint-placeholder-val="{{ false }}">
+      <div class="rv in" style="background:rgba(255,47,176,.08);border:1px solid rgba(255,47,176,.35);border-radius:18px;padding:28px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+        <div style="flex:none;width:44px;height:44px;border-radius:50%;background:rgba(255,47,176,.18);border:1.5px solid rgba(255,160,220,.45);display:flex;align-items:center;justify-content:center;"><span style="width:0;height:0;border-left:14px solid #ff8fd6;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:3px;"></span></div>
+        <div style="flex:1;">
+          <p style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.18em;color:#ff8fd6;text-transform:uppercase;margin:0 0 4px;">Your Episode Match</p>
+          <p style="font-family:Montserrat;font-weight:800;font-size:16px;color:#fff;margin:0;">{{ quizRec }}</p>
+        </div>
+        <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:12px 24px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;flex:none;animation:shimmer 3.5s ease-in-out infinite;">Play Now</a>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<!-- POLL -->
+<section style="padding:84px 48px;background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);" class="sect">
+  <div style="max-width:680px;margin:0 auto;text-align:center;">
+    <div class="rv">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">This Week</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 18px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(26px,3.4vw,46px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0 0 14px;">What Should We<br>Talk About Next?</h2>
+      <p style="font-family:Montserrat;font-size:clamp(14px,1.3vw,15px);color:rgba(255,200,240,.65);line-height:1.72;margin:0 auto 36px;max-width:420px;">Your vote shapes the next episode. Cast yours.</p>
+    </div>
+    <sc-if value="{{ pollVoted }}" hint-placeholder-val="{{ false }}">
+      <div class="rv in" style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+        <sc-for list="{{ pollResults }}" as="res" hint-placeholder-count="7">
+          <div style="display:flex;align-items:center;gap:12px;text-align:left;">
+            <span style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.06em;color:#fff;min-width:110px;">{{ res.label }}</span>
+            <div style="flex:1;height:8px;background:rgba(255,47,176,.15);border-radius:4px;overflow:hidden;"><div style="height:100%;background:linear-gradient(90deg,#ff2fb0,#ff8fd6);border-radius:4px;width:{{ res.pct }}%;transition:width 1.2s cubic-bezier(.2,.8,.2,1);"></div></div>
+            <span style="font-family:Montserrat;font-weight:700;font-size:12px;color:rgba(255,160,220,.7);min-width:36px;text-align:right;">{{ res.pct }}%</span>
+          </div>
+        </sc-for>
+      </div>
+      <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:14px 32px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;animation:shimmer 4s ease-in-out infinite;">Get Notified When It Drops</a>
+    </sc-if>
+    <sc-if value="{{ pollNotVoted }}" hint-placeholder-val="{{ true }}">
+      <div class="rv" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:8px;">
+        <sc-for list="{{ pollOptions }}" as="opt" hint-placeholder-count="7">
+          <button onClick="{{ opt.onVote }}" style="flex:1 1 180px;max-width:220px;background:rgba(255,47,176,.1);border:1.5px solid rgba(255,47,176,.4);border-radius:14px;padding:16px 18px;font-family:Montserrat;font-weight:700;font-size:13px;color:#fff;cursor:pointer;text-align:center;transition:border-color .25s,background .25s,transform .25s;letter-spacing:.04em;" style-hover="border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.1);transform:translateY(-2px);">{{ opt.label }}</button>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<!-- REACTION WALL -->
+<section style="padding:84px 48px;background:#07000a;position:relative;overflow:hidden;" class="sect">
+  <div style="position:absolute;right:8%;top:20%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,47,176,.08) 0%,rgba(255,47,176,0) 60%);pointer-events:none;"></div>
+  <div style="max-width:1180px;margin:0 auto;position:relative;">
+    <div class="rv" style="text-align:center;margin-bottom:52px;">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">From The Community</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 18px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(26px,3.4vw,46px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0;">The Girls<br>Are Talking</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;" class="rx-grid rv">
+      <div class="rx-card"><p style="font-family:Montserrat;font-weight:500;font-size:15px;color:rgba(255,220,245,.9);line-height:1.65;margin:0 0 18px;">"She said what needed to be said. I replayed it three times."</p><div style="display:flex;align-items:center;gap:10px;"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,rgba(255,47,176,.3),rgba(100,0,60,.4));border:1px solid rgba(255,160,220,.3);flex:none;"></div><span style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.1em;color:rgba(255,160,220,.6);text-transform:uppercase;">@thatgirl_deja</span></div></div>
+      <div class="rx-card"><p style="font-family:Montserrat;font-weight:500;font-size:15px;color:rgba(255,220,245,.9);line-height:1.65;margin:0 0 18px;">"I sent this to my entire group chat. They all started listening the same day."</p><div style="display:flex;align-items:center;gap:10px;"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,rgba(255,47,176,.3),rgba(100,0,60,.4));border:1px solid rgba(255,160,220,.3);flex:none;"></div><span style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.1em;color:rgba(255,160,220,.6);text-transform:uppercase;">@morningcoffeewithkay</span></div></div>
+      <div class="rx-card"><p style="font-family:Montserrat;font-weight:500;font-size:15px;color:rgba(255,220,245,.9);line-height:1.65;margin:0 0 18px;">"This episode was too real. I needed to hear this exactly when it dropped."</p><div style="display:flex;align-items:center;gap:10px;"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,rgba(255,47,176,.3),rgba(100,0,60,.4));border:1px solid rgba(255,160,220,.3);flex:none;"></div><span style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.1em;color:rgba(255,160,220,.6);text-transform:uppercase;">@reallifewithrosa</span></div></div>
+      <div class="rx-card"><p style="font-family:Montserrat;font-weight:500;font-size:15px;color:rgba(255,220,245,.9);line-height:1.65;margin:0 0 18px;">"New favorite podcast. Period. I do not take questions."</p><div style="display:flex;align-items:center;gap:10px;"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,rgba(255,47,176,.3),rgba(100,0,60,.4));border:1px solid rgba(255,160,220,.3);flex:none;"></div><span style="font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.1em;color:rgba(255,160,220,.6);text-transform:uppercase;">@thesoftlifechronicles</span></div></div>
+    </div>
+    <div class="rv" style="text-align:center;margin-top:32px;"><p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,160,220,.48);margin:0;">Send this to the friend who always has something to say.</p></div>
+  </div>
+</section>
+
+<!-- TOPIC SUBMISSION -->
+<section style="padding:84px 48px;background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);" class="sect">
+  <div style="max-width:680px;margin:0 auto;text-align:center;">
+    <div class="rv">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">Be Heard</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 18px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(26px,3.5vw,48px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0 0 14px;">Got Something<br>To Say?</h2>
+      <p style="font-family:Montserrat;font-size:clamp(14px,1.3vw,16px);color:rgba(255,200,240,.65);line-height:1.72;margin:0 auto 44px;max-width:480px;">Send a topic, question, confession, or hot take for a future episode.</p>
+    </div>
+    <sc-if value="{{ topicSent }}" hint-placeholder-val="{{ false }}">
+      <div class="rv in" style="padding:24px 32px;border-radius:18px;background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.4);"><p style="font-family:Montserrat;font-weight:700;font-size:16px;color:#ffd9ef;margin:0;letter-spacing:.04em;">Sent. Miss Yanelis has your message.</p></div>
+    </sc-if>
+    <sc-if value="{{ topicNotSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ onTopicSubmit }}" class="rv" style="display:flex;flex-direction:column;gap:14px;text-align:left;">
+        <input type="text" placeholder="Name or Anonymous" class="field">
+        <textarea placeholder="Topic, question, confession, or hot take..." class="field" style="min-height:120px;resize:vertical;line-height:1.6;"></textarea>
+        <input type="email" placeholder="Email (optional)" class="field">
+        <button type="submit" style="background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;border:none;padding:17px 40px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;animation:shimmer 4s ease-in-out infinite;margin-top:4px;">Send It to Miss Yanelis</button>
+      </form>
+    </sc-if>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section style="padding:84px 48px;background:#07000a;" class="sect">
+  <div style="max-width:640px;margin:0 auto;text-align:center;">
+    <div class="rv">
+      <p style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">Stay In The Loop</p>
+      <div style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin:0 auto 18px;"></div>
+      <h2 style="font-family:Montserrat;font-weight:900;font-size:clamp(26px,3.5vw,48px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.08;margin:0 0 14px;">Get The Drop First</h2>
+      <p style="font-family:Montserrat;font-size:clamp(14px,1.3vw,16px);color:rgba(255,200,240,.65);line-height:1.72;margin:0 auto 28px;max-width:460px;">New episodes, exclusive clips, behind-the-scenes moments, and updates before everyone else.</p>
+      <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;">
+        <div style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:#ff2fb0;flex:none;"></span><span style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,200,240,.7);">Early drops</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:#ff2fb0;flex:none;"></span><span style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,200,240,.7);">Exclusive clips</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:#ff2fb0;flex:none;"></span><span style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.1em;color:rgba(255,200,240,.7);">Topic polls</span></div>
+      </div>
+    </div>
+    <sc-if value="{{ newsSent }}" hint-placeholder-val="{{ false }}">
+      <div class="rv in" style="padding:24px 32px;border-radius:18px;background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.4);"><p style="font-family:Montserrat;font-weight:700;font-size:16px;color:#ffd9ef;margin:0;">You're in. The tea is coming.</p></div>
+    </sc-if>
+    <sc-if value="{{ newsNotSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ onNewsSubmit }}" class="rv" style="display:flex;flex-direction:column;gap:12px;">
+        <input type="email" placeholder="Your email address" required class="field">
+        <input type="tel" placeholder="Phone / SMS (optional)" class="field">
+        <button type="submit" style="background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;border:none;padding:17px 40px;border-radius:999px;font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;animation:shimmer 4s ease-in-out infinite;margin-top:4px;">Send Me The Tea</button>
+        <p style="font-family:Montserrat;font-size:11px;color:rgba(255,160,220,.38);margin:8px 0 0;">No spam. Just the good stuff.</p>
+      </form>
+    </sc-if>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="cta" style="padding:84px 48px;background:radial-gradient(130% 100% at 60% 50%,#180210 0%,#0d000d 55%,#07000a 100%);overflow:hidden;position:relative;" class="sect">
+  <div style="position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:620px;height:620px;border-radius:50%;border:1px solid rgba(255,47,176,.18);pointer-events:none;"></div>
+  <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;border:1px solid rgba(255,47,176,.12);pointer-events:none;"></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:50%;background:radial-gradient(ellipse at 80% 50%,rgba(255,47,176,.2) 0%,rgba(255,47,176,0) 65%);pointer-events:none;animation:pulse 6s ease-in-out infinite;"></div>
+  <div style="position:absolute;right:-20px;bottom:0;height:min(65vh,560px);opacity:.85;pointer-events:none;z-index:2;">
+    <img src="uploads/mic.png" draggable="false" style="height:100%;width:auto;filter:drop-shadow(0 0 36px rgba(255,47,176,.55)) drop-shadow(0 24px 18px rgba(0,0,0,.6));pointer-events:none;">
+  </div>
+  <div style="max-width:1180px;margin:0 auto;position:relative;z-index:3;">
+    <div style="max-width:580px;">
+      <p class="rv" style="font-family:Montserrat;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;">The Finale</p>
+      <div class="rv" style="width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin-bottom:18px;"></div>
+      <h2 class="rv" style="font-family:Montserrat;font-weight:900;font-size:clamp(36px,5.5vw,76px);letter-spacing:-.02em;color:#fff;text-transform:uppercase;line-height:.98;margin:0 0 22px;">Ready To<br>Talk That?</h2>
+      <p class="rv" style="font-family:Montserrat;font-size:clamp(14px,1.35vw,17px);color:rgba(255,200,240,.68);line-height:1.75;max-width:440px;margin:0 0 36px;">Step into the world of Talking Her Sh*t by Miss Yanelis. No gatekeeping, no sugarcoating — just the truth.</p>
+      <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="{{ listenUrl }}" style="display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;text-decoration:none;padding:17px 40px;border-radius:999px;font-family:Montserrat;font-weight:900;font-size:13px;letter-spacing:.18em;text-transform:uppercase;animation:shimmer 3s ease-in-out infinite;"><span style="width:0;height:0;border-left:10px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;"></span>Listen Now</a>
+        <a href="{{ instagramUrl }}" style="display:inline-flex;align-items:center;background:rgba(255,47,176,.1);border:1.5px solid rgba(255,160,220,.42);color:#fff;text-decoration:none;padding:15px 36px;border-radius:999px;font-family:Montserrat;font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;">Follow The Show</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:60px 48px 40px;background:#040004;border-top:1px solid rgba(255,47,176,.12);">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:48px;" class="two-col">
+      <div>
+        <p style="font-family:Montserrat;font-weight:900;font-size:12px;letter-spacing:.3em;color:#fff;text-transform:uppercase;margin:0 0 5px;">Talking Her Sh*t</p>
+        <p style="font-family:Montserrat;font-weight:500;font-size:8px;letter-spacing:.26em;color:#ff8fd6;text-transform:uppercase;margin:0 0 18px;">By Miss Yanelis</p>
+        <p style="font-family:Montserrat;font-size:13px;color:rgba(255,200,240,.42);line-height:1.72;max-width:220px;margin:0;">Real conversations. Bold energy. Zero apologies.</p>
+      </div>
+      <div>
+        <p style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,200,240,.38);margin:0 0 18px;">Explore</p>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <a href="#episodes" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Episodes</a>
+          <a href="#about" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">About</a>
+          <a href="#listen" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Listen</a>
+          <a href="#community" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Community</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:Montserrat;font-weight:700;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,200,240,.38);margin:0 0 18px;">Connect</p>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <a href="{{ instagramUrl }}" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Instagram</a>
+          <a href="{{ spotifyUrl }}" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Spotify</a>
+          <a href="{{ youtubeUrl }}" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">YouTube</a>
+          <a href="{{ appleUrl }}" class="nl" style="color:rgba(255,200,240,.55);font-size:13px;font-weight:500;">Apple Podcasts</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,47,176,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <p style="font-family:Montserrat;font-size:11px;letter-spacing:.08em;color:rgba(255,200,240,.24);margin:0;">&copy; 2025 Talking Her Sh*t by Miss Yanelis. All rights reserved.</p>
+      <p style="font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,47,176,.35);margin:0;">Unfiltered · Unbothered · Unapologetic</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mini player -->
+<sc-if value="{{ nowPlaying }}" hint-placeholder-val="{{ false }}">
+  <div class="mini-player">
+    <div style="width:38px;height:38px;border-radius:50%;background:rgba(255,47,176,.2);border:1.5px solid rgba(255,160,220,.4);display:flex;align-items:center;justify-content:center;flex:none;animation:pulse 2s ease-in-out infinite;"><span style="width:0;height:0;border-left:11px solid #ff8fd6;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:2px;"></span></div>
+    <div style="flex:1;min-width:0;"><p style="margin:0 0 2px;font-family:Montserrat;font-weight:600;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,160,220,.6);">Now Playing</p><p style="margin:0;font-family:Montserrat;font-weight:700;font-size:14px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ nowPlaying }}</p></div>
+    <button onClick="{{ stopPlayer }}" style="background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.28);color:rgba(255,200,240,.7);padding:8px 18px;border-radius:999px;font-family:Montserrat;font-weight:600;font-size:11px;letter-spacing:.12em;cursor:pointer;flex:none;text-transform:uppercase;">Stop</button>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100vw&quot;,&quot;height&quot;:&quot;100vh&quot;},&quot;instagramUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.instagram.com/missyanelis/&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;listenUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;watchUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;spotifyUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;appleUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;youtubeUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;amazonUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;podcastUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menuOpen:false, topicSent:false, newsSent:false, nowPlaying:null, quizSelected:null, pollVoted:null, teaserPlaying:false, teaserPct:0 };
+
+  constructor(props) {
+    super(props);
+    this.canvasRef = React.createRef();
+    this.glowRef   = React.createRef();
+    this.logoRef   = React.createRef();
+    this.micRef    = React.createRef();
+    this.navRef    = React.createRef();
+    this._tx=0; this._ty=0; this._cx=0; this._cy=0; this._gcx=0; this._gcy=0;
+  }
+
+  componentDidMount() {
+    this._gcx = window.innerWidth/2; this._gcy = window.innerHeight/2;
+    this.initCanvas(); this.initLoop(); this.initReveal();
+    this._onMove = e => {
+      const cx=window.innerWidth/2, cy=window.innerHeight/2;
+      this._tx=(e.clientX-cx)/cx; this._ty=(e.clientY-cy)/cy;
+      this._cx=e.clientX; this._cy=e.clientY;
+    };
+    this._onScroll = () => {
+      this.checkReveal();
+      const s=Math.min(1,window.scrollY/180);
+      if(this.navRef.current) this.navRef.current.style.background=`rgba(7,0,10,${0.94+s*0.05})`;
+    };
+    document.addEventListener('mousemove',this._onMove);
+    window.addEventListener('scroll',this._onScroll,{passive:true});
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this._raf); cancelAnimationFrame(this._lraf);
+    clearTimeout(this._t1); clearTimeout(this._t2); clearInterval(this._teaserInt);
+    document.removeEventListener('mousemove',this._onMove);
+    window.removeEventListener('scroll',this._onScroll);
+    window.removeEventListener('resize',this._rz);
+  }
+
+  checkReveal() {
+    const vh=window.innerHeight;
+    document.querySelectorAll('.rv:not(.in),.rvl:not(.in),.rvr:not(.in)').forEach(el=>{
+      if(el.getBoundingClientRect().top < vh-40) el.classList.add('in');
+    });
+  }
+
+  initReveal() {
+    this.checkReveal();
+    [80,350,900].forEach(d=>setTimeout(()=>this.checkReveal(),d));
+  }
+
+  initLoop() {
+    let cx=0,cy=0;
+    const tick=()=>{
+      cx+=(this._tx-cx)*0.055; cy+=(this._ty-cy)*0.055;
+      if(this.logoRef.current) this.logoRef.current.style.transform=`translate(calc(-50% + ${cx*2}px),${cy*1.5}px)`;
+      if(this.micRef.current) this.micRef.current.style.transform=`translate(${cx*-8}px,${cy*-4}px)`;
+      this._gcx+=(this._cx-this._gcx)*0.09; this._gcy+=(this._cy-this._gcy)*0.09;
+      if(this.glowRef.current) this.glowRef.current.style.transform=`translate(${this._gcx-190}px,${this._gcy-190}px)`;
+      this._lraf=requestAnimationFrame(tick);
+    };
+    tick();
+  }
+
+  initCanvas() {
+    const canvas=this.canvasRef.current;
+    if(!canvas) return;
+    const ctx=canvas.getContext('2d');
+    let w,h,dpr;
+    const resize=()=>{
+      dpr=Math.min(window.devicePixelRatio||1,2);
+      w=canvas.clientWidth; h=canvas.clientHeight;
+      canvas.width=w*dpr; canvas.height=h*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    };
+    this._rz=resize; resize();
+    window.addEventListener('resize',resize);
+    const N=38, rand=(a,b)=>a+Math.random()*(b-a);
+    this._parts=Array.from({length:N},()=>({
+      x:Math.random()*(w||1440),y:Math.random()*(h||900),
+      r:rand(.4,1.8),s:rand(.04,.28),a:Math.random(),tw:rand(.004,.02),hue:rand(320,342)
+    }));
+    const draw=()=>{
+      ctx.clearRect(0,0,w,h);
+      for(const p of this._parts){
+        p.y-=p.s; p.a+=p.tw;
+        if(p.y<-4){p.y=h+4;p.x=Math.random()*w;}
+        const alpha=.16+.4*Math.abs(Math.sin(p.a));
+        ctx.beginPath();
+        ctx.fillStyle=`hsla(${p.hue},100%,${64+p.r*5}%,${alpha})`;
+        ctx.shadowBlur=7; ctx.shadowColor=`hsla(${p.hue},100%,68%,${alpha})`;
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      }
+      this._raf=requestAnimationFrame(draw);
+    };
+    draw();
+  }
+
+  renderVals() {
+    const p=this.props;
+    const qs=this.state.quizSelected;
+    const quizDefs=[
+      {id:'hottake',symbol:'✦',title:'The Hot Take Friend',desc:'You send voice notes first and ask questions never.',ep:'EP 001 · No Filter, No Fakes'},
+      {id:'truth',symbol:'◆',title:'The Truth Teller',desc:'Sugarcoating is not in your vocabulary.',ep:'EP 002 · She Said What She Said'},
+      {id:'softlife',symbol:'★',title:'The Soft Life Strategist',desc:'Protecting your peace is a full-time job.',ep:'EP 003 · The Glow Up Era'},
+      {id:'observer',symbol:'●',title:'The Quiet Observer',desc:'You say nothing and know everything.',ep:'EP 004 · Read The Room'},
+      {id:'mainchar',symbol:'♛',title:'The Main Character',desc:'The plot literally revolves around you.',ep:'EP 005 · Center Stage'},
+    ];
+    const quizRec=qs?(quizDefs.filter(function(c){return c.id===qs;})[0]||{}).ep:null;
+
+    return {
+      canvasRef:this.canvasRef, glowRef:this.glowRef,
+      logoRef:this.logoRef, micRef:this.micRef, navRef:this.navRef,
+      menuOpen:this.state.menuOpen, toggleMenu:()=>this.setState(s=>({menuOpen:!s.menuOpen})),
+      quizCards:quizDefs.map(c=>({...c,cardClass:qs===c.id?'quiz-card sel':'quiz-card',onSelect:()=>this.setState({quizSelected:c.id})})),
+      quizRecVisible:!!qs, quizRec:quizRec||'',
+      pollVoted:this.state.pollVoted, pollNotVoted:!this.state.pollVoted,
+      pollOptions:[
+        {label:'Relationships',onVote:()=>this.setState({pollVoted:'Relationships'})},
+        {label:'Friendship',onVote:()=>this.setState({pollVoted:'Friendship'})},
+        {label:'Soft Life',onVote:()=>this.setState({pollVoted:'Soft Life'})},
+        {label:'Money',onVote:()=>this.setState({pollVoted:'Money'})},
+        {label:'Drama',onVote:()=>this.setState({pollVoted:'Drama'})},
+        {label:'Self-Worth',onVote:()=>this.setState({pollVoted:'Self-Worth'})},
+        {label:'Hot Takes',onVote:()=>this.setState({pollVoted:'Hot Takes'})},
+      ],
+      pollResults:[
+        {label:'Relationships',pct:38},{label:'Self-Worth',pct:24},
+        {label:'Soft Life',pct:16},{label:'Drama',pct:10},
+        {label:'Hot Takes',pct:7},{label:'Money',pct:3},{label:'Friendship',pct:2},
+      ],
+      teaserPlaying:this.state.teaserPlaying,
+      teaserStopped:!this.state.teaserPlaying,
+      teaserPct:this.state.teaserPct,
+      onTeaserClick:()=>{
+        if(this.state.teaserPlaying){
+          clearInterval(this._teaserInt);
+          this.setState({teaserPlaying:false});
+        } else {
+          this.setState({teaserPlaying:true,teaserPct:0});
+          this._teaserInt=setInterval(()=>{
+            this.setState(s=>{
+              if(s.teaserPct>=100){clearInterval(this._teaserInt);return{teaserPlaying:false,teaserPct:0};}
+              return{teaserPct:Math.min(100,s.teaserPct+100/30)};
+            });
+          },500);
+        }
+      },
+      nowPlaying:this.state.nowPlaying,
+      onPlayEp1:()=>this.setState({nowPlaying:'No Filter, No Fakes — EP 001'}),
+      stopPlayer:()=>this.setState({nowPlaying:null}),
+      topicSent:this.state.topicSent, topicNotSent:!this.state.topicSent,
+      newsSent:this.state.newsSent, newsNotSent:!this.state.newsSent,
+      onTopicSubmit:e=>{e.preventDefault();this.setState({topicSent:true});clearTimeout(this._t1);this._t1=setTimeout(()=>this.setState({topicSent:false}),4000);},
+      onNewsSubmit:e=>{e.preventDefault();this.setState({newsSent:true});clearTimeout(this._t2);this._t2=setTimeout(()=>this.setState({newsSent:false}),4500);},
+      waveBars:Array.from({length:28},(_,i)=>({h:[14,22,36,28,18,44,32,24,40,16,38,20,34,26,42,18,30,22,46,28,16,34,20,38,24,12,30,44][i]||20,d:+(1.8+Math.random()*1.4).toFixed(2),delay:+(i*0.1).toFixed(1)})),
+      listenUrl:p.listenUrl??'#', watchUrl:p.watchUrl??'#',
+      spotifyUrl:p.spotifyUrl??'#', appleUrl:p.appleUrl??'#',
+      youtubeUrl:p.youtubeUrl??'#', amazonUrl:p.amazonUrl??'#',
+      podcastUrl:p.podcastUrl??'#',
+      instagramUrl:p.instagramUrl??'https://www.instagram.com/missyanelis/'
+    };
+  }
+}
+</script>
+</body>
+</html>

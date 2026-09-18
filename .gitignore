@@ -1,0 +1,78 @@
+# ─── OS files ────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ─── Editor / IDE ────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── Node (if tooling is ever added) ─────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# ─── Build output ────────────────────────────────────────
+dist/
+build/
+.cache/
+.next/
+out/
+
+# ─── Environment / secrets ───────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── Logs ────────────────────────────────────────────────
+*.log
+logs/
+
+# ─── Temporary / draft asset folders ─────────────────────
+# (never commit these — only commit assets/*/final/ and assets/icons/source/)
+assets/draft/
+assets/temp/
+assets/screenshots/
+assets/generated-preview/
+
+# Draft/exploratory generations and non-transparent brand asset
+# versions. Per IMPLEMENTATION-PLAN.md 2.4, nothing here ships.
+uploads/
+
+# Loose duplicate/draft exports sitting outside the approved
+# assets/*/final/ and assets/icons/source/ folders. Not referenced
+# by index.html — do not commit.
+assets/icons1.png
+assets/icons2.png
+assets/icons3.png
+assets/title.png
+assets/title-black.png
+assets/title-words.png
+assets/yanelis.jpg
+.thumbnail
+
+# ─── Design tool exports to keep out of git ──────────────
+*.psd
+*.ai
+*.fig
+*.sketch
+*.xd
+
+# ─── Large video files ────────────────────────────────────
+*.mp4
+*.mov
+*.avi
+*.wmv
+
+# Note: MP3 audio files (teaser.mp3) ARE committed since they
+# are small and needed for the site to function.
