@@ -156,26 +156,16 @@ window.SITE_CONFIG = {
   ],
 
   // ─────────────────────────────────────────────────────────────────
-  // HIGHLIGHTS
-  // Real pull-quotes/hooks from real episodes — not staged clips.
+  // FEATURED QUOTE
+  // One real, oversized quote — not a card grid. Swap this out when a
+  // stronger moment comes along; keep it tied to a real episode link.
   // ─────────────────────────────────────────────────────────────────
-  highlights: [
-    {
-      quote:  "What does it really take to build a career that lasts in music?",
-      credit: "Kruziano — latest episode",
-      url:    "https://www.youtube.com/watch?v=UCpr_kE2s9E"
-    },
-    {
-      quote:  "Miami's own DJ for Jamie Foxx and the Miami Heat, on working with the biggest names in entertainment.",
-      credit: "M Dot The Icon",
-      url:    "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-6-M-DOT-THE-ICON-e1r5pe3"
-    },
-    {
-      quote:  "A Grammy-winning engineer breaks down credits with Nipsey Hussle, Ne-Yo, Wale, and more.",
-      credit: "Who Is OG Vinchenzo?",
-      url:    "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-4-WHO-IS-OG-VINCHENZO-e1kb200"
-    }
-  ],
+  featuredQuote: {
+    quote:     "What does it really take to build a career that lasts in music?",
+    credit:    "Kruziano, latest episode",
+    linkLabel: "Watch",
+    url:       "https://www.youtube.com/watch?v=UCpr_kE2s9E"
+  },
 
   // ─────────────────────────────────────────────────────────────────
   // PODCAST PLATFORM LINKS

@@ -6,7 +6,7 @@
   <title>Talking Her Sh*t | By Miss Yanelis</title>
   <meta name="description" content="Miss Yanelis sits down with the people shaping music and entertainment for honest, unscripted conversations. Talking Her Sh*t: unfiltered, unbothered, unapologetic.">
   <meta name="keywords" content="talking her shit, miss yanelis, podcast, kruziano, music industry interviews, unfiltered conversations">
-  <meta name="theme-color" content="#07000a">
+  <meta name="theme-color" content="#150609">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Talking Her Sh*t">
   <meta property="og:url" content="https://jayallen2.github.io/talking-her-sht-podcast/">
@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/logos/final/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,500;1,600&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
   <!--
     ═══════════════════════════════════════════════════════════
     SITE CONFIG - edit ./config/site.config.js to update ALL
@@ -36,31 +36,55 @@
   -->
   <script src="./config/site.config.js"></script>
   <style>
+    /* ══════════════════════════════════════════════════
+       PALETTE — deep black cherry (not flat black), one
+       warm ivory "reading surface" section, saturated pink
+       reserved for actions/links, chrome for decorative
+       finishes. Display type (Fraunces) for headings and
+       the featured quote; Montserrat stays the readable
+       workhorse for everything else — the logo still
+       carries the most elaborate lettering on the page.
+       ══════════════════════════════════════════════════ */
+    :root{
+      --bg:        #150609;
+      --bg2:       #1d0a0d;
+      --bg-deep:   #040203;
+      --ivory:     #f3e9d8;
+      --ivory-2:   #ece0cb;
+      --ink:       #2a1512;
+      --ink-soft:  rgba(42,21,18,.66);
+      --pink:      #ff2fb0;
+      --pink-soft: #ff8fd6;
+      --chrome:    #d7dbe2;
+      --chrome-dim:rgba(215,219,226,.32);
+    }
+
     /* ── Reset ──────────────────────────────────────── */
-    html,body{margin:0;padding:0;background:#07000a;overflow-x:hidden;scroll-behavior:smooth;}
+    html,body{margin:0;padding:0;background:var(--bg);overflow-x:hidden;scroll-behavior:smooth;}
     *{box-sizing:border-box;}
     a{text-decoration:none;}
     img{display:block;max-width:100%;}
     button,input,textarea{font-family:Montserrat,sans-serif;}
 
     /* ── Accessibility ──────────────────────────────── */
-    .skip-link{position:absolute;left:12px;top:-60px;z-index:1000;background:#ff2fb0;color:#fff;padding:12px 20px;border-radius:10px;font-family:Montserrat,sans-serif;font-weight:800;font-size:13px;letter-spacing:.04em;transition:top .2s;}
+    .skip-link{position:absolute;left:12px;top:-60px;z-index:1000;background:var(--pink);color:#fff;padding:12px 20px;border-radius:10px;font-family:Montserrat,sans-serif;font-weight:800;font-size:13px;letter-spacing:.04em;transition:top .2s;}
     .skip-link:focus{top:12px;}
-    :focus-visible{outline:2px solid #ff8fd6;outline-offset:3px;border-radius:2px;}
+    :focus-visible{outline:2px solid var(--pink-soft);outline-offset:3px;border-radius:2px;}
 
     @media (prefers-reduced-motion: reduce){
       *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
       html{scroll-behavior:auto;}
     }
 
-    /* ── Keyframes ──────────────────────────────────── */
-    @keyframes floatMic{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
-    @keyframes floatLogo{0%,100%{transform:translateY(0) rotate(-.4deg);}33%{transform:translateY(-9px) rotate(.2deg);}66%{transform:translateY(-4px) rotate(-.2deg);}}
-    @keyframes shimmer{0%,100%{box-shadow:0 6px 24px rgba(255,47,176,.45);}50%{box-shadow:0 8px 44px rgba(255,47,176,.78);}}
-    @keyframes pulse{0%,100%{opacity:.45;}50%{opacity:.75;}}
+    /* One signature motion detail: the ambient particle field.
+       Idle logo/mic float, button shimmer pulse, and the hero glow
+       ring pulse have all been retired — motion now happens only on
+       entrance (scroll reveal) and on interaction (hover), so reading
+       areas stay still. */
+    @keyframes pulse{0%,100%{opacity:.4;}50%{opacity:.65;}}
 
     /* ── Scroll reveal ──────────────────────────────── */
-    .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
+    .rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
     .rv.in{opacity:1;transform:none;}
 
     /* ── Nav link ───────────────────────────────────── */
@@ -68,77 +92,81 @@
     .nl:hover{color:#fff;}
 
     /* ── Section wrapper ────────────────────────────── */
-    .sect{padding:76px 48px;}
+    .sect{padding:80px 48px;}
     .inner{max-width:1180px;margin:0 auto;}
     .inner-sm{max-width:680px;margin:0 auto;}
     .inner-xs{max-width:600px;margin:0 auto;}
 
     /* ── Section header helpers ─────────────────────── */
-    .s-label{font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ff8fd6;margin:0 0 10px;}
-    .s-rule{width:34px;height:1.5px;background:linear-gradient(90deg,#ff2fb0,transparent);margin-bottom:18px;}
+    .s-label{font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink-soft);margin:0 0 12px;}
+    .s-rule{width:38px;height:1.5px;background:linear-gradient(90deg,var(--chrome),transparent);margin-bottom:20px;}
     .s-rule-c{margin-left:auto;margin-right:auto;}
-    .s-h{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(26px,3.5vw,46px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.1;margin:0;}
-    .s-sub{font-family:Montserrat,sans-serif;font-size:16px;color:rgba(255,206,240,.78);line-height:1.7;max-width:520px;margin:0 auto;}
+    .s-h{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(28px,3.6vw,48px);letter-spacing:-.01em;color:#fff;line-height:1.14;margin:0;}
+    .s-sub{font-family:Montserrat,sans-serif;font-size:16px;color:rgba(255,214,240,.8);line-height:1.7;max-width:520px;margin:0 auto;}
     .tc{text-align:center;}
+    .on-ivory .s-label{color:#b8214f;}
+    .on-ivory .s-rule{background:linear-gradient(90deg,#b8214f33,transparent);}
+    .on-ivory .s-h{color:var(--ink);}
+    .on-ivory .s-sub{color:var(--ink-soft);}
 
     /* ── Buttons ────────────────────────────────────── */
-    .btn-p{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,#ff2fb0,#c4137a);color:#fff;padding:16px 36px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;animation:shimmer 4s ease-in-out infinite;border:none;cursor:pointer;min-height:48px;}
+    .btn-p{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,var(--pink),#c4137a);color:#fff;padding:16px 36px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;border:none;cursor:pointer;min-height:48px;box-shadow:0 6px 24px rgba(255,47,176,.35);transition:box-shadow .3s,transform .3s;}
+    .btn-p:hover{box-shadow:0 10px 34px rgba(255,47,176,.55);transform:translateY(-2px);}
     .btn-s{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,47,176,.09);border:1.5px solid rgba(255,160,220,.4);color:#fff;padding:14px 30px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;min-height:48px;}
-    .btn-g{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(255,47,176,.3);color:rgba(255,210,245,.9);padding:13px 30px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:border-color .3s,background .3s;min-height:44px;}
-    .btn-g:hover{border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.07);}
+    .btn-g{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--chrome-dim);color:rgba(255,210,245,.9);padding:13px 30px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:border-color .3s,background .3s;min-height:44px;}
+    .btn-g:hover{border-color:var(--chrome);background:rgba(215,219,226,.06);}
     .link-arrow{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;color:rgba(255,210,245,.85);display:inline-flex;align-items:center;gap:6px;padding:8px 2px;}
     .link-arrow:hover{color:#fff;}
 
-    /* ── Episode rows (compact, real content) ───────── */
-    .ep-row{display:grid;grid-template-columns:100px 1fr auto;gap:20px;align-items:center;padding:22px 8px;border-bottom:1px solid rgba(255,47,176,.14);}
+    /* ── Episode rows (compact, real content, ivory surface) ── */
+    .ep-row{display:grid;grid-template-columns:100px 1fr auto;gap:20px;align-items:center;padding:24px 8px;border-bottom:1px solid rgba(42,21,18,.14);}
     .ep-row:last-child{border-bottom:none;}
-    .ep-row-date{font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;color:rgba(255,160,220,.7);}
-    .ep-row-title{font-family:Montserrat,sans-serif;font-weight:800;font-size:17px;color:#fff;margin:0 0 6px;text-transform:uppercase;letter-spacing:.01em;}
-    .ep-row-desc{font-family:Montserrat,sans-serif;font-size:15px;color:rgba(255,206,240,.74);line-height:1.6;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-    .ep-row-action{font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;color:#ff8fd6;white-space:nowrap;display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-    .ep-row-dur{color:rgba(255,160,220,.5);font-weight:600;font-size:11px;}
+    .ep-row-date{font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;color:#8a5a52;}
+    .ep-row-title{font-family:'Fraunces',serif;font-weight:700;font-size:19px;color:var(--ink);margin:0 0 6px;}
+    .ep-row-desc{font-family:Montserrat,sans-serif;font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .ep-row-action{font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;color:#b8214f;white-space:nowrap;display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+    .ep-row-dur{color:#8a5a52;font-weight:600;font-size:11px;}
 
-    /* ── Highlight cards (real pull-quotes) ─────────── */
-    .hl-card{background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.18);border-radius:20px;padding:32px 28px;transition:border-color .3s,transform .3s,box-shadow .3s;}
-    .hl-card:hover{border-color:rgba(255,47,176,.45);transform:translateY(-4px);box-shadow:0 20px 52px rgba(255,47,176,.14);}
-    .hl-quote{font-family:Montserrat,sans-serif;font-weight:700;font-size:17px;color:#fff;line-height:1.5;margin:0 0 16px;}
-    .hl-credit{font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.08em;color:rgba(255,200,240,.65);text-transform:uppercase;}
+    /* ── Featured quote (one oversized, real, not a grid) ──── */
+    .quote-mark{font-family:'Fraunces',serif;font-weight:700;font-size:64px;line-height:1;color:var(--pink);margin:0 0 4px;opacity:.85;}
+    .quote-text{font-family:'Fraunces',serif;font-weight:500;font-style:italic;font-size:clamp(26px,4vw,44px);color:#fff;line-height:1.35;margin:0 0 28px;max-width:820px;margin-left:auto;margin-right:auto;}
+    .quote-credit{font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,200,240,.62);}
+    .quote-credit a{color:var(--pink-soft);font-weight:700;}
+    .quote-credit a:hover{color:#fff;}
 
     /* ── Form fields ────────────────────────────────── */
-    .f-label{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ff9fdc;margin:0 0 8px;}
-    .field{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,47,176,.28);border-radius:12px;padding:15px 20px;color:#fff;font-size:15px;font-weight:500;outline:none;transition:border-color .3s,box-shadow .3s;}
+    .f-label{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-soft);margin:0 0 8px;}
+    .field{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(215,219,226,.3);border-radius:12px;padding:15px 20px;color:#fff;font-size:15px;font-weight:500;outline:none;transition:border-color .3s,box-shadow .3s;}
     .field::placeholder{color:rgba(255,210,240,.5);}
-    .field:focus{border-color:rgba(255,47,176,.6);box-shadow:0 0 0 3px rgba(255,47,176,.14);}
+    .field:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,47,176,.14);}
 
     /* ── Platform buttons ───────────────────────────── */
-    .plat-btn{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(28,4,20,.75),rgba(18,0,12,.6));border:1px solid rgba(255,255,255,.12);color:rgba(255,225,245,.88);padding:15px 24px;border-radius:14px;font-weight:600;font-size:12px;letter-spacing:.13em;text-transform:uppercase;transition:border-color .3s,background .3s,box-shadow .3s,transform .3s;}
-    .plat-btn:hover{border-color:rgba(255,47,176,.55);background:rgba(255,47,176,.1);box-shadow:0 8px 28px rgba(255,47,176,.18);transform:translateY(-2px);}
+    .plat-btn{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(28,4,20,.75),rgba(18,0,12,.6));border:1px solid rgba(215,219,226,.16);color:rgba(255,225,245,.88);padding:15px 24px;border-radius:14px;font-weight:600;font-size:12px;letter-spacing:.13em;text-transform:uppercase;transition:border-color .3s,background .3s,box-shadow .3s,transform .3s;}
+    .plat-btn:hover{border-color:rgba(255,47,176,.5);background:rgba(255,47,176,.1);box-shadow:0 8px 28px rgba(255,47,176,.16);transform:translateY(-2px);}
     .plat-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
     /* ── Utility ────────────────────────────────────── */
     .hidden{display:none!important;}
     .success-box{padding:24px 32px;border-radius:18px;background:rgba(255,47,176,.12);border:1px solid rgba(255,47,176,.4);text-align:center;}
-    .gtext{background:linear-gradient(120deg,#fff 0%,#ffe4f5 32%,#ff9fdf 60%,#ff2fb0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;}
+    .gtext{background:linear-gradient(120deg,#fff 0%,#ffe4f5 32%,#ff9fdf 60%,var(--pink) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;}
 
     /* ══════════════════════════════════════════════════
        HERO — grid layout, text and art in separate
        columns so they structurally cannot overlap at any
-       viewport height (the previous version used absolute
-       positioning, which broke at short/narrow viewports).
+       viewport height.
        ══════════════════════════════════════════════════ */
-    #hero{position:relative;overflow:hidden;background:radial-gradient(140% 120% at 50% 50%,#1a0212 0%,#0d000d 50%,#07000a 100%);padding:120px 48px 80px;}
-    #hero::before{content:'';position:absolute;left:50%;top:40%;width:820px;height:820px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,47,176,.075) 0%,transparent 62%);transform:translate(-50%,-50%);pointer-events:none;z-index:0;animation:pulse 9s ease-in-out infinite;}
+    #hero{position:relative;overflow:hidden;background:radial-gradient(140% 120% at 50% 50%,#2a0912 0%,#180508 50%,var(--bg) 100%);padding:120px 48px 80px;}
     .hero-grid{position:relative;z-index:2;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
     .hero-text{max-width:560px;}
-    #hero-logo{height:clamp(90px,12vw,150px);width:auto;margin-bottom:28px;mix-blend-mode:screen;animation:floatLogo 6.5s ease-in-out infinite;}
+    #hero-logo{height:clamp(90px,12vw,150px);width:auto;margin-bottom:28px;mix-blend-mode:screen;}
     .host-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,47,176,.09);border:1px solid rgba(255,160,220,.3);border-radius:999px;padding:6px 16px 6px 6px;margin-bottom:22px;}
     .host-badge img{width:30px;height:30px;border-radius:50%;object-fit:cover;flex:none;}
     .host-badge span{font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,220,245,.85);}
-    #hero-headline{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(32px,4.4vw,58px);letter-spacing:-.01em;text-transform:uppercase;line-height:1.05;margin:0 0 20px;}
+    #hero-headline{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(34px,4.6vw,60px);letter-spacing:-.01em;line-height:1.08;margin:0 0 20px;}
     #hero-sub{font-family:Montserrat,sans-serif;font-weight:400;font-size:17px;color:rgba(255,210,240,.8);line-height:1.65;max-width:480px;margin:0 0 32px;}
     .hero-cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:26px;}
     .hero-art{position:relative;display:flex;align-items:flex-end;justify-content:center;height:clamp(280px,38vw,480px);}
-    #hero-mic{height:100%;width:auto;filter:drop-shadow(0 0 34px rgba(255,47,176,.5)) drop-shadow(0 20px 18px rgba(0,0,0,.6));animation:floatMic 5.5s ease-in-out infinite;}
+    #hero-mic{height:100%;width:auto;filter:drop-shadow(0 0 34px rgba(255,47,176,.5)) drop-shadow(0 20px 18px rgba(0,0,0,.6));}
 
     @media(max-width:980px){
       .hero-grid{grid-template-columns:1fr;text-align:center;}
@@ -150,21 +178,20 @@
     }
 
     /* ── Grids ──────────────────────────────────────── */
-    .hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
     .host-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
 
     /* ── Nav ─────────────────────────────────────────── */
-    #main-nav{position:sticky;top:0;z-index:200;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,0,10,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,47,176,.12);}
+    #main-nav{position:sticky;top:0;z-index:200;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(21,6,9,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(215,219,226,.1);}
     @media(max-width:860px){
       #main-nav{padding:0 16px;}
       .desk-nav{display:none!important;}
       #menu-toggle{display:flex!important;}
-      .hl-grid,.host-grid,.foot-grid{grid-template-columns:1fr!important;}
+      .host-grid,.foot-grid{grid-template-columns:1fr!important;}
       .host-grid{gap:36px;}
       .foot-grid{gap:32px!important;}
       .ep-row{grid-template-columns:70px 1fr;}
       .ep-row-action{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;margin-top:10px;}
-      .sect{padding:60px 20px!important;}
+      .sect{padding:64px 20px!important;}
     }
     @media(max-width:480px){
       #nav-listen-btn{display:none;}
@@ -184,7 +211,7 @@
 <nav id="main-nav" aria-label="Primary">
   <div style="flex:none;display:flex;flex-direction:column;gap:2px;">
     <span id="nav-brand-name" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:11px;letter-spacing:.28em;color:#fff;text-transform:uppercase;line-height:1;">Talking Her Sh*t</span>
-    <span id="nav-brand-byline" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:8px;letter-spacing:.24em;color:#ff8fd6;text-transform:uppercase;line-height:1;">By Miss Yanelis</span>
+    <span id="nav-brand-byline" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:8px;letter-spacing:.24em;color:var(--pink-soft);text-transform:uppercase;line-height:1;">By Miss Yanelis</span>
   </div>
   <div class="desk-nav" style="display:flex;gap:36px;">
     <a href="#episodes" class="nl">Episodes</a>
@@ -193,7 +220,7 @@
     <a href="https://www.instagram.com/talkinghershit/" id="nav-ig-link" class="nl" target="_blank" rel="noopener">Follow</a>
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
-    <a href="#" id="nav-listen-btn" class="btn-p" style="font-size:11px;padding:11px 22px;min-height:auto;" target="_blank" rel="noopener">Watch Now</a>
+    <a href="#" id="nav-listen-btn" class="btn-p" style="font-size:11px;padding:11px 22px;min-height:auto;box-shadow:none;" target="_blank" rel="noopener">Watch Now</a>
     <button id="menu-toggle" onclick="THS.toggleMenu()" aria-expanded="false" aria-controls="mobile-menu" style="display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;background:none;border:none;" aria-label="Open menu">
       <span style="width:20px;height:1.5px;background:rgba(255,210,245,.85);display:block;border-radius:2px;"></span>
       <span style="width:20px;height:1.5px;background:rgba(255,210,245,.85);display:block;border-radius:2px;"></span>
@@ -201,11 +228,11 @@
     </button>
   </div>
 </nav>
-<div id="mobile-menu" class="hidden" style="position:fixed;top:64px;left:0;right:0;z-index:199;background:rgba(6,0,9,.97);border-bottom:1px solid rgba(255,47,176,.14);padding:32px;display:flex;flex-direction:column;gap:24px;backdrop-filter:blur(20px);">
+<div id="mobile-menu" class="hidden" style="position:fixed;top:64px;left:0;right:0;z-index:199;background:rgba(15,4,6,.97);border-bottom:1px solid rgba(215,219,226,.12);padding:32px;display:flex;flex-direction:column;gap:24px;backdrop-filter:blur(20px);">
   <a href="#episodes" class="nl" onclick="THS.toggleMenu()" style="font-size:17px;color:#fff;">Episodes</a>
   <a href="#host" class="nl" onclick="THS.toggleMenu()" style="font-size:17px;color:#fff;">Host</a>
   <a href="#listen" class="nl" onclick="THS.toggleMenu()" style="font-size:17px;color:#fff;">Listen</a>
-  <a href="https://www.instagram.com/talkinghershit/" id="mob-ig-link" class="nl" style="font-size:17px;color:#ff8fd6;" target="_blank" rel="noopener">@talkinghershit</a>
+  <a href="https://www.instagram.com/talkinghershit/" id="mob-ig-link" class="nl" style="font-size:17px;color:var(--pink-soft);" target="_blank" rel="noopener">@talkinghershit</a>
   <a href="#" id="mob-listen-btn" class="btn-p" target="_blank" rel="noopener">Watch Now</a>
 </div>
 
@@ -234,12 +261,12 @@
   </div>
 </section>
 
-<!-- ── LATEST EPISODE ──────────────────────────────────── -->
-<section class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);">
+<!-- ── LATEST EPISODE (one large featured conversation) ── -->
+<section class="sect" style="background:var(--bg2);">
   <div class="inner">
-    <div class="rv" style="max-width:760px;margin:0 auto;background:rgba(255,20,100,.05);border:1px solid rgba(255,47,176,.24);border-radius:24px;padding:40px;">
+    <div class="rv" style="max-width:760px;margin:0 auto;background:rgba(255,20,100,.05);border:1px solid rgba(215,219,226,.16);border-radius:24px;padding:44px;">
       <p class="s-label" id="latest-label" style="margin:0 0 6px;"></p>
-      <h2 id="latest-title" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(24px,3vw,36px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.15;margin:0 0 14px;"></h2>
+      <h2 id="latest-title" style="font-family:'Fraunces',serif;font-weight:700;font-size:clamp(26px,3.2vw,38px);letter-spacing:-.01em;color:#fff;line-height:1.2;margin:0 0 14px;"></h2>
       <p id="latest-desc" style="font-family:Montserrat,sans-serif;font-size:16px;color:rgba(255,206,240,.78);line-height:1.7;margin:0 0 24px;max-width:560px;"></p>
       <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
         <a href="#" id="latest-watch-btn" class="btn-p" target="_blank" rel="noopener"></a>
@@ -249,45 +276,43 @@
   </div>
 </section>
 
-<!-- ── EPISODES (compact archive list) ────────────────── -->
-<section id="episodes" class="sect" style="background:#07000a;">
+<!-- ── EPISODES — the archive, presented as a collection,
+     on the one warm ivory "reading surface" section ──── -->
+<section id="episodes" class="sect on-ivory" style="background:var(--ivory);">
   <div class="inner-sm">
     <div class="rv tc" style="margin-bottom:12px;">
-      <p class="s-label">The Archive</p>
+      <p class="s-label">The First Collection</p>
       <div class="s-rule s-rule-c"></div>
-      <h2 class="s-h" style="margin-bottom:14px;">More Episodes</h2>
-      <p class="s-sub">Earlier conversations, back when the show ran on Spotify.</p>
+      <h2 class="s-h" style="margin-bottom:14px;">Six Conversations, 2021–2022</h2>
+      <p class="s-sub">Real talk, music, and the guests who helped build her world — back when the show ran on Spotify, before it moved to video.</p>
     </div>
     <div id="episode-rows" class="rv" style="margin-top:36px;"></div>
   </div>
 </section>
 
-<!-- ── HIGHLIGHTS (real quotes, not staged clips) ─────── -->
-<section class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);">
-  <div class="inner">
-    <div class="rv tc" style="margin-bottom:40px;">
-      <p class="s-label">Worth Hearing</p>
-      <div class="s-rule s-rule-c"></div>
-      <h2 class="s-h">A Few Moments From The Show</h2>
-    </div>
-    <div id="highlight-cards" class="hl-grid rv"></div>
+<!-- ── FEATURED QUOTE (one oversized, real — not a card grid) ── -->
+<section class="sect tc" style="background:var(--bg);">
+  <div class="inner-sm">
+    <p class="quote-mark rv" aria-hidden="true">&ldquo;</p>
+    <p id="quote-text" class="quote-text rv"></p>
+    <p class="quote-credit rv" id="quote-credit"></p>
   </div>
 </section>
 
 <!-- ── HOST ─────────────────────────────────────────────── -->
-<section id="host" class="sect" style="background:#07000a;">
+<section id="host" class="sect" style="background:var(--bg2);">
   <div class="inner">
     <div class="host-grid">
-      <div class="rv" style="aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,47,176,.26),0 28px 72px rgba(0,0,0,.6);max-width:420px;margin:0 auto;">
+      <div class="rv" style="aspect-ratio:4/5;border-radius:4px;overflow:hidden;box-shadow:0 0 0 1px rgba(215,219,226,.2),0 28px 72px rgba(0,0,0,.6);max-width:440px;margin:0 auto;">
         <img id="host-portrait" src="./assets/images/final/yanelis-portrait.jpg" alt="Miss Yanelis" style="width:100%;height:100%;object-fit:cover;object-position:center top;" loading="lazy">
       </div>
       <div class="rv">
         <p class="s-label">The Host</p>
         <div class="s-rule"></div>
-        <h2 id="host-heading" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(28px,3.4vw,44px);letter-spacing:-.01em;color:#fff;text-transform:uppercase;line-height:1.1;margin:0 0 22px;"></h2>
+        <h2 id="host-heading" style="font-family:'Fraunces',serif;font-weight:700;font-size:clamp(30px,3.6vw,46px);letter-spacing:-.01em;color:#fff;line-height:1.12;margin:0 0 22px;"></h2>
         <p id="host-body" style="font-family:Montserrat,sans-serif;font-size:16px;color:rgba(255,206,240,.78);line-height:1.75;max-width:520px;margin:0 0 28px;"></p>
-        <div style="border-left:2px solid #ff2fb0;padding:16px 22px;background:rgba(255,47,176,.06);border-radius:0 14px 14px 0;margin-bottom:32px;">
-          <p id="host-quote" style="margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:17px;font-style:italic;color:#ffd9ef;line-height:1.5;"></p>
+        <div style="border-left:2px solid var(--pink);padding:16px 22px;background:rgba(255,47,176,.05);margin-bottom:32px;">
+          <p id="host-quote" style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-style:italic;font-size:19px;color:#ffd9ef;line-height:1.5;"></p>
         </div>
         <a href="#" id="host-btn" class="btn-p" target="_blank" rel="noopener">Watch Her Latest</a>
       </div>
@@ -296,7 +321,7 @@
 </section>
 
 <!-- ── LISTEN EVERYWHERE ──────────────────────────────── -->
-<section id="listen" class="sect" style="background:linear-gradient(180deg,#07000a 0%,#0d000e 100%);">
+<section id="listen" class="sect" style="background:var(--bg);">
   <div class="inner">
     <div class="rv tc" style="margin-bottom:44px;">
       <p class="s-label">Stream Anywhere</p>
@@ -309,7 +334,7 @@
 </section>
 
 <!-- ── NEWSLETTER ─────────────────────────────────────── -->
-<section class="sect" style="background:#07000a;">
+<section class="sect" style="background:var(--bg2);">
   <div class="inner-xs">
     <div class="rv tc" style="margin-bottom:32px;">
       <p class="s-label">Stay In The Loop</p>
@@ -323,19 +348,19 @@
       <input id="news-email" type="email" name="email" placeholder="you@example.com" required class="field" style="margin-bottom:12px;">
       <button type="submit" class="btn-p" style="border:none;">Notify Me</button>
     </form>
-    <p class="rv tc" style="font-family:Montserrat,sans-serif;font-size:14px;color:rgba(255,200,240,.62);margin:28px 0 0;">Got a topic, question, or story? Email <a href="#" id="news-contact-link" class="nl" style="color:#ff8fd6;font-size:14px;text-transform:none;letter-spacing:0;font-weight:700;"></a></p>
+    <p class="rv tc" style="font-family:Montserrat,sans-serif;font-size:14px;color:rgba(255,200,240,.62);margin:28px 0 0;">Got a topic, question, or story? Email <a href="#" id="news-contact-link" class="nl" style="color:var(--pink-soft);font-size:14px;text-transform:none;letter-spacing:0;font-weight:700;"></a></p>
   </div>
 </section>
 
 </main>
 
 <!-- ── FOOTER ──────────────────────────────────────────── -->
-<footer style="padding:56px 48px 36px;background:#040004;border-top:1px solid rgba(255,47,176,.12);">
+<footer style="padding:56px 48px 36px;background:var(--bg-deep);border-top:1px solid rgba(215,219,226,.1);">
   <div class="inner">
     <div class="foot-grid" style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;margin-bottom:44px;">
       <div>
         <p id="foot-name" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:12px;letter-spacing:.28em;color:#fff;text-transform:uppercase;margin:0 0 5px;">Talking Her Sh*t</p>
-        <p id="foot-byline" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:8px;letter-spacing:.24em;color:#ff8fd6;text-transform:uppercase;margin:0 0 18px;">By Miss Yanelis</p>
+        <p id="foot-byline" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:8px;letter-spacing:.24em;color:var(--pink-soft);text-transform:uppercase;margin:0 0 18px;">By Miss Yanelis</p>
         <p style="font-family:Montserrat,sans-serif;font-size:14px;color:rgba(255,206,240,.58);line-height:1.7;max-width:240px;margin:0;">Real conversations. Bold energy. Zero apologies.</p>
       </div>
       <div>
@@ -352,7 +377,7 @@
         <a href="#" id="foot-contact" class="nl hidden" style="display:block;margin-top:11px;color:rgba(255,206,240,.65);font-size:13px;font-weight:500;"></a>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,47,176,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <div style="border-top:1px solid rgba(215,219,226,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <p id="foot-copy" style="font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.06em;color:rgba(255,206,240,.35);margin:0;"></p>
       <p id="foot-tag" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,47,176,.4);margin:0;"></p>
     </div>
@@ -391,6 +416,7 @@ var THS = (function () {
   var soc   = C.socialLinks||{};
   var ftr   = C.footer||{};
   var news  = C.newsletter||{};
+  var fq    = C.featuredQuote||{};
 
   /* ── SEO ─────────────────────────────────────── */
   function applySEO() {
@@ -421,7 +447,7 @@ var THS = (function () {
 
     var plat=(C.podcastPlatforms||[]).filter(function(p){return p.enabled!==false;});
     h('hero-platform-pills', plat.map(function(p){
-      return '<a href="'+esc(safe(p.url,'#'))+'" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,160,220,.25);color:rgba(255,220,245,.78);padding:8px 16px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;">'+esc(p.label)+'</a>';
+      return '<a href="'+esc(safe(p.url,'#'))+'" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(215,219,226,.22);color:rgba(255,220,245,.78);padding:8px 16px;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;">'+esc(p.label)+'</a>';
     }).join(''));
 
     /* Latest episode */
@@ -431,6 +457,11 @@ var THS = (function () {
     var lw=g('latest-watch-btn');
     if(lw){ lw.href=safe(latest.watchUrl,'#'); lw.textContent=safe(latest.watchLabel,'Watch Now'); }
     s('latest-meta', [safe(latest.date),safe(latest.duration),safe(latest.source)].filter(Boolean).join(' · '));
+
+    /* Featured quote */
+    s('quote-text', safe(fq.quote));
+    var qc=g('quote-credit');
+    if(qc){ qc.innerHTML = esc(safe(fq.credit)) + (fq.url ? ' — <a href="'+esc(fq.url)+'" target="_blank" rel="noopener">'+esc(safe(fq.linkLabel,'Listen'))+'</a>' : ''); }
 
     /* Host */
     s('host-heading', safe(abt.heading));
@@ -471,20 +502,8 @@ var THS = (function () {
       return '<div class="ep-row">'
         +'<div class="ep-row-date">'+esc(safe(ep.date))+'</div>'
         +'<div><h3 class="ep-row-title">'+esc(safe(ep.title))+'</h3><p class="ep-row-desc">'+esc(safe(ep.description))+'</p></div>'
-        +'<div class="ep-row-action"><a href="'+esc(safe(ep.url,'#'))+'" target="_blank" rel="noopener" aria-label="Listen: '+esc(safe(ep.title))+'" class="nl" style="color:#ff8fd6;">Listen &rarr;</a><span class="ep-row-dur">'+esc(safe(ep.duration))+'</span></div>'
+        +'<div class="ep-row-action"><a href="'+esc(safe(ep.url,'#'))+'" target="_blank" rel="noopener" aria-label="Listen: '+esc(safe(ep.title))+'" class="nl" style="color:#b8214f;">Listen &rarr;</a><span class="ep-row-dur">'+esc(safe(ep.duration))+'</span></div>'
         +'</div>';
-    }).join('');
-  }
-
-  /* ── Render: highlight pull-quote cards ──────── */
-  function renderHighlights() {
-    var cont=g('highlight-cards'); if(!cont) return;
-    var hls=C.highlights||[];
-    cont.innerHTML=hls.map(function(hi){
-      return '<a href="'+esc(safe(hi.url,'#'))+'" target="_blank" rel="noopener" class="hl-card rv" style="display:block;">'
-        +'<p class="hl-quote">“'+esc(safe(hi.quote))+'”</p>'
-        +'<p class="hl-credit">'+esc(safe(hi.credit))+'</p>'
-        +'</a>';
     }).join('');
   }
 
@@ -494,7 +513,7 @@ var THS = (function () {
     var plat=(C.podcastPlatforms||[]).filter(function(p){return p.enabled!==false;});
     cont.innerHTML=plat.map(function(p){
       return '<a href="'+esc(safe(p.url,'#'))+'" target="_blank" rel="noopener" class="plat-btn">'
-        +'<div style="width:30px;height:30px;border-radius:50%;background:rgba(255,47,176,.16);border:1px solid rgba(255,47,176,.3);flex:none;display:flex;align-items:center;justify-content:center;"><span style="font-size:13px;color:#ff8fd6;font-weight:900;">&#9654;</span></div>'
+        +'<div style="width:30px;height:30px;border-radius:50%;background:rgba(255,47,176,.16);border:1px solid rgba(255,47,176,.3);flex:none;display:flex;align-items:center;justify-content:center;"><span style="font-size:13px;color:var(--pink-soft);font-weight:900;">&#9654;</span></div>'
         +esc(p.label)+'</a>';
     }).join('');
   }
@@ -566,7 +585,7 @@ var THS = (function () {
     var nav=g('main-nav');
     window.addEventListener('scroll',function(){
       var sc=Math.min(1,window.scrollY/180);
-      if(nav) nav.style.background='rgba(7,0,10,'+(0.94+sc*.05)+')';
+      if(nav) nav.style.background='rgba(21,6,9,'+(0.94+sc*.05)+')';
     },{passive:true});
   }
 
@@ -575,7 +594,6 @@ var THS = (function () {
     applySEO();
     applyConfig();
     renderEpisodes();
-    renderHighlights();
     renderPlatforms();
     initReveal();
     initCanvas();
