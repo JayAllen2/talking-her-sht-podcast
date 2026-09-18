@@ -13,14 +13,13 @@
       + '<path class="soundtrack-wave" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>'
       + '<path class="soundtrack-muted" d="m16 9 5 6m0-6-5 6"/></svg></button>'
       + '<div class="soundtrack-panel" id="soundtrack-panel" hidden><div class="soundtrack-row">'
-      + '<div class="soundtrack-copy"><span class="soundtrack-eyebrow">THE PRE-SHOW</span><span class="soundtrack-title"></span></div>'
+      + '<div class="soundtrack-copy"><span class="soundtrack-title"></span></div>'
       + '<button class="soundtrack-toggle" type="button" aria-pressed="false">Sound on</button>'
       + '</div><div class="soundtrack-bottom">'
       + '<p class="soundtrack-status" role="status" aria-live="polite" aria-atomic="true"></p>'
-      + '<button class="soundtrack-resume" type="button" hidden>Resume music</button></div>'
+      + '<button class="soundtrack-resume" type="button" aria-label="Resume background music" hidden>Resume</button></div>'
       + '<div class="soundtrack-volume-row"><label for="soundtrack-volume">Volume</label>'
-      + '<input id="soundtrack-volume" type="range" min="0" max="100" step="5"><output for="soundtrack-volume"></output></div>'
-      + '<p>The mood before the conversation. Music steps aside for episodes. Your sound choice stays with this device.</p></div>';
+      + '<input id="soundtrack-volume" type="range" min="0" max="100" step="5"></div></div>';
     document.body.appendChild(dock);
     var title = dock.querySelector('.soundtrack-title');
     var toggle = dock.querySelector('.soundtrack-toggle');
@@ -29,7 +28,6 @@
     var status = dock.querySelector('.soundtrack-status');
     var resume = dock.querySelector('.soundtrack-resume');
     var slider = dock.querySelector('input');
-    var output = dock.querySelector('output');
     title.textContent = config.title || 'Site soundtrack';
 
     var prefKey = 'ths-sound-v1';
@@ -43,7 +41,6 @@
     if (!Number.isFinite(volume)) volume = 0.65;
     volume = Math.max(0, Math.min(1, volume));
     slider.value = String(Math.round(volume * 100));
-    output.textContent = slider.value + '%';
 
     // No soundtrack bytes are requested until sound is enabled.
     var music = document.createElement('audio');
@@ -63,20 +60,17 @@
       dock.dataset.playing = String(playing);
       mix.setAttribute('aria-label', 'Music controls: ' + (playing ? 'sound on' : 'sound off'));
       mix.title = playing ? 'Background music is on' : 'Background music';
-      toggle.textContent = wanted ? 'Sound off' : 'Sound on';
+      toggle.textContent = failed ? 'Retry' : wanted ? 'Sound off' : 'Sound on';
       toggle.setAttribute('aria-pressed', String(wanted));
       toggle.setAttribute('aria-label', wanted ? 'Turn background music off' : 'Turn background music on');
       resume.hidden = !wanted || (holds.size === 0 && !needsGesture);
-      resume.textContent = needsGesture && holds.size === 0 ? 'Start music' : 'Resume music';
-      status.textContent = failed ? 'Track unavailable. Tap Sound on to retry.'
-        : !wanted ? (preference === null ? 'Set the mood. Tap Sound on.' : 'Sound is off. Your choice is saved.')
-        : holds.has('external') ? 'Paused while you listen elsewhere.'
-        : holds.size ? 'Paused for the episode.'
-        : document.hidden ? 'Paused while you are away.'
-        : needsGesture ? 'Ready when you are.'
-        : loading ? 'Cueing the soundtrack…'
-        : playing ? (volume === 0 ? 'Volume is at zero.' : 'Playing softly. Episodes take priority.')
-        : 'Sound is ready.';
+      resume.textContent = needsGesture && holds.size === 0 ? 'Play' : 'Resume';
+      status.textContent = failed ? 'Track unavailable'
+        : !wanted ? 'Music off'
+        : blocked() ? 'Music paused'
+        : loading ? 'Loading'
+        : playing ? (volume === 0 ? 'Muted' : 'Music playing')
+        : 'Music paused';
     }
 
     function setupGraph() {
@@ -180,7 +174,6 @@
     });
     slider.addEventListener('input', function () {
       volume = Number(slider.value) / 100;
-      output.textContent = slider.value + '%';
       write(volumeKey, String(volume));
       if (playing) setLevel(volume, 0.12);
       render();
