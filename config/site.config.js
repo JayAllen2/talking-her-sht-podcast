@@ -38,8 +38,8 @@ window.SITE_CONFIG = {
   // ─────────────────────────────────────────────────────────────────
   assets: {
     logo: {
-      path:  "./assets/logos/final/talking-her-sht-logo-hq.png",
-      notes: "Final HQ logo on black; the page screen-blends it so the black drops out. Do not replace with a flattened screenshot."
+      path:  "./assets/logos/final/talking-her-sht-logo-refined.png",
+      notes: "Refined transparent landscape lockup with built-in clear space. Preserve its aspect ratio and full edges; do not crop, mask, or flatten it. Original artwork is retained as talking-her-sht-logo-hq.png."
     },
     microphone: {
       path:  "./assets/images/final/mic-hq.png",
