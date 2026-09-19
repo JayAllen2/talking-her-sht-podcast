@@ -74,7 +74,7 @@ window.SITE_CONFIG = {
   // ─────────────────────────────────────────────────────────────────
   seo: {
     pageTitle:       "Talking Her Sh*t | By Miss Yanelis",
-    metaDescription: "Behind the music. Beyond the image. Miss Yanelis talks creativity, ambition, and life in the industry with artists, producers, and the people shaping the sound."
+    metaDescription: "Success looks good. What does it cost? Miss Yanelis talks ambition, pressure, and life in music with the artists and hitmakers who live it."
   },
 
   // ─────────────────────────────────────────────────────────────────
@@ -82,9 +82,9 @@ window.SITE_CONFIG = {
   // One dominant action: watch the featured conversation on this page.
   // ─────────────────────────────────────────────────────────────────
   hero: {
-    headline:          "Behind the music.\nBeyond the image.",
-    subheadline:       "Miss Yanelis gets into creativity, ambition, and life in the industry with the artists and insiders living it.",
-    primaryButtonText: "Watch Now",
+    headline:          "Success looks good.\nWhat does it cost?",
+    subheadline:       "Miss Yanelis talks ambition, pressure, and life in music with the artists and hitmakers who live it.",
+    primaryButtonText: "Watch the Episode",
     primaryButtonUrl:  "#latest"
   },
 
@@ -110,9 +110,9 @@ window.SITE_CONFIG = {
   // Present the show through its guests and subjects, not a timeline.
   // ─────────────────────────────────────────────────────────────────
   latestEpisode: {
-    label:       "Featured Episode",
+    label:       "Start Here",
     title:       "Kruziano: Music, Success & What's Next",
-    description: "Kruziano joins Miss Yanelis to talk ambition, the cost of success, and building a career in music on his own terms.",
+    description: "Making it is one thing. Staying in the game is another. Kruziano and Miss Yanelis get into ambition, the cost of success, and what comes next.",
     duration:    "26 min",
     source:      "YouTube",
     youtubeId:   "UCpr_kE2s9E",
@@ -128,46 +128,46 @@ window.SITE_CONFIG = {
   episodes: [
     {
       title:       "M Dot The Icon",
-      description: "Jamie Foxx and Miami Heat DJ M Dot on the music business, mental health, and fatherhood beyond the booth.",
+      description: "What happens when the music stops? Jamie Foxx and Miami Heat DJ M Dot talks mental health, fatherhood, and life beyond the booth.",
       duration:    "40 min",
       url:         "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-6-M-DOT-THE-ICON-e1r5pe3"
     },
     {
       title:       "It's Rey King",
-      description: "The work behind the records, with Grammy-nominated producer and platinum engineer Rey King.",
+      description: "Grammy-nominated producer and platinum engineer Rey King on working with some of Hollywood's biggest names.",
       duration:    "19 min",
       url:         "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-5-ITS-REY-KING-e1ko821"
     },
     {
       title:       "Who Is OG Vinchenzo?",
-      description: "Inside the studio with the Grammy-winning engineer and producer who has worked with Scott Storch, Ne-Yo, and Nipsey Hussle.",
+      description: "Scott Storch. Ne-Yo. Nipsey Hussle. Grammy-winning engineer and producer OG Vinchenzo talks about working with them.",
       duration:    "13 min",
       url:         "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-4-WHO-IS-OG-VINCHENZO-e1kb200"
     },
     {
       title:       "La Difícil",
-      description: "La Yuli on being cast in Bad Bunny's “La Difícil” and her experience as a woman in the industry.",
+      description: "La Yuli on landing Bad Bunny's “La Difícil” video and navigating the industry as a woman.",
       duration:    "18 min",
       url:         "https://open.spotify.com/episode/7m0Ienzr3hW6aiqjDgtrBS"
     },
     {
       title:       "Healing 101 & THS Brands",
-      description: "Miss Yanelis gets into healing, her brands, and Bad Bunny's “Un Verano Sin Ti.”",
+      description: "Healing, her own brands, and Bad Bunny's “Un Verano Sin Ti.” Miss Yanelis takes the mic.",
       duration:    "15 min",
       url:         "https://open.spotify.com/episode/1LmpLiJuZRX07rCRC95RrE"
     },
     {
       title:       "La Reina",
-      description: "Audience questions, “Mala Pa Ti,” and Get On Game Girl with Miss Yanelis.",
+      description: "Your questions. Her answers. Miss Yanelis talks “Mala Pa Ti” and Get On Game Girl.",
       duration:    "10 min",
       url:         "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-1-LA-REINA-e1bs7nq"
     }
   ],
 
   // ─────────────────────────────────────────────────────────────────
-  // FEATURED QUOTE
-  // One real, oversized quote. Swap it when a stronger moment comes
-  // along; keep it tied to a real episode link.
+  // EDITORIAL QUESTION
+  // This is an editorial prompt, not a quotation attributed to the guest.
+  // Keep it grounded in the linked conversation.
   // ─────────────────────────────────────────────────────────────────
   featuredQuote: {
     quote:      "What does it really take to build a career that lasts in music?",
@@ -206,7 +206,7 @@ window.SITE_CONFIG = {
   // ─────────────────────────────────────────────────────────────────
   about: {
     heading:    "Miss Yanelis",
-    body:       "Miss Yanelis is a recording artist and the voice behind Talking Her Sh*t. Her work as La Reina includes collaborations with Ball Greezy. She brings that artist's perspective to conversations about creativity, ambition, and the life behind the music.",
+    body:       "Miss Yanelis brings an artist's perspective to the questions. Recording as La Reina, she has collaborated with Ball Greezy. On Talking Her Sh*t, she gets into the ambition, pressure, and personal side of a life in music.",
     buttonText: "Watch the Show",
     buttonUrl:  "#latest"
   },
@@ -228,8 +228,8 @@ window.SITE_CONFIG = {
   // is connected. Never show setup notices or imply a working email signup.
   // ─────────────────────────────────────────────────────────────────
   newsletter: {
-    heading:   "Stay in the conversation",
-    subtext:   "Interviews, guest moments, and more from Miss Yanelis.",
+    heading:   "Watch. Then weigh in.",
+    subtext:   "Follow Miss Yanelis on YouTube and bring your take to the comments.",
     actionUrl: "",  // TODO: https://formspree.io/f/YOUR_ID or your email provider's form endpoint
     provider:  "formspree"  // Options: formspree | mailchimp | convertkit | klaviyo | beehiiv | custom
   },

@@ -11,6 +11,12 @@ Keep the show evergreen. Do not add release dates, a launch year, episode
 numbering, or copy about when Yanelis started, her first run, or how the show
 has grown. Lead with the guest, subject, and reason to watch or listen.
 
+The voice is confident and provocative. Lead with a specific question or
+personal stake, then back it up with real guests and topics. Let the show
+name carry the attitude. Avoid generic brand slogans, invented confessions,
+fake exclusivity, and promises the episode cannot deliver. Keep button
+labels direct so visitors know what happens next.
+
 ---
 
 ## How to open and edit the config file
@@ -30,7 +36,7 @@ has grown. Lead with the guest, subject, and reason to watch or listen.
 Find: `headline:`
 Change the text between the quotes. Use `\n` for a new line.
 ```
-headline: "Behind the music.\nBeyond the image."
+headline: "Success looks good.\nWhat does it cost?"
 ```
 
 ### Hero subheadline (the smaller text under the headline)
@@ -62,7 +68,7 @@ as they are when replacing the featured video:
 
 ```js
 latestEpisode: {
-  label:       "Featured Episode",
+  label:       "Start Here",
   title:       "Your Episode Title",
   description: "One or two sentences on what the episode covers.",
   duration:    "26 min",
@@ -80,7 +86,7 @@ on-page player and its thumbnail, so it has to match `watchUrl`.
 
 ## Adding a selected conversation
 
-Find: `episodes:` (the list under "Find your next listen."). Order by the
+Find: `episodes:` (the list under "Let's get into it."). Order by the
 conversations you want to feature, rather than presenting a chronology:
 
 ```js
