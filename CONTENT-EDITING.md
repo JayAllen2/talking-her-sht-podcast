@@ -49,7 +49,7 @@ Find: `about:` and edit `heading:` and `body:`. Keep the bio in the present tens
 
 ## The "At the mic" strip
 
-Find: `guestCredits:`. This is the thin credibility strip under the hero.
+Find: `guestCredits:`. This is the credibility strip below the featured video.
 Keep it to 4 or 5 real guests, described the way their episodes describe them:
 
 ```js
@@ -92,6 +92,8 @@ conversations you want to feature, rather than presenting a chronology:
 ```js
 {
   title:       "Your Episode Title",
+  category:    "industry",
+  topic:       "Production / The business",
   description: "One sentence on what makes this one worth a listen.",
   duration:    "26 min",
   url:         "https://..."
@@ -101,28 +103,12 @@ conversations you want to feature, rather than presenting a chronology:
 To remove an episode, delete its whole `{ ... },` block. Durations help
 listeners choose an episode; release dates and origin stories stay off the page.
 
----
+Use `category: "industry"` for the business, production, or culture of music,
+and `category: "personal"` for personal stories, mental health, and audience
+questions. The collection filters use these exact values. `topic` is the
+short subject line displayed at the top of each card. Keep it specific.
 
-## Changing the featured quote
-
-Find: `featuredQuote:`. This is the editorial question tied to a featured
-conversation. Keep it grounded in the episode. Do not invent a quotation
-or attribute promotional copy to a guest:
-
-```js
-featuredQuote: {
-  quote:      "A real line from a real episode.",
-  credit:     "In conversation with Guest Name",
-  linkLabel:  "Watch",
-  url:        "https://...",
-  shareImage: "./assets/logos/final/share-quote-kruziano.jpg"
-}
-```
-
-`shareImage` is a generated 1080 by 1080 downloadable image (the "Save
-image to share" link under the quote). It is not a photo you can just swap.
-If you change the quote text, ask your developer to regenerate the image,
-or the share image will still show the old quote.
+The standalone quote section and share-card download have been removed.
 
 ---
 
@@ -173,7 +159,8 @@ portrait: {
 }
 ```
 
-This photo is used in the Host section.
+This photo leads the page. Check both the desktop portrait and phone crop
+when replacing it. Keep the host's face clear of the logo and caption.
 
 ---
 

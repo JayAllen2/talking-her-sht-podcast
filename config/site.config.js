@@ -56,7 +56,7 @@ window.SITE_CONFIG = {
     },
     portrait: {
       path:  "./assets/images/final/yanelis-portrait.jpg",
-      notes: "Miss Yanelis portrait. Used in the Host section. Keep the filename or update this path."
+      notes: "Miss Yanelis portrait. Featured in the opening cover. Keep the filename or update this path."
     },
     iconSheetA: {
       path:  "./assets/icons/source/icons-sheet-a.png",
@@ -128,54 +128,53 @@ window.SITE_CONFIG = {
   episodes: [
     {
       title:       "M Dot The Icon",
+      category:    "personal",
+      topic:       "Mental health / Fatherhood",
       description: "What happens when the music stops? Jamie Foxx and Miami Heat DJ M Dot talks mental health, fatherhood, and life beyond the booth.",
       duration:    "40 min",
       url:         "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-6-M-DOT-THE-ICON-e1r5pe3"
     },
     {
       title:       "It's Rey King",
+      category:    "industry",
+      topic:       "Production / The business",
       description: "Grammy-nominated producer and platinum engineer Rey King on working with some of Hollywood's biggest names.",
       duration:    "19 min",
       url:         "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-5-ITS-REY-KING-e1ko821"
     },
     {
       title:       "Who Is OG Vinchenzo?",
+      category:    "industry",
+      topic:       "In the studio",
       description: "Scott Storch. Ne-Yo. Nipsey Hussle. Grammy-winning engineer and producer OG Vinchenzo talks about working with them.",
       duration:    "13 min",
       url:         "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-4-WHO-IS-OG-VINCHENZO-e1kb200"
     },
     {
       title:       "La Difícil",
+      category:    "industry",
+      topic:       "Culture / The industry",
       description: "La Yuli on landing Bad Bunny's “La Difícil” video and navigating the industry as a woman.",
       duration:    "18 min",
       url:         "https://open.spotify.com/episode/7m0Ienzr3hW6aiqjDgtrBS"
     },
     {
       title:       "Healing 101 & THS Brands",
+      category:    "personal",
+      topic:       "Healing / Building a brand",
       description: "Healing, her own brands, and Bad Bunny's “Un Verano Sin Ti.” Miss Yanelis takes the mic.",
       duration:    "15 min",
       url:         "https://open.spotify.com/episode/1LmpLiJuZRX07rCRC95RrE"
     },
     {
       title:       "La Reina",
+      category:    "personal",
+      topic:       "Music / Audience questions",
       description: "Your questions. Her answers. Miss Yanelis talks “Mala Pa Ti” and Get On Game Girl.",
       duration:    "10 min",
       url:         "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-1-LA-REINA-e1bs7nq"
     }
   ],
-
-  // ─────────────────────────────────────────────────────────────────
-  // EDITORIAL QUESTION
-  // This is an editorial prompt, not a quotation attributed to the guest.
-  // Keep it grounded in the linked conversation.
-  // ─────────────────────────────────────────────────────────────────
-  featuredQuote: {
-    quote:      "What does it really take to build a career that lasts in music?",
-    credit:     "In conversation with Kruziano",
-    linkLabel:  "Watch",
-    url:        "https://www.youtube.com/watch?v=UCpr_kE2s9E",
-    shareImage: "./assets/logos/final/share-quote-kruziano.jpg" // 1080x1080 downloadable share image; regenerate if the quote changes
-  },
 
   // ─────────────────────────────────────────────────────────────────
   // PODCAST PLATFORM LINKS
@@ -228,7 +227,7 @@ window.SITE_CONFIG = {
   // is connected. Never show setup notices or imply a working email signup.
   // ─────────────────────────────────────────────────────────────────
   newsletter: {
-    heading:   "Watch. Then weigh in.",
+    heading:   "Watch.\nThen weigh in.",
     subtext:   "Follow Miss Yanelis on YouTube and bring your take to the comments.",
     actionUrl: "",  // TODO: https://formspree.io/f/YOUR_ID or your email provider's form endpoint
     provider:  "formspree"  // Options: formspree | mailchimp | convertkit | klaviyo | beehiiv | custom
