@@ -74,18 +74,18 @@ window.SITE_CONFIG = {
   // ─────────────────────────────────────────────────────────────────
   seo: {
     pageTitle:       "Talking Her Sh*t | By Miss Yanelis",
-    metaDescription: "Recording artist Miss Yanelis sits down with the producers, engineers, DJs, and artists behind the music to talk about how the business actually works. Talking Her Sh*t: unfiltered, unbothered, unapologetic."
+    metaDescription: "Behind the music. Beyond the image. Miss Yanelis talks creativity, ambition, and life in the industry with artists, producers, and the people shaping the sound."
   },
 
   // ─────────────────────────────────────────────────────────────────
   // HERO
-  // One dominant action: watch the latest real episode.
+  // One dominant action: watch the featured conversation on this page.
   // ─────────────────────────────────────────────────────────────────
   hero: {
-    headline:          "Unfiltered.\nUnbothered.\nUnapologetic.",   // Use \n for line breaks
-    subheadline:       "Recording artist Miss Yanelis sits down with the producers, engineers, DJs, and artists behind the hits to talk about how the music business actually works. No scripts, no PR answers.",
-    primaryButtonText: "Watch Latest Episode",
-    primaryButtonUrl:  "https://www.youtube.com/watch?v=UCpr_kE2s9E"
+    headline:          "Behind the music.\nBeyond the image.",
+    subheadline:       "Miss Yanelis gets into creativity, ambition, and life in the industry with the artists and insiders living it.",
+    primaryButtonText: "Watch Now",
+    primaryButtonUrl:  "#latest"
   },
 
   // ─────────────────────────────────────────────────────────────────
@@ -94,7 +94,7 @@ window.SITE_CONFIG = {
   // them. Keep to 4 or 5 so it reads as a strip, not a list.
   // ─────────────────────────────────────────────────────────────────
   guestCredits: {
-    label: "Guests have included",
+    label: "At the mic",
     items: [
       { name: "OG Vinchenzo", role: "Grammy-winning engineer and producer" },
       { name: "Rey King",     role: "Grammy-nominated producer" },
@@ -105,16 +105,14 @@ window.SITE_CONFIG = {
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // LATEST EPISODE
-  // The current, real, most recent episode. Verified against the
-  // show's YouTube channel (@missyanelismusic). youtubeId drives the
-  // on-page player and its thumbnail.
+  // FEATURED CONVERSATION
+  // youtubeId drives the on-page player and its thumbnail.
+  // Present the show through its guests and subjects, not a timeline.
   // ─────────────────────────────────────────────────────────────────
   latestEpisode: {
-    label:       "Latest Episode",
+    label:       "Featured Episode",
     title:       "Kruziano: Music, Success & What's Next",
-    description: "Miss Yanelis sits down with Kruziano for an honest, unscripted conversation about longevity in the music industry, what it costs, and what comes next.",
-    date:        "Jun 25, 2026",
+    description: "Kruziano joins Miss Yanelis to talk ambition, the cost of success, and building a career in music on his own terms.",
     duration:    "26 min",
     source:      "YouTube",
     youtubeId:   "UCpr_kE2s9E",
@@ -123,51 +121,44 @@ window.SITE_CONFIG = {
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // EPISODES (the archive)
-  // The 6 earlier episodes, from when the show ran on Spotify.
-  // Verified against the show's Spotify for Creators profile
-  // (creators.spotify.com/pod/profile/missyanelis). Newest first.
+  // SELECTED CONVERSATIONS
+  // Keep release dates, episode numbering, and origin-story copy off the site.
+  // Describe the guest and the conversation without framing the show's age.
   // ─────────────────────────────────────────────────────────────────
   episodes: [
     {
       title:       "M Dot The Icon",
-      description: "Miami's own DJ for Jamie Foxx and the Miami Heat on working with the biggest names in entertainment, mental health, and being a father in the industry.",
-      date:        "Nov 22, 2022",
+      description: "Jamie Foxx and Miami Heat DJ M Dot on the music business, mental health, and fatherhood beyond the booth.",
       duration:    "40 min",
       url:         "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-6-M-DOT-THE-ICON-e1r5pe3"
     },
     {
       title:       "It's Rey King",
-      description: "Grammy-nominated producer and platinum engineer Rey King spills on working with some of Hollywood's biggest names.",
-      date:        "Jul 5, 2022",
+      description: "The work behind the records, with Grammy-nominated producer and platinum engineer Rey King.",
       duration:    "19 min",
       url:         "https://creators.spotify.com/pod/profile/missyanelis/episodes/TALKING-HER-SHIT---EP-5-ITS-REY-KING-e1ko821"
     },
     {
       title:       "Who Is OG Vinchenzo?",
-      description: "Grammy-winning engineer and producer OG Vinchenzo on working with Scott Storch, Nardo Wick, Nipsey Hussle, Ne-Yo, Wale, and more.",
-      date:        "Jun 23, 2022",
+      description: "Inside the studio with the Grammy-winning engineer and producer who has worked with Scott Storch, Ne-Yo, and Nipsey Hussle.",
       duration:    "13 min",
       url:         "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-4-WHO-IS-OG-VINCHENZO-e1kb200"
     },
     {
       title:       "La Difícil",
-      description: "Model and influencer La Yuli on being cast in Bad Bunny's “La Difícil” music video and being a woman in the industry.",
-      date:        "Jun 2, 2022",
+      description: "La Yuli on being cast in Bad Bunny's “La Difícil” and her experience as a woman in the industry.",
       duration:    "18 min",
       url:         "https://open.spotify.com/episode/7m0Ienzr3hW6aiqjDgtrBS"
     },
     {
       title:       "Healing 101 & THS Brands",
-      description: "Miss Yanelis talks her own brands, a segment on healing, and Bad Bunny's “Un Verano Sin Ti.”",
-      date:        "May 28, 2022",
+      description: "Miss Yanelis gets into healing, her brands, and Bad Bunny's “Un Verano Sin Ti.”",
       duration:    "15 min",
       url:         "https://open.spotify.com/episode/1LmpLiJuZRX07rCRC95RrE"
     },
     {
       title:       "La Reina",
-      description: "The one that started it all: audience Q&A, her single “Mala Pa Ti,” and the first “Get On Game Girl” segment.",
-      date:        "Dec 17, 2021",
+      description: "Audience questions, “Mala Pa Ti,” and Get On Game Girl with Miss Yanelis.",
       duration:    "10 min",
       url:         "https://anchor.fm/missyanelis/episodes/TALKING-HER-SHIT---EP-1-LA-REINA-e1bs7nq"
     }
@@ -180,7 +171,7 @@ window.SITE_CONFIG = {
   // ─────────────────────────────────────────────────────────────────
   featuredQuote: {
     quote:      "What does it really take to build a career that lasts in music?",
-    credit:     "The latest episode, with Kruziano",
+    credit:     "In conversation with Kruziano",
     linkLabel:  "Watch",
     url:        "https://www.youtube.com/watch?v=UCpr_kE2s9E",
     shareImage: "./assets/logos/final/share-quote-kruziano.jpg" // 1080x1080 downloadable share image; regenerate if the quote changes
@@ -193,7 +184,7 @@ window.SITE_CONFIG = {
   podcastPlatforms: [
     { label: "YouTube",  url: "https://www.youtube.com/@missyanelismusic",                            enabled: true  },
     { label: "Spotify",  url: "https://open.spotify.com/show/3GHaGbPcpZmkXpfnpPo76O",                  enabled: true  },
-    { label: "Apple",    url: "https://podcasts.apple.com/us/podcast/talking-her-shit/id1600983984",   enabled: true  },
+    { label: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/talking-her-shit/id1600983984", enabled: false }, // Re-enable only with a verified live show page.
     { label: "Amazon",   url: "#",                                                                     enabled: false } // TODO: not on Amazon Music yet; enable once it is
   ],
 
@@ -214,11 +205,10 @@ window.SITE_CONFIG = {
   // releases and episode notes.
   // ─────────────────────────────────────────────────────────────────
   about: {
-    heading:    "Meet Miss Yanelis",
-    body:       "Miss Yanelis is a recording artist (she releases as La Reina, including collaborations with Ball Greezy) and the creator of Talking Her Sh*t. She started the show answering her audience's questions through segments like Get On Game Girl and Healing 101. It has grown into sit-down interviews with the people behind the music: Grammy-winning engineers, Grammy-nominated producers, and the DJs and artists who built careers on their own terms. The through line is access. Real conversations about how the business actually works, from people who work in it.",
-    quote:      "\"If we're talking, we're telling the truth.\"",
-    buttonText: "Watch Her Latest",
-    buttonUrl:  "https://www.youtube.com/watch?v=UCpr_kE2s9E"
+    heading:    "Miss Yanelis",
+    body:       "Miss Yanelis is a recording artist and the voice behind Talking Her Sh*t. Her work as La Reina includes collaborations with Ball Greezy. She brings that artist's perspective to conversations about creativity, ambition, and the life behind the music.",
+    buttonText: "Watch the Show",
+    buttonUrl:  "#latest"
   },
 
   // ─────────────────────────────────────────────────────────────────
@@ -226,20 +216,20 @@ window.SITE_CONFIG = {
   // ─────────────────────────────────────────────────────────────────
   business: {
     label:      "Partnerships & Press",
-    heading:    "Work With Miss Yanelis",
-    text:       "Sponsorships, brand partnerships, press requests, and guest bookings.",
-    buttonText: "Start a Conversation",
+    heading:    "Partner with the show",
+    text:       "For brand partnerships, guest bookings, and press inquiries.",
+    buttonText: "Get in Touch",
     subject:    "Talking Her Sh*t: partnership inquiry"
   },
 
   // ─────────────────────────────────────────────────────────────────
   // NEWSLETTER
-  // Until actionUrl is connected to a real provider, the page shows an
-  // honest email fallback instead of a form that pretends to work.
+  // Use the real YouTube subscription destination while no email provider
+  // is connected. Never show setup notices or imply a working email signup.
   // ─────────────────────────────────────────────────────────────────
   newsletter: {
-    heading:   "Never Miss An Episode",
-    subtext:   "New episodes post on YouTube as they're ready, no fixed schedule yet. Get an email the day a new one is up.",
+    heading:   "Stay in the conversation",
+    subtext:   "Interviews, guest moments, and more from Miss Yanelis.",
     actionUrl: "",  // TODO: https://formspree.io/f/YOUR_ID or your email provider's form endpoint
     provider:  "formspree"  // Options: formspree | mailchimp | convertkit | klaviyo | beehiiv | custom
   },

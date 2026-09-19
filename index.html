@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>document.documentElement.className+=' js';</script>
   <title>Talking Her Sh*t | By Miss Yanelis</title>
-  <meta name="description" content="Recording artist Miss Yanelis sits down with the producers, engineers, DJs, and artists behind the music to talk about how the business actually works. Talking Her Sh*t: unfiltered, unbothered, unapologetic.">
+  <meta name="description" content="Behind the music. Beyond the image. Miss Yanelis talks creativity, ambition, and life in the industry with artists, producers, and the people shaping the sound.">
   <meta name="theme-color" content="#150609">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Talking Her Sh*t">
   <meta property="og:url" content="https://jayallen2.github.io/talking-her-sht-podcast/">
   <meta property="og:title" content="Talking Her Sh*t | By Miss Yanelis">
-  <meta property="og:description" content="Recording artist Miss Yanelis in conversation with the producers, engineers, and artists behind the music.">
+  <meta property="og:description" content="Behind the music. Beyond the image. Conversations with Miss Yanelis about creativity, ambition, and life in the industry.">
   <meta property="og:image" content="https://jayallen2.github.io/talking-her-sht-podcast/assets/logos/final/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Talking Her Sh*t | By Miss Yanelis">
-  <meta name="twitter:description" content="Recording artist Miss Yanelis in conversation with the producers, engineers, and artists behind the music.">
+  <meta name="twitter:description" content="Behind the music. Beyond the image. Conversations with Miss Yanelis about creativity, ambition, and life in the industry.">
   <meta name="twitter:image" content="https://jayallen2.github.io/talking-her-sht-podcast/assets/logos/final/og-image.jpg">
   <!-- If a custom domain is added later (see SETUP.md, GitHub Pages, Custom domain),
        update the four absolute URLs above to match. -->
@@ -34,7 +34,7 @@
     website content. Do not hard-code URLs or copy in here.
     ═══════════════════════════════════════════════════════════
   -->
-  <script src="./config/site.config.js?v=2"></script>
+  <script src="./config/site.config.js?v=3"></script>
   <link rel="stylesheet" href="./assets/styles/soundtrack.css?v=3">
   <script src="./assets/scripts/soundtrack.js?v=4" defer></script>
   <style>
@@ -138,18 +138,16 @@
     .playing .rec-light{display:inline-block;}
 
     /* ── Episode rows (compact, real content, ivory surface) ── */
-    .ep-row{display:grid;grid-template-columns:104px 1fr auto;gap:20px;align-items:center;padding:24px 8px;border-bottom:1px solid rgba(42,21,18,.14);}
+    .ep-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;padding:28px 0;border-bottom:1px solid rgba(42,21,18,.14);}
     .ep-row:last-child{border-bottom:none;}
-    .ep-row-date{font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--ink-mute);white-space:nowrap;}
-    .ep-row-title{font-family:'Fraunces',serif;font-weight:700;font-size:19px;color:var(--ink);margin:0 0 6px;}
-    .ep-row-desc{font-family:Montserrat,sans-serif;font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+    .ep-row-title{font-family:'Fraunces',serif;font-weight:700;font-size:23px;color:var(--ink);margin:0 0 8px;}
+    .ep-row-desc{font-family:Montserrat,sans-serif;font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0;max-width:660px;}
     .ep-row-action{font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;white-space:nowrap;display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
     .ep-row-action a{color:var(--pink-ink);}
     .ep-row-action a:hover{color:var(--ink);}
     .ep-row-dur{color:var(--ink-mute);font-weight:600;font-size:11px;}
 
     /* ── Featured quote (one oversized, real) ────────── */
-    .quote-mark{font-family:'Fraunces',serif;font-weight:700;font-size:64px;line-height:1;color:var(--pink);margin:0 0 4px;opacity:.85;}
     .quote-text{font-family:'Fraunces',serif;font-weight:500;font-style:italic;font-size:clamp(26px,4vw,44px);color:#fff;line-height:1.35;margin:0 auto 28px;max-width:820px;}
     .quote-credit{font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);margin:0;}
     .quote-credit a{color:var(--pink-soft);font-weight:700;}
@@ -251,10 +249,10 @@
 
 <a href="#main" class="skip-link">Skip to content</a>
 <noscript>
-  <p class="noscript-note">This page loads its episode list with JavaScript. Without it, you can still find the show on
+  <p class="noscript-note">Find Talking Her Sh*t on
     <a href="https://www.youtube.com/@missyanelismusic">YouTube</a>,
     <a href="https://open.spotify.com/show/3GHaGbPcpZmkXpfnpPo76O">Spotify</a>,
-    <a href="https://podcasts.apple.com/us/podcast/talking-her-shit/id1600983984">Apple Podcasts</a>, and
+    and
     <a href="https://www.instagram.com/talkinghershit/">Instagram</a>.</p>
 </noscript>
 
@@ -299,11 +297,11 @@
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-grid">
     <div class="hero-text">
-      <h1 id="hero-headline" class="gtext">Unfiltered.<br>Unbothered.<br>Unapologetic.</h1>
+      <h1 id="hero-headline" class="gtext">Behind the music.<br>Beyond the image.</h1>
       <p id="hero-sub"></p>
       <div class="hero-cta-row">
-        <a href="#" id="hero-primary-btn" class="btn-p" target="_blank" rel="noopener"><span aria-hidden="true" style="width:0;height:0;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;"></span><span id="hero-primary-label">Watch Latest Episode</span></a>
-        <a href="#episodes" class="link-arrow">Browse the archive &darr;</a>
+        <a href="#latest" id="hero-primary-btn" class="btn-p"><span aria-hidden="true" style="width:0;height:0;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;"></span><span id="hero-primary-label">Watch Now</span></a>
+        <a href="#episodes" class="link-arrow">Explore episodes &darr;</a>
       </div>
       <div id="hero-platform-pills" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
     </div>
@@ -314,19 +312,19 @@
 </section>
 
 <!-- ── GUEST CREDITS (credibility by association, real names only) ── -->
-<section class="cred-strip" aria-label="Guests have included">
+<section class="cred-strip" aria-label="Featured guests">
   <div class="cred-inner">
     <p class="cred-label" id="cred-label"></p>
     <ul class="cred-list" id="cred-list"></ul>
   </div>
 </section>
 
-<!-- ── LATEST EPISODE (one large featured conversation, plays on the page) ── -->
+<!-- ── FEATURED CONVERSATION (plays on the page) ── -->
 <section id="latest" class="sect" style="background:var(--bg2);">
   <div class="inner-md">
     <div class="latest-card rv" id="latest-card">
       <div class="video-facade" id="latest-video">
-        <button type="button" id="latest-play" aria-label="Play the latest episode">
+        <button type="button" id="latest-play" aria-label="Play the featured conversation">
           <img id="latest-thumb" src="" alt="">
           <span class="play-ring" aria-hidden="true"><span style="width:0;height:0;border-left:22px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px;"></span></span>
         </button>
@@ -344,14 +342,14 @@
   </div>
 </section>
 
-<!-- ── EPISODES: the archive as a collection, on the ivory reading surface ── -->
+<!-- ── SELECTED CONVERSATIONS ── -->
 <section id="episodes" class="sect on-ivory" style="background:var(--ivory);">
-  <div class="inner-sm">
+  <div class="inner-md">
     <div class="rv tc" style="margin-bottom:12px;">
-      <p class="s-label">The First Collection</p>
+      <p class="s-label">Selected Episodes</p>
       <div class="s-rule s-rule-c"></div>
-      <h2 class="s-h" style="margin-bottom:14px;">Six Conversations, 2021 to 2022</h2>
-      <p class="s-sub">Real talk, music, and the guests who helped build her world, from the show's first run on Spotify.</p>
+      <h2 class="s-h" style="margin-bottom:14px;">Find your next listen.</h2>
+      <p class="s-sub">The craft, the business, and the life that comes with it.</p>
     </div>
     <div id="episode-rows" class="rv" style="margin-top:36px;"></div>
   </div>
@@ -360,10 +358,9 @@
 <!-- ── FEATURED QUOTE (one oversized, real) ─────────── -->
 <section class="sect tc" style="background:var(--bg);">
   <div class="inner-sm">
-    <p class="quote-mark rv" aria-hidden="true">&ldquo;</p>
     <p id="quote-text" class="quote-text rv"></p>
     <p class="quote-credit rv" id="quote-credit"></p>
-    <a href="#" id="quote-share-link" class="link-arrow rv hidden" download style="margin-top:18px;">Save image to share &darr;</a>
+    <a href="#" id="quote-share-link" class="link-arrow rv hidden" download style="margin-top:18px;">Save the share card &darr;</a>
   </div>
 </section>
 
@@ -375,14 +372,11 @@
         <img id="host-portrait" src="./assets/images/final/yanelis-portrait.jpg" alt="Miss Yanelis" style="width:100%;height:100%;object-fit:cover;object-position:center top;" loading="lazy">
       </div>
       <div class="rv">
-        <p class="s-label">The Host</p>
+        <p class="s-label">Artist &amp; Host</p>
         <div class="s-rule"></div>
         <h2 id="host-heading" style="font-family:'Fraunces',serif;font-weight:700;font-size:clamp(30px,3.6vw,46px);letter-spacing:-.01em;color:#fff;line-height:1.12;margin:0 0 22px;"></h2>
         <p id="host-body" style="font-family:Montserrat,sans-serif;font-size:16px;color:var(--text-soft);line-height:1.75;max-width:540px;margin:0 0 28px;"></p>
-        <div style="border-left:2px solid var(--pink);padding:16px 22px;background:rgba(255,47,176,.05);margin-bottom:32px;">
-          <p id="host-quote" style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-style:italic;font-size:19px;color:#ffd9ef;line-height:1.5;"></p>
-        </div>
-        <a href="#" id="host-btn" class="btn-p" target="_blank" rel="noopener">Watch Her Latest</a>
+        <a href="#latest" id="host-btn" class="btn-p">Watch the Show</a>
       </div>
     </div>
   </div>
@@ -392,10 +386,10 @@
 <section id="listen" class="sect" style="background:var(--bg);">
   <div class="inner">
     <div class="rv tc" style="margin-bottom:44px;">
-      <p class="s-label">Stream Anywhere</p>
+      <p class="s-label">Watch &amp; Listen</p>
       <div class="s-rule s-rule-c"></div>
-      <h2 class="s-h" style="margin-bottom:12px;">Listen &amp; Watch Everywhere</h2>
-      <p class="s-sub" style="max-width:400px;">New episodes on YouTube. The back catalog is on Spotify and Apple Podcasts.</p>
+      <h2 class="s-h" style="margin-bottom:12px;">Your show. Your way.</h2>
+      <p class="s-sub" style="max-width:460px;">Watch on YouTube. Listen on Spotify.</p>
     </div>
     <div id="platform-buttons" class="plat-row rv"></div>
   </div>
@@ -419,12 +413,12 @@
 <section class="sect" style="background:var(--bg);">
   <div class="inner-xs">
     <div class="rv tc" style="margin-bottom:32px;">
-      <p class="s-label">Stay In The Loop</p>
+      <p class="s-label">Follow the Show</p>
       <div class="s-rule s-rule-c"></div>
       <h2 id="news-heading" class="s-h" style="margin-bottom:14px;"></h2>
       <p id="news-sub" class="s-sub" style="margin-bottom:0;"></p>
     </div>
-    <div id="news-success" class="success-box hidden" role="status"><p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;color:#ffd9ef;margin:0;">You're in. You'll hear about new episodes first.</p></div>
+    <div id="news-success" class="success-box hidden" role="status"><p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;color:#ffd9ef;margin:0;">You're subscribed.</p></div>
     <form id="news-form" class="rv hidden" style="display:flex;flex-direction:column;gap:6px;max-width:440px;margin:0 auto;" onsubmit="THS.handleNews(event)">
       <label class="f-label" for="news-email">Email address</label>
       <input id="news-email" type="email" name="email" placeholder="you@example.com" required class="field" autocomplete="email" style="margin-bottom:12px;">
@@ -432,10 +426,9 @@
       <p id="news-error" class="form-msg err hidden" role="alert">That didn't go through. Try again, or email us directly below.</p>
     </form>
     <div id="news-fallback" class="rv tc hidden">
-      <a href="#" id="news-fallback-btn" class="btn-p">Email To Get Notified</a>
-      <p class="form-msg" style="color:var(--text-mute);">The mailing list is being set up. Until then, one email and you're on it.</p>
+      <a href="#" id="news-fallback-btn" class="btn-p" target="_blank" rel="noopener">Subscribe on YouTube</a>
     </div>
-    <p class="rv tc" style="font-family:Montserrat,sans-serif;font-size:14px;color:var(--text-mute);margin:28px 0 0;">Got a topic, question, or story? Email <a href="#" id="news-contact-link" style="color:var(--pink-soft);font-weight:700;"></a></p>
+    <p class="rv tc" style="font-family:Montserrat,sans-serif;font-size:14px;color:var(--text-mute);margin:28px 0 0;">Have a guest or topic in mind? <a href="#" id="news-contact-link" style="color:var(--pink-soft);font-weight:700;">Tell us.</a></p>
   </div>
 </section>
 
@@ -448,7 +441,7 @@
       <div>
         <p id="foot-name" style="font-family:Montserrat,sans-serif;font-weight:900;font-size:12px;letter-spacing:.28em;color:#fff;text-transform:uppercase;margin:0 0 6px;">Talking Her Sh*t</p>
         <p id="foot-byline" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:9px;letter-spacing:.22em;color:var(--pink-soft);text-transform:uppercase;margin:0 0 18px;">By Miss Yanelis</p>
-        <p style="font-family:Montserrat,sans-serif;font-size:14px;color:var(--text-mute);line-height:1.7;max-width:240px;margin:0;">Real conversations. Bold energy. Zero apologies.</p>
+        <p style="font-family:Montserrat,sans-serif;font-size:14px;color:var(--text-mute);line-height:1.7;max-width:240px;margin:0;">Music. Culture. Perspective.</p>
       </div>
       <div>
         <p style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--text-mute);margin:0 0 18px;">Explore</p>
@@ -532,7 +525,7 @@ var THS = (function () {
     if(hl&&hero.headline) hl.innerHTML=hero.headline.replace(/\n/g,'<br>');
     s('hero-sub', safe(hero.subheadline));
     href('hero-primary-btn', safe(hero.primaryButtonUrl,'#'));
-    s('hero-primary-label', safe(hero.primaryButtonText,'Watch Latest Episode'));
+    s('hero-primary-label', safe(hero.primaryButtonText,'Watch Now'));
 
     var plat=(C.podcastPlatforms||[]).filter(function(p){return p.enabled!==false;});
     h('hero-platform-pills', plat.map(function(p){
@@ -540,25 +533,25 @@ var THS = (function () {
     }).join(''));
 
     /* Guest credits strip */
-    s('cred-label', safe(cred.label,'Guests have included'));
+    s('cred-label', safe(cred.label,'At the mic'));
     h('cred-list', (cred.items||[]).map(function(c){
       return '<li><strong>'+esc(safe(c.name))+'</strong>'+esc(safe(c.role))+'</li>';
     }).join(''));
 
     /* Latest episode */
-    s('latest-label', safe(latest.label,'Latest Episode'));
+    s('latest-label', safe(latest.label,'Featured Conversation'));
     s('latest-title', safe(latest.title));
     s('latest-desc',  safe(latest.description));
     var lw=g('latest-watch-btn');
     if(lw){ lw.href=safe(latest.watchUrl,'#'); lw.textContent=safe(latest.watchLabel,'Watch Now'); }
-    s('latest-meta', [safe(latest.date),safe(latest.duration),safe(latest.source)].filter(Boolean).join(' · '));
+    s('latest-meta', [safe(latest.duration),safe(latest.source)].filter(Boolean).join(' · '));
     var playBtn=g('latest-play'), thumb=g('latest-thumb');
     if(latest.youtubeId){
       if(thumb){
         thumb.src='https://img.youtube.com/vi/'+encodeURIComponent(latest.youtubeId)+'/maxresdefault.jpg';
         thumb.onerror=function(){ this.onerror=null; this.src='https://img.youtube.com/vi/'+encodeURIComponent(latest.youtubeId)+'/hqdefault.jpg'; };
       }
-      if(playBtn){ playBtn.setAttribute('aria-label','Play: '+safe(latest.title,'the latest episode')); playBtn.addEventListener('click', playLatest); }
+      if(playBtn){ playBtn.setAttribute('aria-label','Play: '+safe(latest.title,'the featured conversation')); playBtn.addEventListener('click', playLatest); }
     } else if(g('latest-video')) {
       g('latest-video').classList.add('hidden');
       var card=g('latest-card'); if(card) card.style.gridTemplateColumns='1fr';
@@ -574,7 +567,6 @@ var THS = (function () {
     /* Host */
     s('host-heading', safe(abt.heading));
     s('host-body',    safe(abt.body));
-    var hq=g('host-quote'); if(hq&&abt.quote) hq.textContent=abt.quote;
     href('host-btn', safe(abt.buttonUrl,'#'));
     var hb=g('host-btn'); if(hb&&abt.buttonText) hb.textContent=abt.buttonText;
 
@@ -587,16 +579,16 @@ var THS = (function () {
       var bb=g('biz-btn'); if(bb){ bb.textContent=safe(biz.buttonText,'Get In Touch'); bb.href=mailto(ftr.contactEmail, biz.subject); }
     } else if(bizSection){ bizSection.classList.add('hidden'); }
 
-    /* Newsletter: honest fallback until a real endpoint exists */
-    s('news-heading', safe(news.heading,'Never Miss An Episode'));
+    /* Use a working subscription destination when no email provider is connected. */
+    s('news-heading', safe(news.heading,'Stay in the conversation'));
     s('news-sub',      safe(news.subtext));
     if(safe(news.actionUrl,'')){ show('news-form'); }
-    else if(ftr.contactEmail){
-      var fb=g('news-fallback-btn'); if(fb) fb.href=mailto(ftr.contactEmail,'Notify me about new Talking Her Sh*t episodes');
+    else if((soc.youtube||{}).url){
+      var fb=g('news-fallback-btn'); if(fb) fb.href=soc.youtube.url;
       show('news-fallback');
     }
     var cEl=g('news-contact-link');
-    if(cEl && ftr.contactEmail){ cEl.href=mailto(ftr.contactEmail); cEl.textContent=ftr.contactEmail; }
+    if(cEl && ftr.contactEmail){ cEl.href=mailto(ftr.contactEmail,'Talking Her Sh*t: guest or topic suggestion'); }
 
     /* Footer */
     s('foot-name',   safe(br.siteName,'Talking Her Sh*t'));
@@ -630,13 +622,13 @@ var THS = (function () {
         var play=g('latest-play'); if(play) play.addEventListener('click',playLatest);
       }
       var card=g('latest-card'); if(card) card.classList.remove('playing');
-      s('latest-label','Latest episode');
+      s('latest-label',safe(latest.label,'Featured Conversation'));
     }
     if(window.Soundtrack) window.Soundtrack.hold('youtube',stopEpisode);
     var iframe=document.createElement('iframe');
     iframe.id='latest-youtube-player';
     iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(latest.youtubeId)+'?autoplay=1&playsinline=1&rel=0&enablejsapi=1&origin='+encodeURIComponent(location.origin);
-    iframe.title=safe(latest.title,'Latest episode');
+    iframe.title=safe(latest.title,'Featured conversation');
     iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.setAttribute('allowfullscreen','');
     wrap.innerHTML=''; wrap.appendChild(iframe);
@@ -664,7 +656,7 @@ var THS = (function () {
         s('latest-label',e.data===1?'Now playing':'Loading episode');
       } else if(e.data===0){
         if(window.Soundtrack) window.Soundtrack.release('youtube');
-        s('latest-label','Latest episode');
+        s('latest-label',safe(latest.label,'Featured Conversation'));
       } else if(e.data===2){ s('latest-label','Episode paused'); }
     }
     if(window.YT&&window.YT.Player){ connectPlayer(); }
@@ -681,13 +673,12 @@ var THS = (function () {
     }
   }
 
-  /* ── Render: episode archive rows ────────────── */
+  /* ── Render: selected conversations ────────────── */
   function renderEpisodes() {
     var cont=g('episode-rows'); if(!cont) return;
     var eps=C.episodes||[];
     cont.innerHTML=eps.map(function(ep){
       return '<div class="ep-row">'
-        +'<div class="ep-row-date">'+esc(safe(ep.date))+'</div>'
         +'<div><h3 class="ep-row-title">'+esc(safe(ep.title))+'</h3><p class="ep-row-desc">'+esc(safe(ep.description))+'</p></div>'
         +'<div class="ep-row-action"><a href="'+esc(safe(ep.url,'#'))+'" target="_blank" rel="noopener" aria-label="Listen: '+esc(safe(ep.title))+'" class="nl">Listen &rarr;</a><span class="ep-row-dur">'+esc(safe(ep.duration))+'</span></div>'
         +'</div>';

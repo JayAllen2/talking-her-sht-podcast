@@ -7,6 +7,10 @@ One rule above all others: everything on the site must be true. No invented
 numbers, quotes, or testimonials. If a claim can't be traced to a real
 episode, release, or source, leave it out.
 
+Keep the show evergreen. Do not add release dates, a launch year, episode
+numbering, or copy about when Yanelis started, her first run, or how the show
+has grown. Lead with the guest, subject, and reason to watch or listen.
+
 ---
 
 ## How to open and edit the config file
@@ -26,18 +30,18 @@ episode, release, or source, leave it out.
 Find: `headline:`
 Change the text between the quotes. Use `\n` for a new line.
 ```
-headline: "Unfiltered.\nUnbothered.\nUnapologetic."
+headline: "Behind the music.\nBeyond the image."
 ```
 
 ### Hero subheadline (the smaller text under the headline)
 Find: `subheadline:`
 
 ### Host section text
-Find: `about:` and edit `heading:`, `body:`, and `quote:`
+Find: `about:` and edit `heading:` and `body:`. Keep the bio in the present tense.
 
 ---
 
-## The "Guests have included" strip
+## The "At the mic" strip
 
 Find: `guestCredits:`. This is the thin credibility strip under the hero.
 Keep it to 4 or 5 real guests, described the way their episodes describe them:
@@ -48,21 +52,19 @@ Keep it to 4 or 5 real guests, described the way their episodes describe them:
 
 ---
 
-## Updating the latest episode
+## Updating the featured conversation
 
 Find: `latestEpisode:`
 
-This is the big feature block near the top of the page. It plays right on
-the page, and it also drives the hero's main "Watch Latest Episode" button
-(`hero.primaryButtonUrl`) and the Host section's "Watch Her Latest" button
-(`about.buttonUrl`). Update all three together when a new episode drops:
+This is the feature near the top of the page. It plays on the page.
+The hero and host buttons both point to `#latest`, so keep those destinations
+as they are when replacing the featured video:
 
 ```js
 latestEpisode: {
-  label:       "Latest Episode",
+  label:       "Featured Episode",
   title:       "Your Episode Title",
   description: "One or two sentences on what the episode covers.",
-  date:        "Jun 25, 2026",
   duration:    "26 min",
   source:      "YouTube",
   youtubeId:   "UCpr_kE2s9E",
@@ -76,36 +78,35 @@ on-page player and its thumbnail, so it has to match `watchUrl`.
 
 ---
 
-## Adding an episode to the archive
+## Adding a selected conversation
 
-Find: `episodes:` (the list under "Six Conversations"). New episodes go at
-the **top** of the list, newest first:
+Find: `episodes:` (the list under "Find your next listen."). Order by the
+conversations you want to feature, rather than presenting a chronology:
 
 ```js
 {
   title:       "Your Episode Title",
   description: "One sentence on what makes this one worth a listen.",
-  date:        "Jun 25, 2026",
   duration:    "26 min",
   url:         "https://..."
 },
 ```
 
-To remove an episode, delete its whole `{ ... },` block. If the archive
-grows past the 2021 to 2022 run, update the section heading in
-`index.html` (search for "Six Conversations").
+To remove an episode, delete its whole `{ ... },` block. Durations help
+listeners choose an episode; release dates and origin stories stay off the page.
 
 ---
 
 ## Changing the featured quote
 
-Find: `featuredQuote:`. This is the one oversized quote on the page. It must
-come from a real episode, not a made-up testimonial:
+Find: `featuredQuote:`. This is the editorial question tied to a featured
+conversation. Keep it grounded in the episode. Do not invent a quotation
+or attribute promotional copy to a guest:
 
 ```js
 featuredQuote: {
   quote:      "A real line from a real episode.",
-  credit:     "The latest episode, with Guest Name",
+  credit:     "In conversation with Guest Name",
   linkLabel:  "Watch",
   url:        "https://...",
   shareImage: "./assets/logos/final/share-quote-kruziano.jpg"
@@ -135,6 +136,8 @@ Find: `podcastPlatforms:`
 ```
 
 To **hide** a platform button, change `enabled: true` to `enabled: false`.
+Apple Podcasts is currently hidden because the supplied show URL returns
+a not-found page. Verify a replacement URL before enabling it again.
 
 ---
 
@@ -164,8 +167,7 @@ portrait: {
 }
 ```
 
-This photo is used in two places: the small circular badge in the hero,
-and the large photo in the Host section.
+This photo is used in the Host section.
 
 ---
 
@@ -173,9 +175,9 @@ and the large photo in the Host section.
 
 Find: `newsletter:` and set `actionUrl`.
 
-Until `actionUrl` is filled in, the page does NOT show a signup form. It
-shows an "Email To Get Notified" button instead, so nobody is told they
-signed up for a list that doesn't exist yet.
+Until `actionUrl` is filled in, the page shows a working "Subscribe on
+YouTube" button using `socialLinks.youtube.url`. It does not advertise
+unfinished features or imply that an email signup has been completed.
 
 Ask your developer to create a Formspree account and paste the endpoint:
 ```js
@@ -184,15 +186,15 @@ newsletter: {
 }
 ```
 
-The `subtext` line currently says there's no fixed schedule. Change it once
-a regular release day is confirmed.
+If an email provider is connected, update `subtext` to describe the actual
+email subscription. Do not promise a release schedule unless one is confirmed.
 
 ---
 
 ## Changing the contact email
 
 Find: `footer:` then `contactEmail:`. It is used in the footer, the
-partnerships button, the newsletter fallback, and the "Got a topic" line.
+partnerships button, and the guest/topic suggestion link.
 
 ---
 

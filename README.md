@@ -89,7 +89,7 @@ Search `config/site.config.js` for `TODO:`: each one needs a real value:
 
 - [x] YouTube, Spotify, Apple Podcasts URLs (real, verified)
 - [x] Instagram URL (real, show account)
-- [x] Latest episode + 6-episode archive (real, dated)
+- [x] Featured video + selected conversations, presented without release dates
 - [x] OG image, favicon set (generated from brand assets)
 - [ ] Amazon Music URL, not found yet, platform button disabled until then
 - [ ] Newsletter form endpoint (Formspree or similar)
